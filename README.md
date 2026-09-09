@@ -1,29 +1,57 @@
-# Thaís Holanda — professional portfolio
+# Thaís Holanda — Solutions Engineering Portfolio
 
-Thais's supplied design, prepared as a portable static website. The original files in Downloads remain untouched.
+I build connected systems across business software, APIs, workflows and data. This portfolio brings together five production case studies, my professional experience and the projects I am exploring next.
+
+Each case study explains the operational problem, the system constraints, my role, the implementation and the outcomes. I use this space to make the reasoning behind my work as visible as the results.
+
+**[Explore my portfolio](https://thais-stephanie.github.io/portfolio/)**
+
+## Architecture
+
+I keep the portfolio static and portable: HTML, CSS and JavaScript, hosted on GitHub Pages. Fonts and rendering dependencies are bundled locally, so browsing does not depend on third-party APIs or CDNs.
 
 Runtime infrastructure cost: $0
 
-## Structure
+There is no backend, database, authentication, analytics or required environment configuration. JavaScript is required for rendering and the homepage language switch. The homepage is available in English and Portuguese; the case studies are currently in English.
 
-`public/index.html` is the bilingual homepage. The five `case-*.html` files contain the English case studies. `public/assets` contains the supplied screenshots, portrait and CV. `public/support.js` is the supplied rendering runtime; its React and optional Babel dependencies are bundled in `public/vendor`. Fonts are also bundled locally. `responsive.css` adds phone layout and focus/reduced-motion support without changing the desktop design.
+## Repository structure
 
-No backend, database, authentication, API keys, environment variables, analytics or external runtime requests are required. The renderer requires JavaScript; this version retains the supplied rendering architecture.
+- `public/index.html` — homepage, experience, technologies and contact information.
+- `public/case-*.html` — five production case studies.
+- `public/assets/` — project visuals, my portrait and downloadable CV.
+- `public/support.js` — rendering runtime.
+- `public/vendor/` — locally bundled libraries, fonts and their license notices.
+- `public/responsive.css` — small-screen layout adjustments.
+- `prepare.mjs` — page preparation and local reference validation.
+- `.github/workflows/pages.yml` — GitHub Pages deployment.
 
-## Edit and validate
+## Local preview and validation
 
-Edit the corresponding HTML file. Keep `support.js` and all relative asset paths intact. Replace the PDF at its existing path to update the CV. Run `node prepare.mjs` to validate local references and `node --check public/support.js` to check syntax. Any ordinary static web server can serve `public`.
+Serve the `public` directory with any static web server. For example, with Python installed:
 
-## Deployment
+```sh
+python -m http.server 8000 --directory public
+```
 
-GitHub Pages deploys `public` through `.github/workflows/pages.yml` whenever `main` changes. The workflow does not install runtime dependencies or need secrets. The same folder can be uploaded unchanged to another static host.
+Then open `http://localhost:8000`.
 
-## Preparation changes
+To validate local references and check the rendering runtime syntax, use Node.js:
 
-- Local copies of fonts, React and Babel; no Google Fonts/CDN requests at runtime.
-- Descriptive titles, descriptions, favicon and document language.
-- Small-screen column stacking and keyboard focus/reduced-motion support.
-- Previously approved metric distinctions retained: identified contracted revenue is not collected cash; the homepage uses the 90-to-5-minute batch result instead of the $161k audit finding.
-- Desktop/mobile checks across all six pages, assets and homepage language switch. See local validation report for the test run; no Lighthouse score is claimed for this supplied-design version.
+```sh
+node prepare.mjs
+node --check public/support.js
+```
 
-Font families Archivo, Space Grotesk and JetBrains Mono are distributed under the SIL Open Font License. React and ReactDOM are MIT licensed. Babel standalone includes its license header. See `public/vendor` for notices.
+## Updating the portfolio
+
+I maintain the page content in the corresponding HTML files. Asset paths are relative, so the same directory structure works locally and on GitHub Pages. To update my CV, I replace the PDF in `public/assets/` while keeping its filename, or update the download links if the filename changes.
+
+Changes pushed to `main` trigger GitHub Actions, which validates the pages and publishes `public` to GitHub Pages. The same folder can also be served by another static host.
+
+## License and reuse
+
+You are welcome to take inspiration from this portfolio and adapt its code and design for your own work. I share the code and styling under the [MIT License](LICENSE): you may use, modify and redistribute them, including commercially, while retaining the copyright and license notice.
+
+That permission does not cover my name, portrait, CV, personal information, case-study narratives or project images in `public/assets/`. Please replace those with your own content rather than presenting my work or identity as yours.
+
+Third-party libraries and fonts retain their own licenses. Their notices are included in `public/vendor/`.
