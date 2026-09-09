@@ -12,7 +12,13 @@ I keep the portfolio static and portable: HTML, CSS and JavaScript, hosted on Gi
 
 Runtime infrastructure cost: $0
 
-There is no backend, database, authentication, analytics or required environment configuration. JavaScript is required for rendering and the homepage language switch. The homepage is available in English and Portuguese; the case studies are currently in English.
+There is no backend, database, authentication or required environment configuration. JavaScript is required for rendering and the homepage language switch. The homepage is available in English and Portuguese; the case studies are currently in English.
+
+## Visitor analytics
+
+I use free Cloudflare Web Analytics to understand visits, page views and which case studies attract interest. Its script is installed on the homepage and all five case-study pages. Analytics is independent of the portfolio: blocking the script or a service outage does not prevent browsing.
+
+The beacon token in the HTML is a public site identifier, not an API credential. No private key is required. Reports are available in my Cloudflare account under **Analytics → Web analytics → thais-stephanie.github.io**. To remove analytics, remove the marked Cloudflare Web Analytics script block from each HTML page.
 
 ## Repository structure
 
