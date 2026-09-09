@@ -1,0 +1,9 @@
+/* Preserve the supplied desktop design; stack editorial columns on phones. */
+@media (max-width: 700px) {
+  div[style*="grid-template-columns"] { grid-template-columns: minmax(0, 1fr) !important; }
+  div[style*="min-width: 640px"] { min-width: 0 !important; }
+  div[style*="display: grid"] > *, div[style*="display: flex"] > * { min-width: 0; }
+  a[href="#top"] { flex-shrink: 0; width: 86px; overflow-wrap: normal; }
+  img { max-width: 100%; height: auto; }
+  p, h1, h2, h3, a { overflow-wrap: anywhere; }
+}

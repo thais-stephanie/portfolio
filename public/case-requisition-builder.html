@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Requisition Builder</title>
+<meta name="description" content="Requisition Builder: a production systems case study by Thaís Holanda.">
+<link rel="icon" href="./favicon.svg">
+<link rel="stylesheet" href="./vendor/fonts.css"><link rel="stylesheet" href="./responsive.css">
+<style>:focus-visible{outline:3px solid #C6F24E;outline-offset:4px}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<link rel="canonical" href="https://thais-stephanie.github.io/portfolio/case-requisition-builder.html"></head>
+<body>
+<x-dc>
+<helmet>
+
+
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #08090A; color: #F2F4F1; font-family: 'Archivo', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #C6F24E; text-decoration: none; }
+  a:hover { color: #E4FF9B; }
+  ::selection { background: #C6F24E; color: #08090A; }
+</style>
+</helmet>
+
+<div style="background:#08090A;color:#F2F4F1;min-height:100vh">
+
+  <div style="position:sticky;top:0;z-index:40;backdrop-filter:blur(14px);background:rgba(8,9,10,0.8);borderBottom:1px solid rgba(255,255,255,0.07)">
+    <div style="max-width:1040px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <a href="index.html" style="display:inline-flex;align-items:center;gap:9px;font-size:13.5px;color:#B7BDB6" style-hover="color:#C6F24E"><span style="font-family:'JetBrains Mono',monospace">←</span> Thaís Holanda</a>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.12em;text-transform:uppercase;color:#6F756E">Case study 04</div>
+    </div>
+  </div>
+
+  <div style="max-width:1040px;margin:0 auto;padding:64px 24px 0">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;marginBottom:22px">
+      <span style="padding:5px 11px;borderRadius:999px;background:rgba(198,242,78,0.12);color:#C6F24E;font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.08em;text-transform:uppercase">Sixth release, in production</span>
+      <span style="padding:5px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);color:#9AA09B;font-family:'JetBrains Mono',monospace;font-size:10.5px">HubSpot · Fountain ATS · Deel · Airtable · n8n · Netlify</span>
+    </div>
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(32px,5.4vw,58px);lineHeight:1.02;letterSpacing:-0.035em;margin:0 0 20px;text-wrap:pretty">A requisition was a manual workflow. I turned it into a record.</h1>
+    <p style="font-size:18px;line-height:1.6;color:#B7BDB6;max-width:800px;margin:0 0 30px;text-wrap:pretty">Not a form that got faster. A hiring process that stopped living in people's memory: naming conventions, access settings and workflow choices that each operator had to remember became validation, and copy and paste between three systems became data flow.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;padding:22px 0;borderTop:1px solid rgba(255,255,255,0.09);borderBottom:1px solid rgba(255,255,255,0.09)">
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:7px">Role</div><div style="font-size:14px;color:#E7EAE5">Sole developer</div></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:7px">Period</div><div style="font-size:14px;color:#E7EAE5">Dec 2025 to Jul 2026</div></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:7px">Adoption</div><div style="font-size:14px;color:#E7EAE5">100% of the Success team</div></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:7px">Manual path</div><div style="font-size:14px;color:#E7EAE5">Retired</div></div>
+    </div>
+  </div>
+
+  <div style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">01 · Before</div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(24px,3.4vw,34px);letterSpacing:-0.03em;margin:0 0 16px;lineHeight:1.1;max-width:760px;text-wrap:pretty">One requisition meant repeating the same operational process from scratch</h2>
+    <p style="font-size:16px;line-height:1.65;color:#C9CFC7;max-width:800px;margin:0 0 26px;text-wrap:pretty">A Success Manager had to leave the onboarding ticket, open other systems, locate or create supporting records, reproduce information the CRM already held, configure the opening, assign the recruiter, set access permissions, choose the correct workflow, and then return to HubSpot to document what had happened. For every single requisition. The internal training guide spends roughly eight pages getting from we need to hire someone to a usable opening.</p>
+    <div style="borderRadius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.09);background:#0C0E0F;padding:12px">
+      <img src="assets/req-asis.png" alt="As-is requisition flow across Fountain screens" style="display:block;width:100%;height:auto" />
+    </div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#6F756E;marginTop:12px;marginBottom:30px">As is. Four configuration screens, repeated in full for every role.</div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:24px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:14px">Source gathering</div>
+        <div style="display:grid;gap:8px;font-size:13.5px;line-height:1.5;color:#C9CFC7">
+          <div>Find the client and onboarding information in the CRM</div>
+          <div>Collect Success Manager, recruiter, website, call recordings, compensation, responsibilities, qualifications, schedule and notes</div>
+          <div>Carry all of it by hand into the next system</div>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:24px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:14px">Position and location</div>
+        <div style="display:grid;gap:8px;font-size:13.5px;line-height:1.5;color:#C9CFC7">
+          <div>Search for the role; if the position does not exist, request its creation from the Talent Acquisition Director and wait</div>
+          <div>Create the location: client name plus interview date, owner, remote flag, country, time zone, language</div>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:24px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:14px">Opening and settings</div>
+        <div style="display:grid;gap:8px;font-size:13.5px;line-height:1.5;color:#C9CFC7">
+          <div>Follow the naming convention from memory, set it active, select the recruiter</div>
+          <div>Paste the requisition details into a generic additional info field</div>
+          <div>Limit access on, sourcing opening off, then link the right workflow: requisition or replacement</div>
+          <div>Return to the CRM and record the outcome by hand</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="marginTop:20px;border:1px solid rgba(255,120,90,0.25);borderRadius:18px;background:rgba(255,120,90,0.05);padding:24px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#FF9C82;marginBottom:16px">Manual touchpoints</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span style="padding:8px 13px;borderRadius:9px;background:#141617;font-size:13px;color:#C9CFC7">3 platforms</span>
+        <span style="padding:8px 13px;borderRadius:9px;background:#141617;font-size:13px;color:#C9CFC7">20 to 30 min per requisition</span>
+        <span style="padding:8px 13px;borderRadius:9px;background:#141617;font-size:13px;color:#C9CFC7">12 CRM fields retyped</span>
+        <span style="padding:8px 13px;borderRadius:9px;background:#141617;font-size:13px;color:#C9CFC7">One requisition at a time</span>
+        <span style="padding:8px 13px;borderRadius:9px;background:#141617;font-size:13px;color:#C9CFC7">Recruiter assigned by hand</span>
+        <span style="padding:8px 13px;borderRadius:9px;background:#141617;font-size:13px;color:#C9CFC7">Naming conventions remembered by humans</span>
+        <span style="padding:8px 13px;borderRadius:9px;background:#141617;font-size:13px;color:#C9CFC7">Access settings remembered by humans</span>
+        <span style="padding:8px 13px;borderRadius:9px;background:#141617;font-size:13px;color:#C9CFC7">Workflow choice remembered by humans</span>
+        <span style="padding:8px 13px;borderRadius:9px;background:#141617;font-size:13px;color:#C9CFC7">Little centralized traceability</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">02 · After</div>
+    <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(24px,3.4vw,34px);letterSpacing:-0.03em;margin:0 0 16px;lineHeight:1.1;max-width:800px;text-wrap:pretty">HubSpot stopped being where the process started and became where the process is controlled</h2>
+    <p style="font-size:16px;line-height:1.65;color:#C9CFC7;max-width:800px;margin:0 0 26px;text-wrap:pretty">The Success Manager no longer builds the requisition across systems. She describes the hiring request once, from the onboarding record she already owns. The builder opens with twelve pieces of context already carried over from the ticket. After submit, the orchestration resolves identities, creates or reuses locations, creates the openings, assigns the recruiter, grants access, registers every opening for traceability, writes a note back into HubSpot, pins it to the ticket, advances the pipeline stage, and for Enterprise creates child tickets linked to the parent.</p>
+    <div style="borderRadius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.09);background:#0C0E0F;padding:12px">
+      <img src="assets/req-tobe.png" alt="To-be requisition flow with the builder and automation" style="display:block;width:100%;height:auto" />
+    </div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#6F756E;marginTop:12px">To be. One entry point, one submission, several openings.</div>
+  </div>
+
+  <div style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">03 · The interface</div>
+    <p style="font-size:16px;line-height:1.65;color:#C9CFC7;max-width:800px;margin:0 0 24px;text-wrap:pretty">Multiple roles under one contract are tabs, not separate trips through the process. The form detects when a request spans several locations or entities and says so, because each requisition can carry its own interview date, recruiter and schedule.</p>
+    <div style="borderRadius:18px;overflow:hidden;border:1px solid rgba(255,255,255,0.09);background:#0C0E0F;padding:12px">
+      <img src="assets/req-form.png" alt="Requisition builder form with three requisition tabs" style="display:block;width:100%;height:auto" />
+    </div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#6F756E;marginTop:12px">Validation runs before execution, so an error is caught in the form rather than discovered downstream in the ATS.</div>
+  </div>
+
+  <div style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">04 · From data entry to orchestration</div>
+    <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:20px;overflow:hidden">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:15px 22px;background:#0F1214;font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D"><span>Before</span><span style="color:#C6F24E">After</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:15px 22px;background:#0C0E0F;borderTop:1px solid rgba(255,255,255,0.07);font-size:14px"><span style="color:#9AA09B">Information scattered across systems</span><span style="color:#E7EAE5">HubSpot as the source of operational context</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:15px 22px;background:#0C0E0F;borderTop:1px solid rgba(255,255,255,0.07);font-size:14px"><span style="color:#9AA09B">3 platforms opened per requisition</span><span style="color:#E7EAE5">1 user facing entry point</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:15px 22px;background:#0C0E0F;borderTop:1px solid rgba(255,255,255,0.07);font-size:14px"><span style="color:#9AA09B">12 CRM fields retyped by hand</span><span style="color:#E7EAE5">0 fields retyped</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:15px 22px;background:#0C0E0F;borderTop:1px solid rgba(255,255,255,0.07);font-size:14px"><span style="color:#9AA09B">20 to 30 min per requisition</span><span style="color:#E7EAE5">~10 min per submission</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:15px 22px;background:#0C0E0F;borderTop:1px solid rgba(255,255,255,0.07);font-size:14px"><span style="color:#9AA09B">One requisition processed at a time</span><span style="color:#E7EAE5">Several submitted together</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:15px 22px;background:#0C0E0F;borderTop:1px solid rgba(255,255,255,0.07);font-size:14px"><span style="color:#9AA09B">Recruiter selected and assigned manually</span><span style="color:#E7EAE5">Recruiter resolution and assignment automated</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:15px 22px;background:#0C0E0F;borderTop:1px solid rgba(255,255,255,0.07);font-size:14px"><span style="color:#9AA09B">Naming, access and workflow depended on memory</span><span style="color:#E7EAE5">Enforced by the system</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:15px 22px;background:#0C0E0F;borderTop:1px solid rgba(255,255,255,0.07);font-size:14px"><span style="color:#9AA09B">Errors discovered downstream</span><span style="color:#E7EAE5">Validation before execution</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:15px 22px;background:#0C0E0F;borderTop:1px solid rgba(255,255,255,0.07);font-size:14px"><span style="color:#9AA09B">Retrying risked duplicate work</span><span style="color:#E7EAE5">Idempotent retries</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:15px 22px;background:#0C0E0F;borderTop:1px solid rgba(255,255,255,0.07);font-size:14px"><span style="color:#9AA09B">Outcome recorded by hand</span><span style="color:#E7EAE5">Result written and pinned back to the ticket</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:15px 22px;background:#0C0E0F;borderTop:1px solid rgba(255,255,255,0.07);font-size:14px"><span style="color:#9AA09B">Enterprise roles forced into one lifecycle</span><span style="color:#E7EAE5">Parent and child ticket model</span></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:15px 22px;background:#0C0E0F;borderTop:1px solid rgba(255,255,255,0.07);font-size:14px"><span style="color:#9AA09B">Contract information carried downstream by hand</span><span style="color:#E7EAE5">Fountain to Deel orchestration</span></div>
+    </div>
+  </div>
+
+  <div style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">05 · The second layer, Fountain to Deel</div>
+    <p style="font-size:16px;line-height:1.65;color:#C9CFC7;max-width:800px;margin:0 0 26px;text-wrap:pretty">The builder was never an isolated automation. Once a candidate reaches the contract stage, a second workflow picks the thread up. The earlier process asked the operator to copy a Stripe ID out of the CRM and paste it into the ATS to avoid typos, which is the kind of instruction that tells you exactly where the system should be doing the work.</p>
+    <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:20px;background:#0C0E0F;padding:28px;overflow-x:auto">
+      <div style="min-width:660px;display:grid;gap:14px">
+        <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:center">
+          <div style="border:1px solid rgba(255,255,255,0.12);borderRadius:12px;padding:14px;background:#111416"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6F756E;marginBottom:6px">FOUNTAIN</div><div style="font-size:13.5px;color:#F2F4F1;font-weight:500">Candidate reaches the contract stage</div></div>
+          <div style="font-family:'JetBrains Mono',monospace;color:#C6F24E;font-size:16px">→</div>
+          <div style="border:1px solid rgba(198,242,78,0.35);borderRadius:12px;padding:14px;background:rgba(198,242,78,0.06)"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#C6F24E;marginBottom:6px">ORCHESTRATION</div><div style="font-size:13.5px;color:#F2F4F1;font-weight:500">Resolve identity, company and contract type</div></div>
+          <div style="font-family:'JetBrains Mono',monospace;color:#C6F24E;font-size:16px">→</div>
+          <div style="border:1px solid rgba(255,255,255,0.12);borderRadius:12px;padding:14px;background:#111416"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6F756E;marginBottom:6px">DEEL</div><div style="font-size:13.5px;color:#F2F4F1;font-weight:500">Contract created and ready for onboarding</div></div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+          <div style="border:1px solid rgba(255,255,255,0.1);borderRadius:12px;padding:13px;background:#0F1214;font-size:12.5px;color:#C9CFC7;lineHeight:1.5">Retrieves the Stripe ID and finds the company in the CRM</div>
+          <div style="border:1px solid rgba(255,255,255,0.1);borderRadius:12px;padding:13px;background:#0F1214;font-size:12.5px;color:#C9CFC7;lineHeight:1.5">Branches on hourly against fixed monthly and creates the contract accordingly</div>
+          <div style="border:1px solid rgba(255,255,255,0.1);borderRadius:12px;padding:13px;background:#0F1214;font-size:12.5px;color:#C9CFC7;lineHeight:1.5">Enriches custom fields, resolves scope of work, team and manager</div>
+          <div style="border:1px solid rgba(255,255,255,0.1);borderRadius:12px;padding:13px;background:#0F1214;font-size:12.5px;color:#C9CFC7;lineHeight:1.5">Cross references operational data in Airtable and notifies downstream</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">06 · The model broke before the code did</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;align-items:start">
+      <p style="font-size:16px;line-height:1.65;color:#C9CFC7;margin:0;text-wrap:pretty">The first version assumed one deal equals one hiring cycle. Enterprise clients break that: a single contract and a single invoice can cover three roles that are operationally independent, with different interview dates, different interviewers, different start dates and sometimes different locations. One ticket could not represent that, and Finance had no signal telling them when each individual hire should start being billed. I evaluated custom objects, child records and custom properties before choosing, because the modelling decision was the actual problem. The orchestration was the easy part.</p>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:24px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:16px">Parent and child, one invoice</div>
+        <div style="display:grid;gap:9px">
+          <div style="border:1px solid rgba(198,242,78,0.3);borderRadius:10px;padding:12px;background:rgba(198,242,78,0.06);font-size:13px;color:#F2F4F1">Parent ticket · the contract, the billing anchor</div>
+          <div style="padding-left:22px;display:grid;gap:7px">
+            <div style="border:1px solid rgba(255,255,255,0.1);borderRadius:10px;padding:11px;background:#111416;font-size:12.5px;color:#C9CFC7">Role A · own interview date, own start</div>
+            <div style="border:1px solid rgba(255,255,255,0.1);borderRadius:10px;padding:11px;background:#111416;font-size:12.5px;color:#C9CFC7">Role B · own recruiter, own location</div>
+            <div style="border:1px solid rgba(255,255,255,0.1);borderRadius:10px;padding:11px;background:#111416;font-size:12.5px;color:#C9CFC7">Role C · own start signal to Finance</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">07 · Outcome</div>
+    <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:20px;overflow:hidden">
+      <div style="display:grid;grid-template-columns:1fr auto;gap:16px;padding:16px 22px;background:#0F1214;font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D"><span>Measure</span><span>Result</span></div>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:16px;padding:16px 22px;background:#0C0E0F;borderTop:1px solid rgba(255,255,255,0.07);font-size:14.5px;color:#C9CFC7"><span>Submissions processed</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:#C6F24E">119</span></div>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:16px;padding:16px 22px;background:#0C0E0F;borderTop:1px solid rgba(255,255,255,0.07);font-size:14.5px;color:#C9CFC7"><span>Hires enabled</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:#C6F24E">142</span></div>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:16px;padding:16px 22px;background:#0C0E0F;borderTop:1px solid rgba(255,255,255,0.07);font-size:14.5px;color:#C9CFC7"><span>Team adoption</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:#C6F24E">100%</span></div>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:16px;padding:16px 22px;background:#0C0E0F;borderTop:1px solid rgba(255,255,255,0.07);font-size:14.5px;color:#C9CFC7"><span>Manual effort</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:#C6F24E">50 to 72% lower, up to 93% on multi role</span></div>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:16px;padding:16px 22px;background:#0C0E0F;borderTop:1px solid rgba(255,255,255,0.07);font-size:14.5px;color:#C9CFC7"><span>Duplicate openings caused by retries</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:#C6F24E">0</span></div>
+      <div style="display:grid;grid-template-columns:1fr auto;gap:16px;padding:16px 22px;background:#0C0E0F;borderTop:1px solid rgba(255,255,255,0.07);font-size:14.5px;color:#C9CFC7"><span>Releases rolled back or rebuilt</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;color:#C6F24E">0</span></div>
+    </div>
+  </div>
+
+  <div style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
+    <div style="border:1px solid rgba(198,242,78,0.25);borderRadius:22px;background:linear-gradient(150deg,rgba(198,242,78,0.10),rgba(198,242,78,0.02));padding:clamp(28px,4vw,42px)">
+      <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(20px,2.8vw,27px);line-height:1.35;letterSpacing:-0.02em;color:#F2F4F1;margin:0 0 18px;text-wrap:pretty">The biggest change was not that the form became faster. The business process stopped living in people's memory.</p>
+      <div style="display:grid;gap:7px;font-size:15.5px;color:#C9CFC7;lineHeight:1.6">
+        <div>Rules became validation.</div>
+        <div>Copy and paste became data flow.</div>
+        <div>Repeated setup became orchestration.</div>
+        <div>And the CRM became the place where the whole hiring request can be started, tracked and understood.</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">08 · How it was built</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;marginBottom:8px">Front end, no build step</div><div style="font-size:13.5px;line-height:1.55;color:#9AA09B">~5,100 lines of JavaScript: a central state container with subscription based rendering, crosstab coordination between windows, cancellable requests with timeouts, retry with growing waits, and DOM rendering protected against injected content.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;marginBottom:8px">Orchestration</div><div style="font-size:13.5px;line-height:1.55;color:#9AA09B">A 49 step n8n orchestration: webhook entry points with controlled responses, per item and whole batch code execution, persistent data tables as memory across runs, structured logging, explicit failure termination, and a dedicated micro workflow for the recruiter list.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;marginBottom:8px">Rollout</div><div style="font-size:13.5px;line-height:1.55;color:#9AA09B">Unblock manually first, automate once the process settles. Netlify with server side rewrites and continuous deployment from Git. Documentation and training so a non engineer can own it.</div></div>
+    </div>
+  </div>
+
+  <div style="max-width:1040px;margin:0 auto;padding:56px 24px 72px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+      <a href="case-onboarding-round-robin.html" style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:24px;display:block" style-hover="border:1px solid rgba(198,242,78,0.35)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:9px">Next case</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;color:#F2F4F1">Onboarding round robin</div>
+      </a>
+      <a href="index.html" style="border:1px solid rgba(198,242,78,0.25);borderRadius:18px;background:linear-gradient(150deg,rgba(198,242,78,0.10),rgba(198,242,78,0.02));padding:24px;display:block" style-hover="border:1px solid rgba(198,242,78,0.5)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:9px">Talk about it</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;color:#F2F4F1">contato@thaisholanda.com</div>
+      </a>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

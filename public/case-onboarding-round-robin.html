@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Onboarding Round Robin</title>
+<meta name="description" content="Onboarding Round Robin: a production systems case study by Thaís Holanda.">
+<link rel="icon" href="./favicon.svg">
+<link rel="stylesheet" href="./vendor/fonts.css"><link rel="stylesheet" href="./responsive.css">
+<style>:focus-visible{outline:3px solid #C6F24E;outline-offset:4px}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<link rel="canonical" href="https://thais-stephanie.github.io/portfolio/case-onboarding-round-robin.html"></head>
+<body>
+<x-dc>
+<helmet>
+
+
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #08090A; color: #F2F4F1; font-family: 'Archivo', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #C6F24E; text-decoration: none; }
+  a:hover { color: #E4FF9B; }
+  ::selection { background: #C6F24E; color: #08090A; }
+</style>
+</helmet>
+
+<div style="background:#08090A;color:#F2F4F1;min-height:100vh">
+
+  <div style="position:sticky;top:0;z-index:40;backdrop-filter:blur(14px);background:rgba(8,9,10,0.8);borderBottom:1px solid rgba(255,255,255,0.07)">
+    <div style="max-width:1000px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <a href="index.html" style="display:inline-flex;align-items:center;gap:9px;font-size:13.5px;color:#B7BDB6" style-hover="color:#C6F24E"><span style="font-family:'JetBrains Mono',monospace">←</span> Thaís Holanda</a>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.12em;text-transform:uppercase;color:#6F756E">Case study 05</div>
+    </div>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:64px 24px 0">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;marginBottom:22px">
+      <span style="padding:5px 11px;borderRadius:999px;background:rgba(198,242,78,0.12);color:#C6F24E;font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.08em;text-transform:uppercase">Running since 10 Oct 2025</span>
+      <span style="padding:5px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);color:#9AA09B;font-family:'JetBrains Mono',monospace;font-size:10.5px">HubSpot Meetings · Scheduler API · CMS · Airtable · n8n</span>
+    </div>
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(32px,5.4vw,58px);lineHeight:1.02;letterSpacing:-0.035em;margin:0 0 20px;text-wrap:pretty">The meeting caps a CRM cannot enforce</h1>
+    <p style="font-size:18px;line-height:1.6;color:#B7BDB6;max-width:780px;margin:0 0 30px;text-wrap:pretty">Success Managers had started blocking their own calendars by hand. That is what a team does when the system assigning its work cannot be trusted. The cap that protected preparation time, one onboarding call a day and three a week, was tracked in a spreadsheet, and a spreadsheet does not push back.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;padding:22px 0;borderTop:1px solid rgba(255,255,255,0.09);borderBottom:1px solid rgba(255,255,255,0.09)">
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:7px">Role</div><div style="font-size:14px;color:#E7EAE5">Discovery through operation, alone</div></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:7px">Pool</div><div style="font-size:14px;color:#E7EAE5">Six Success Managers</div></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:7px">Weekly calls</div><div style="font-size:14px;color:#E7EAE5">4 to 5, now 8 to 9</div></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:7px">Licence retired</div><div style="font-size:14px;color:#E7EAE5">$2,160 a year</div></div>
+    </div>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">01 · It was never a capacity problem</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;align-items:start">
+      <div>
+        <p style="font-size:16px;line-height:1.65;color:#C9CFC7;margin:0 0 16px;text-wrap:pretty">Six people at three calls a week is eighteen calls of headroom. Four or five were happening. The complaint arriving from the team was that this is too much, and the honest translation was that this is in the wrong places.</p>
+        <p style="font-size:16px;line-height:1.65;color:#9AA09B;margin:0;text-wrap:pretty">Had I read it as capacity, I would have argued for more Success Managers, or for relaxing the cap, or for shorter calls. All three would have been wrong. The work needed redistributing, not reducing. Native round robin distributes on calendar availability, which is a different question from who is eligible for the next call.</p>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:24px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:18px">Pool utilisation against an 18 call ceiling</div>
+        <div style="display:grid;gap:16px">
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:#8E958D;marginBottom:7px"><span>Before</span><span>4 to 5 calls</span></div>
+            <div style="height:14px;borderRadius:99px;background:#1A1D1F;overflow:hidden"><div style="width:26%;height:100%;background:#3A4230"></div></div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:12px;color:#8E958D;marginBottom:7px"><span>After</span><span>8 to 9 calls</span></div>
+            <div style="height:14px;borderRadius:99px;background:#1A1D1F;overflow:hidden"><div style="width:50%;height:100%;background:#C6F24E"></div></div>
+          </div>
+        </div>
+        <p style="font-size:12.5px;line-height:1.55;color:#8E958D;margin:18px 0 0">Same six people, same caps, no rule relaxed. Distribution across the pool is now even, and nobody defends their calendar by hand anymore.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">02 · Architecture</div>
+    <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:20px;background:#0C0E0F;padding:28px;overflow-x:auto">
+      <div style="min-width:680px;display:grid;gap:14px">
+        <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:center">
+          <div style="border:1px solid rgba(255,255,255,0.12);borderRadius:12px;padding:14px;background:#111416"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6F756E;marginBottom:6px">CMS FORM</div><div style="font-size:13.5px;color:#F2F4F1;font-weight:500">Rep picks a date</div><div style="font-size:12px;color:#8E958D;marginTop:4px">HubL template, client side validation, IANA time zone conversion</div></div>
+          <div style="font-family:'JetBrains Mono',monospace;color:#C6F24E;font-size:16px">→</div>
+          <div style="border:1px solid rgba(198,242,78,0.35);borderRadius:12px;padding:14px;background:rgba(198,242,78,0.06)"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#C6F24E;marginBottom:6px">SELECTION</div><div style="font-size:13.5px;color:#F2F4F1;font-weight:500">Eligible owner, chosen deterministically</div><div style="font-size:12px;color:#8E958D;marginTop:4px">no randomness in the decision path, and the rep never picks the person</div></div>
+          <div style="font-family:'JetBrains Mono',monospace;color:#C6F24E;font-size:16px">→</div>
+          <div style="border:1px solid rgba(255,255,255,0.12);borderRadius:12px;padding:14px;background:#111416"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6F756E;marginBottom:6px">BOOKING</div><div style="font-size:13.5px;color:#F2F4F1;font-weight:500">Pre provisioned meeting link</div><div style="font-size:12px;color:#8E958D;marginTop:4px">client picks the time, the closing rep is in the invite from the start</div></div>
+        </div>
+        <div style="display:flex;justify-content:center;font-family:'JetBrains Mono',monospace;color:#C6F24E;font-size:15px">↓ state corrects itself ↓</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+          <div style="border:1px solid rgba(255,255,255,0.1);borderRadius:12px;padding:13px;background:#0F1214;font-size:12.5px;color:#C9CFC7">Booked</div>
+          <div style="border:1px solid rgba(255,255,255,0.1);borderRadius:12px;padding:13px;background:#0F1214;font-size:12.5px;color:#C9CFC7">Cancelled</div>
+          <div style="border:1px solid rgba(255,255,255,0.1);borderRadius:12px;padding:13px;background:#0F1214;font-size:12.5px;color:#C9CFC7">Rescheduled</div>
+          <div style="border:1px solid rgba(255,255,255,0.1);borderRadius:12px;padding:13px;background:#0F1214;font-size:12.5px;color:#C9CFC7">Any unrelated meeting on that calendar</div>
+        </div>
+        <div style="border:1px solid rgba(255,255,255,0.1);borderRadius:12px;padding:14px;background:#0F1214"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6F756E;marginBottom:6px">STORE</div><div style="font-size:13px;color:#C9CFC7;lineHeight:1.5">Airtable holds the four week rolling availability projection and the distributed counters. The storage layer was migrated live, with no downtime, after earlier iterations on other backends.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">03 · Two constraints that shaped everything</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:24px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;marginBottom:9px">The closing rep has to be in the meeting</div><div style="font-size:13.5px;line-height:1.6;color:#9AA09B">Present in the invite from the moment the client books, not added afterwards. That ruled out anything that assembled the invite later.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:24px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;marginBottom:9px">The client picks the time</div><div style="font-size:13.5px;line-height:1.6;color:#9AA09B">Whatever I built had to end in self service booking, so the assignment decision had to happen before the client ever saw a slot.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:24px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;marginBottom:9px">And one deliberate omission</div><div style="font-size:13.5px;line-height:1.6;color:#9AA09B">The form does not show who was assigned or why. Information design was a control here: an assignment you can predict is an assignment you can game.</div></div>
+    </div>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">04 · Production record</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.08);borderRadius:18px;overflow:hidden">
+      <div style="background:#0C0E0F;padding:24px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#F2F4F1">791</div><div style="font-size:12.5px;color:#8E958D;marginTop:7px;lineHeight:1.4">executions in the retained window, roughly 24 meeting events a day</div></div>
+      <div style="background:#0C0E0F;padding:24px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#F2F4F1">7</div><div style="font-size:12.5px;color:#8E958D;marginTop:7px;lineHeight:1.4">failures, all seven on a single deploy day</div></div>
+      <div style="background:#0C0E0F;padding:24px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#F2F4F1">784</div><div style="font-size:12.5px;color:#8E958D;marginTop:7px;lineHeight:1.4">consecutive failure free executions since</div></div>
+      <div style="background:#0C0E0F;padding:24px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#F2F4F1">$2,160</div><div style="font-size:12.5px;color:#8E958D;marginTop:7px;lineHeight:1.4">a year saved by consolidating onto seats already paid for</div></div>
+    </div>
+    <p style="font-size:15px;line-height:1.65;color:#9AA09B;max-width:780px;margin:22px 0 0;text-wrap:pretty">The new system ran in parallel with the paid tool it replaced before that tool was cancelled. Volume figures are the weekly averages the team works for rather than an exported count, and I would say so in an interview too.</p>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 72px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+      <a href="case-billing-automation.html" style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:24px;display:block" style-hover="border:1px solid rgba(198,242,78,0.35)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:9px">Back to the first case</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;color:#F2F4F1">Subscription billing automation</div>
+      </a>
+      <a href="index.html" style="border:1px solid rgba(198,242,78,0.25);borderRadius:18px;background:linear-gradient(150deg,rgba(198,242,78,0.10),rgba(198,242,78,0.02));padding:24px;display:block" style-hover="border:1px solid rgba(198,242,78,0.5)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:9px">Talk about it</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;color:#F2F4F1">contato@thaisholanda.com</div>
+      </a>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Contract Change Automation</title>
+<meta name="description" content="Contract Change Automation: a production systems case study by Thaís Holanda.">
+<link rel="icon" href="./favicon.svg">
+<link rel="stylesheet" href="./vendor/fonts.css"><link rel="stylesheet" href="./responsive.css">
+<style>:focus-visible{outline:3px solid #C6F24E;outline-offset:4px}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<link rel="canonical" href="https://thais-stephanie.github.io/portfolio/case-contract-changes.html"></head>
+<body>
+<x-dc>
+<helmet>
+
+
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #08090A; color: #F2F4F1; font-family: 'Archivo', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #C6F24E; text-decoration: none; }
+  a:hover { color: #E4FF9B; }
+  ::selection { background: #C6F24E; color: #08090A; }
+</style>
+</helmet>
+
+<div style="background:#08090A;color:#F2F4F1;min-height:100vh">
+
+  <div style="position:sticky;top:0;z-index:40;backdrop-filter:blur(14px);background:rgba(8,9,10,0.8);borderBottom:1px solid rgba(255,255,255,0.07)">
+    <div style="max-width:1000px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <a href="index.html" style="display:inline-flex;align-items:center;gap:9px;font-size:13.5px;color:#B7BDB6" style-hover="color:#C6F24E"><span style="font-family:'JetBrains Mono',monospace">←</span> Thaís Holanda</a>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.12em;text-transform:uppercase;color:#6F756E">Case study 03</div>
+    </div>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:64px 24px 0">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;marginBottom:22px">
+      <span style="padding:5px 11px;borderRadius:999px;background:rgba(198,242,78,0.12);color:#C6F24E;font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.08em;text-transform:uppercase">In production since Apr 2026</span>
+      <span style="padding:5px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);color:#9AA09B;font-family:'JetBrains Mono',monospace;font-size:10.5px">HubSpot · Deel · Stripe · n8n · Netlify</span>
+    </div>
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(32px,5.4vw,58px);lineHeight:1.02;letterSpacing:-0.035em;margin:0 0 20px;text-wrap:pretty">Ninety minutes to five, and the cents stopped being wrong</h1>
+    <p style="font-size:18px;line-height:1.6;color:#B7BDB6;max-width:780px;margin:0 0 30px;text-wrap:pretty">A pay rate increase touched three systems and seven manual steps. Ten of them at once, during an annual salary review, cost the Success team an hour and a half of record creation plus another half hour of contract updates. The calculation behind it was documented in a Finance memo, which is to say it was documented nowhere useful.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;padding:22px 0;borderTop:1px solid rgba(255,255,255,0.09);borderBottom:1px solid rgba(255,255,255,0.09)">
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:7px">Role</div><div style="font-size:14px;color:#E7EAE5">Sole technical implementer</div></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:7px">Users</div><div style="font-size:14px;color:#E7EAE5">18 to 20, the whole Success team</div></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:7px">Batch of ten</div><div style="font-size:14px;color:#E7EAE5">90 min to 5 min</div></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:7px">Calculation errors</div><div style="font-size:14px;color:#E7EAE5">Zero since launch</div></div>
+    </div>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">01 · Seven steps, three systems</div>
+    <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:20px;background:#0C0E0F;padding:28px;overflow-x:auto">
+      <div style="min-width:660px;display:grid;gap:18px">
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;color:#8E958D;marginBottom:12px">BEFORE · 15 to 20 minutes per person</div>
+          <div style="display:flex;gap:8px;align-items:stretch">
+            <div style="flex:1;border:1px solid rgba(255,255,255,0.1);borderRadius:10px;padding:12px;background:#111416;font-size:12px;color:#C9CFC7">Create deal</div>
+            <div style="flex:1;border:1px solid rgba(255,255,255,0.1);borderRadius:10px;padding:12px;background:#111416;font-size:12px;color:#C9CFC7">Deal line items</div>
+            <div style="flex:1;border:1px solid rgba(255,255,255,0.1);borderRadius:10px;padding:12px;background:#111416;font-size:12px;color:#C9CFC7">Create quote</div>
+            <div style="flex:1;border:1px solid rgba(255,255,255,0.1);borderRadius:10px;padding:12px;background:#111416;font-size:12px;color:#C9CFC7">Quote line items</div>
+            <div style="flex:1;border:1px solid rgba(255,255,255,0.1);borderRadius:10px;padding:12px;background:#111416;font-size:12px;color:#C9CFC7">Finance ticket</div>
+            <div style="flex:1;border:1px solid rgba(255,255,255,0.1);borderRadius:10px;padding:12px;background:#111416;font-size:12px;color:#C9CFC7">Deel amendment</div>
+            <div style="flex:1;border:1px solid rgba(255,255,255,0.1);borderRadius:10px;padding:12px;background:#111416;font-size:12px;color:#C9CFC7">Update contract fields</div>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;color:#C6F24E;marginBottom:12px">AFTER · one screen, one submission</div>
+          <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:center">
+            <div style="border:1px solid rgba(198,242,78,0.35);borderRadius:12px;padding:16px;background:rgba(198,242,78,0.06)"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#C6F24E;marginBottom:6px">INTERNAL APP</div><div style="font-size:13.5px;color:#C9CFC7;lineHeight:1.5">Roster wide entry with a live calculation preview, hosted on Netlify</div></div>
+            <div style="font-family:'JetBrains Mono',monospace;color:#C6F24E;font-size:16px">→</div>
+            <div style="border:1px solid rgba(255,255,255,0.14);borderRadius:12px;padding:16px;background:#111416"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6F756E;marginBottom:6px">HUBSPOT + GATE</div><div style="font-size:13.5px;color:#C9CFC7;lineHeight:1.5">Deal, quote, line items and one finance ticket, held for approval</div></div>
+            <div style="font-family:'JetBrains Mono',monospace;color:#C6F24E;font-size:16px">→</div>
+            <div style="border:1px solid rgba(255,255,255,0.14);borderRadius:12px;padding:16px;background:#111416"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6F756E;marginBottom:6px">DEEL</div><div style="font-size:13.5px;color:#C9CFC7;lineHeight:1.5">Contract amendments written only after Finance approves</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:15.5px;line-height:1.65;color:#9AA09B;max-width:780px;margin:22px 0 0;text-wrap:pretty">Three n8n workflows sit behind the form. One client with eight increases used to receive eight separate quotes to sign; now the batch produces one.</p>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">02 · Two bugs worth the whole project</div>
+    <p style="font-size:16px;line-height:1.65;color:#C9CFC7;max-width:780px;margin:0 0 24px;text-wrap:pretty">Converting a monthly increase into a Deel rate has rules: hourly contracts use a monthly hours multiplier, fixed contracts divide by two for biweekly, part time needs proportional scaling. At least three people had received incorrect values before the tool existed. Cents look small until they repeat every month, and until you remember they land in someone's pay.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:26px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:14px">The 168h divisor</div>
+        <div style="display:flex;gap:14px;align-items:baseline;marginBottom:14px">
+          <div><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#FF9C82">$7.04</div><div style="font-size:11.5px;color:#8E958D;marginTop:4px">was paid</div></div>
+          <div style="font-family:'JetBrains Mono',monospace;color:#6F756E">vs</div>
+          <div><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#C6F24E">$7.00</div><div style="font-size:11.5px;color:#8E958D;marginTop:4px">correct</div></div>
+        </div>
+        <p style="font-size:13.5px;line-height:1.6;color:#9AA09B;margin:0">The calculation used 168 hours, the retired model of 21 working days times 8. The current model is 174 hours, from 261 annual days divided by 12.</p>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:26px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:14px">Part time scaling</div>
+        <div style="display:flex;gap:14px;align-items:baseline;marginBottom:14px">
+          <div><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#FF9C82">$7.43</div><div style="font-size:11.5px;color:#8E958D;marginTop:4px">was paid</div></div>
+          <div style="font-family:'JetBrains Mono',monospace;color:#6F756E">vs</div>
+          <div><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#C6F24E">$7.50</div><div style="font-size:11.5px;color:#8E958D;marginTop:4px">correct</div></div>
+        </div>
+        <p style="font-size:13.5px;line-height:1.6;color:#9AA09B;margin:0">A 37 hour week was divided by raw 168 hours instead of the proportional 160.95, which is 174 scaled by 37 over 40.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">03 · Where my responsibility started and stopped</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px">
+      <div style="border:1px solid rgba(198,242,78,0.25);borderRadius:16px;background:rgba(198,242,78,0.05);padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:10px">Accountable</div><div style="font-size:13.5px;line-height:1.55;color:#C9CFC7">Architecture, both API endpoints, all three workflows, the front end, documentation, training.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:10px">Consulted</div><div style="font-size:13.5px;line-height:1.55;color:#9AA09B">Every pricing rule belongs to Finance. I wrote them down, modelled them, and pushed back when two statements contradicted each other. I did not invent a single billing rule.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:10px">Informed</div><div style="font-size:13.5px;line-height:1.55;color:#9AA09B">Contract data entry sits with another team. Wrong source data still produces wrong output, and this tool does not solve that.</div></div>
+    </div>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 72px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+      <a href="case-requisition-builder.html" style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:24px;display:block" style-hover="border:1px solid rgba(198,242,78,0.35)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:9px">Next case</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;color:#F2F4F1">Requisition builder</div>
+      </a>
+      <a href="index.html" style="border:1px solid rgba(198,242,78,0.25);borderRadius:18px;background:linear-gradient(150deg,rgba(198,242,78,0.10),rgba(198,242,78,0.02));padding:24px;display:block" style-hover="border:1px solid rgba(198,242,78,0.5)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:9px">Talk about it</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;color:#F2F4F1">contato@thaisholanda.com</div>
+      </a>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>
