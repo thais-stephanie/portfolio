@@ -17,7 +17,7 @@
 
 
 <style>
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: calc(var(--menu-height, 120px) + 12px); }
   body { margin: 0; background: #08090A; color: #F2F4F1; font-family: 'Archivo', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
   a { color: #C6F24E; text-decoration: none; }
   a:hover { color: #E4FF9B; }
@@ -26,9 +26,9 @@
 </style>
 </helmet>
 
-<div style="background:#08090A;color:#F2F4F1;font-family:'Archivo',system-ui,sans-serif;min-height:100vh;overflow-x:hidden">
+<div style="background:#08090A;color:#F2F4F1;font-family:'Archivo',system-ui,sans-serif;min-height:100vh;overflow-x:clip">
 
-  <div style="position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(8,9,10,0.78);borderBottom:1px solid rgba(255,255,255,0.07)">
+  <div id="site-navigation" role="navigation" aria-label="Main navigation" style="position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(8,9,10,0.94);borderBottom:1px solid rgba(255,255,255,0.07)">
     <div style="max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:20px;justify-content:space-between">
       <a href="#top" style="display:flex;align-items:center;gap:10px;color:#F2F4F1;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;letter-spacing:-0.01em">
         <span style="width:9px;height:9px;borderRadius:2px;background:#C6F24E;display:inline-block"></span>
@@ -677,10 +677,15 @@ class Component extends DCLogic {
     this.state = { lang: props.defaultLang === 'pt' ? 'pt' : 'en', casesOpen: false };
   }
   componentDidMount() {
+    const menu = document.getElementById('site-navigation');
+    this._menuResize = new ResizeObserver(() => {
+      document.documentElement.style.setProperty('--menu-height', `${menu.getBoundingClientRect().height}px`);
+    });
+    if (menu) this._menuResize.observe(menu);
     this._away = (e) => { if (this.state.casesOpen && !e.target.closest('[data-cases-menu]')) this.setState({ casesOpen: false }); };
     document.addEventListener('click', this._away);
   }
-  componentWillUnmount() { document.removeEventListener('click', this._away); }
+  componentWillUnmount() { document.removeEventListener('click', this._away); this._menuResize?.disconnect(); }
   renderVals() {
     const accent = this.props.accent || '#C6F24E';
     const en = this.state.lang === 'en';
