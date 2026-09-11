@@ -40,7 +40,7 @@
       <span style="padding:5px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);color:#9AA09B;font-family:'JetBrains Mono',monospace;font-size:10.5px">HubSpot · Stripe · n8n · Airtable</span>
     </div>
     <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(32px,5.4vw,58px);lineHeight:1.02;letterSpacing:-0.035em;margin:0 0 20px;text-wrap:pretty">Subscription billing, rebuilt so Finance could audit it instead of operating it</h1>
-    <p style="font-size:18px;line-height:1.6;color:#B7BDB6;max-width:760px;margin:0 0 30px;text-wrap:pretty">A two person Finance function carried payroll, refunds, reimbursements, credits, compliance and every change to client subscription billing. The billing queue alone ran at 60 to 80 tickets a week. Auditing was the first thing to fall off, which meant the detector for a billing error was the client noticing it.</p>
+    <p style="font-size:18px;line-height:1.6;color:#B7BDB6;max-width:760px;margin:0 0 30px;text-wrap:pretty">A healthcare staffing company places professionals with clients and bills each placement as a line on a monthly subscription. Every time a client's team changed, the bill had to change with it. A two person Finance team handled that on top of payroll, refunds, reimbursements, credits and compliance, and billing alone meant 60 to 80 tickets a week. With that load, checking the work was the first thing to go, so billing errors were usually spotted by the client.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;padding:22px 0;borderTop:1px solid rgba(255,255,255,0.09);borderBottom:1px solid rgba(255,255,255,0.09)">
       <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:7px">Role</div><div style="font-size:14px;color:#E7EAE5">Architect and sole builder</div></div>
       <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:7px">Build window</div><div style="font-size:14px;color:#E7EAE5">Mid May to mid June 2026</div></div>
@@ -50,21 +50,28 @@
   </div>
 
   <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">01 · The problem</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">01 · How a billing change used to happen</div>
+    <div style="max-width:760px;margin:0 0 40px">
+      <p style="font-size:16px;line-height:1.65;color:#C9CFC7;margin:0 0 16px;text-wrap:pretty">Clients here don't buy software seats. They hire a role: a front desk representative, a medical biller, someone for 40 hours a week or for 30. Each role is one line on the client's monthly subscription.</p>
+      <p style="font-size:16px;line-height:1.65;color:#C9CFC7;margin:0;text-wrap:pretty">Each client works with a Success Manager. When something changed, the Success Manager opened a ticket for Finance and described it in their own words: add a role, give someone a raise, go from 40 hours to 30, pause a line while someone is being replaced, cancel. They also typed in the amounts. A Finance analyst then turned that description into the matching change in Stripe, with the right price, the right discount, the right billing date, and any partial-month charge or credit.</p>
+    </div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:14px">Where it broke</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px">
       <div>
-        <p style="font-size:16px;line-height:1.65;color:#C9CFC7;margin:0 0 16px;text-wrap:pretty">Every new client, every added role, every pay rate increase, every reduction from 40 hours to 30, every replacement when someone leaves, every cancellation: each one arrives as a HubSpot ticket and has to become the right change in Stripe, at the right price, with the right coupon, on the right billing anchor, with the right proration or credit attached.</p>
-        <p style="font-size:16px;line-height:1.65;color:#9AA09B;margin:0;text-wrap:pretty">One person cannot carry that queue and also check it. The same person was the throughput gate and the quality safety net, so any hour spent on one was taken from the other. In May 2026 both roles failed in the same week: a ticket said full time while the signed agreement said a 30 hour role, and the gap was only caught after the subscription had already been created.</p>
+        <p style="font-size:16px;line-height:1.65;color:#C9CFC7;margin:0 0 16px;text-wrap:pretty">Two things made that harder than it sounds.</p>
+        <p style="font-size:16px;line-height:1.65;color:#C9CFC7;margin:0 0 16px;text-wrap:pretty"><span style="color:#F2F4F1;font-weight:600">A lot was agreed in conversation.</span> A Success Manager could settle a specific number of weekly hours with a client, a discount outside the standard price list, or a raise for someone. Not all of it made it back into the record.</p>
+        <p style="font-size:16px;line-height:1.65;color:#C9CFC7;margin:0 0 16px;text-wrap:pretty"><span style="color:#F2F4F1;font-weight:600">The ticket described the change by amount, but never said which billing line it meant.</span> If a client had three similar roles at similar rates, and none of the amounts in the ticket matched what was being billed, Finance couldn't tell which line to change. The analyst went back to the Success Manager, and the Success Manager went digging through old emails and agreements to rebuild what had been promised.</p>
+        <p style="font-size:16px;line-height:1.65;color:#9AA09B;margin:0;text-wrap:pretty">On top of that, the same person was running the queue and checking it, so every hour spent on one came out of the other. In May 2026 a ticket said full time while the signed agreement said a 30 hour role. It was only caught after the subscription had been created.</p>
       </div>
       <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:24px">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:18px">What the sweeps found later</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:18px">What the first audits found</div>
         <div style="display:grid;gap:14px">
-          <div style="display:flex;justify-content:space-between;gap:14px;align-items:baseline"><span style="font-size:14px;color:#C9CFC7">Incorrect contract to billing mappings</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:#C6F24E">44</span></div>
-          <div style="display:flex;justify-content:space-between;gap:14px;align-items:baseline"><span style="font-size:14px;color:#C9CFC7">Active placements with no live billing</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:#C6F24E">36</span></div>
-          <div style="display:flex;justify-content:space-between;gap:14px;align-items:baseline"><span style="font-size:14px;color:#C9CFC7">Duplicate billing cases</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:#C6F24E">6</span></div>
-          <div style="display:flex;justify-content:space-between;gap:14px;align-items:baseline"><span style="font-size:14px;color:#C9CFC7">Subscriptions missing a contracted fee</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:#C6F24E">15</span></div>
+          <div style="display:flex;justify-content:space-between;gap:14px;align-items:baseline"><span style="font-size:14px;color:#C9CFC7">Contracts linked to the wrong billing line</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:#C6F24E">44</span></div>
+          <div style="display:flex;justify-content:space-between;gap:14px;align-items:baseline"><span style="font-size:14px;color:#C9CFC7">People placed with a client and not being billed</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:#C6F24E">36</span></div>
+          <div style="display:flex;justify-content:space-between;gap:14px;align-items:baseline"><span style="font-size:14px;color:#C9CFC7">Cases of the same role billed twice</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:#C6F24E">6</span></div>
+          <div style="display:flex;justify-content:space-between;gap:14px;align-items:baseline"><span style="font-size:14px;color:#C9CFC7">Subscriptions missing a fee the contract includes</span><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;color:#C6F24E">15</span></div>
         </div>
-        <p style="font-size:13px;line-height:1.55;color:#8E958D;margin:18px 0 0">None of that was negligence. It was arithmetic: one person, a five item mandate, no slack.</p>
+        <p style="font-size:13px;line-height:1.55;color:#8E958D;margin:18px 0 0">Nobody was careless. There was one person with five jobs, no place to record what had been agreed, and no way to tie a request to the line it was about.</p>
       </div>
     </div>
   </div>
@@ -76,7 +83,7 @@
         <div>
           <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:11px;color:#8E958D;marginBottom:9px"><span>BEFORE</span><span>60 to 80 tickets in the queue</span></div>
           <div style="display:flex;height:34px;borderRadius:9px;overflow:hidden;border:1px solid rgba(255,255,255,0.08)">
-            <div style="flex:64;background:#3A4230;display:flex;align-items:center;padding:0 12px;font-size:12px;color:#E7EAE5;white-space:nowrap;overflow:hidden">Billing operations</div>
+            <div style="flex:64;background:#3A4230;display:flex;align-items:center;padding:0 12px;font-size:12px;color:#E7EAE5;white-space:nowrap;overflow:hidden">Billing changes</div>
             <div style="flex:24;background:#1A1D1F;display:flex;align-items:center;padding:0 12px;font-size:12px;color:#9AA09B;white-space:nowrap;overflow:hidden">Payroll, refunds, compliance</div>
             <div style="flex:12;background:#111315;display:flex;align-items:center;padding:0 10px;font-size:11px;color:#6F756E;white-space:nowrap;overflow:hidden">Close</div>
           </div>
@@ -90,15 +97,22 @@
             <div style="flex:46;background:#1A1D1F;display:flex;align-items:center;padding:0 12px;font-size:12px;color:#9AA09B;white-space:nowrap;overflow:hidden">Payroll, refunds, compliance</div>
             <div style="flex:12;background:#111315;display:flex;align-items:center;padding:0 10px;font-size:11px;color:#6F756E;white-space:nowrap;overflow:hidden">Close</div>
           </div>
-          <div style="font-size:12.5px;color:#8E958D;marginTop:8px">Auditing became a standing activity. The team did not have to grow.</div>
+          <div style="font-size:12.5px;color:#8E958D;marginTop:8px">Auditing became a regular part of the week, and the team didn't have to grow.</div>
         </div>
       </div>
     </div>
   </div>
 
   <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">03 · Architecture</div>
-    <p style="font-size:16px;line-height:1.65;color:#C9CFC7;max-width:760px;margin:0 0 26px;text-wrap:pretty">Two n8n workflows, 250 nodes between them. The first one reads the request and decides what it is. The second one is the only thing allowed to touch Stripe, and it verifies its own work before closing the ticket.</p>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">03 · How it works now</div>
+    <p style="font-size:16px;line-height:1.65;color:#C9CFC7;max-width:760px;margin:0 0 26px;text-wrap:pretty">The Success Manager still opens the same ticket. The difference is what happens next: before anything touches billing, the ticket gets checked.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;margin:0 0 40px">
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#C6F24E;marginBottom:10px">01</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;marginBottom:8px">The request is identified and checked</div><div style="font-size:13.5px;line-height:1.55;color:#9AA09B">The first workflow works out what kind of change it is, finds the signed agreement and the exact billing line involved, and compares them. If they disagree, it stops and writes on the ticket exactly what doesn't match.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#C6F24E;marginBottom:10px">02</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;marginBottom:8px">Only one place can change billing</div><div style="font-size:13.5px;line-height:1.55;color:#9AA09B">The second workflow is the only thing allowed to write to Stripe. After making the change, it reads Stripe back to confirm the result is what it intended.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#C6F24E;marginBottom:10px">03</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;marginBottom:8px">The ticket closes with a receipt</div><div style="font-size:13.5px;line-height:1.55;color:#9AA09B">It says what was applied. Anything that failed goes to a list Finance can see, showing how long each item has been waiting.</div></div>
+    </div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:14px">Under the hood</div>
+    <p style="font-size:15px;line-height:1.65;color:#9AA09B;max-width:760px;margin:0 0 20px;text-wrap:pretty">For technical readers: two n8n workflows, 250 nodes between them.</p>
     <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:20px;background:#0C0E0F;padding:28px;overflow-x:auto">
       <div style="display:grid;gap:14px;min-width:640px">
         <div style="display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:center">
@@ -121,31 +135,31 @@
     <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">04 · What it handles on its own</div>
     <div style="display:flex;flex-wrap:wrap;gap:9px;marginBottom:26px">
       <span style="padding:9px 14px;borderRadius:10px;background:#111416;border:1px solid rgba(255,255,255,0.08);font-size:13.5px;color:#C9CFC7">New client subscription</span>
-      <span style="padding:9px 14px;borderRadius:10px;background:#111416;border:1px solid rgba(255,255,255,0.08);font-size:13.5px;color:#C9CFC7">Add product</span>
-      <span style="padding:9px 14px;borderRadius:10px;background:#111416;border:1px solid rgba(255,255,255,0.08);font-size:13.5px;color:#C9CFC7">Price increase</span>
-      <span style="padding:9px 14px;borderRadius:10px;background:#111416;border:1px solid rgba(255,255,255,0.08);font-size:13.5px;color:#C9CFC7">Price reduction</span>
-      <span style="padding:9px 14px;borderRadius:10px;background:#111416;border:1px solid rgba(255,255,255,0.08);font-size:13.5px;color:#C9CFC7">Proration</span>
+      <span style="padding:9px 14px;borderRadius:10px;background:#111416;border:1px solid rgba(255,255,255,0.08);font-size:13.5px;color:#C9CFC7">Adding a role</span>
+      <span style="padding:9px 14px;borderRadius:10px;background:#111416;border:1px solid rgba(255,255,255,0.08);font-size:13.5px;color:#C9CFC7">Raises and price increases</span>
+      <span style="padding:9px 14px;borderRadius:10px;background:#111416;border:1px solid rgba(255,255,255,0.08);font-size:13.5px;color:#C9CFC7">Price reductions, like fewer hours</span>
+      <span style="padding:9px 14px;borderRadius:10px;background:#111416;border:1px solid rgba(255,255,255,0.08);font-size:13.5px;color:#C9CFC7">Partial-month charges and credits</span>
       <span style="padding:9px 14px;borderRadius:10px;background:#111416;border:1px solid rgba(255,255,255,0.08);font-size:13.5px;color:#C9CFC7">Discounts and card fees</span>
-      <span style="padding:9px 14px;borderRadius:10px;background:#111416;border:1px solid rgba(255,255,255,0.08);font-size:13.5px;color:#C9CFC7">Credit balances</span>
-      <span style="padding:9px 14px;borderRadius:10px;background:#111416;border:1px solid rgba(255,255,255,0.08);font-size:13.5px;color:#C9CFC7">Product removal</span>
-      <span style="padding:9px 14px;borderRadius:10px;background:#111416;border:1px solid rgba(255,255,255,0.08);font-size:13.5px;color:#C9CFC7">Replacement swap</span>
+      <span style="padding:9px 14px;borderRadius:10px;background:#111416;border:1px solid rgba(255,255,255,0.08);font-size:13.5px;color:#C9CFC7">Credits carried to the next invoice</span>
+      <span style="padding:9px 14px;borderRadius:10px;background:#111416;border:1px solid rgba(255,255,255,0.08);font-size:13.5px;color:#C9CFC7">Removing a role</span>
+      <span style="padding:9px 14px;borderRadius:10px;background:#111416;border:1px solid rgba(255,255,255,0.08);font-size:13.5px;color:#C9CFC7">Swapping in a replacement</span>
       <span style="padding:9px 14px;borderRadius:10px;background:#111416;border:1px solid rgba(255,255,255,0.08);font-size:13.5px;color:#C9CFC7">Cancellation</span>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px">
-      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;marginBottom:8px">Idempotency and locking</div><div style="font-size:13.5px;line-height:1.55;color:#9AA09B">A retried ticket cannot double charge, and two requests on the same subscription cannot interleave.</div></div>
-      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;marginBottom:8px">Dead letter queue with aging</div><div style="font-size:13.5px;line-height:1.55;color:#9AA09B">Failures land somewhere visible, get older in public, and are reconciled rather than silently retried forever.</div></div>
-      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;marginBottom:8px">Integer money arithmetic</div><div style="font-size:13.5px;line-height:1.55;color:#9AA09B">No floats anywhere near a price, a proration or a credit. Business day and time zone handling on every anchor date.</div></div>
-      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;marginBottom:8px">Checksum gated deployment</div><div style="font-size:13.5px;line-height:1.55;color:#9AA09B">Offline Node test harnesses replay real published node source against real payloads before anything ships.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;marginBottom:4px">No double charges</div><div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#6F756E;marginBottom:10px">idempotency and locking</div><div style="font-size:13.5px;line-height:1.55;color:#9AA09B">If a ticket is retried, it can't charge twice, and two requests on the same subscription can't run at the same time.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;marginBottom:4px">Failures stay visible</div><div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#6F756E;marginBottom:10px">dead letter queue with aging</div><div style="font-size:13.5px;line-height:1.55;color:#9AA09B">Anything that fails goes to a list showing how long it has been waiting, and someone resolves it. Nothing keeps retrying quietly in the background.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;marginBottom:4px">Money in whole cents</div><div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#6F756E;marginBottom:10px">integer arithmetic</div><div style="font-size:13.5px;line-height:1.55;color:#9AA09B">Every price, partial-month charge and credit is calculated in whole cents, so rounding can't drift. Billing dates respect business days and time zones.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;marginBottom:4px">Nothing ships untested</div><div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#6F756E;marginBottom:10px">checksum gated deployment</div><div style="font-size:13.5px;line-height:1.55;color:#9AA09B">Every change is replayed offline against real past requests first, and what gets deployed is checked to be exactly what was tested.</div></div>
     </div>
   </div>
 
   <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">05 · The audit layer that did not exist</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">05 · Comparing what clients signed with what they pay</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;align-items:start">
-      <p style="font-size:16px;line-height:1.65;color:#C9CFC7;margin:0;text-wrap:pretty">Automating the queue was only half of it. The other half was building the comparison nobody had time to make: what the client signed, against what the client is being charged. Python parsed 1,168 signed agreements; the reconciliation layer compared them to live Stripe state and wrote every mismatch into a findings register that Finance works through.</p>
+      <p style="font-size:16px;line-height:1.65;color:#C9CFC7;margin:0;text-wrap:pretty">Automating the queue was half the job. The other half was a comparison nobody had had time to make: what each client signed against what they were actually being charged. A Python script read 1,168 signed agreements, a reconciliation step compared them with live billing in Stripe, and every mismatch went into a findings list that Finance works through.</p>
       <div style="border:1px solid rgba(198,242,78,0.25);borderRadius:18px;background:linear-gradient(150deg,rgba(198,242,78,0.10),rgba(198,242,78,0.02));padding:26px">
         <div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:38px;letterSpacing:-0.03em;color:#C6F24E;lineHeight:1">$161,615.76</div>
-        <div style="font-size:14px;color:#C9CFC7;marginTop:10px;lineHeight:1.5">in identified annualized contracted revenue not reflected in billing. This is an audit finding, not a claim of cash collected.</div>
+        <div style="font-size:14px;color:#C9CFC7;marginTop:10px;lineHeight:1.5">per year in charges written into contracts that weren't being billed. This is an audit finding. It doesn't mean that money was collected.</div>
       </div>
     </div>
   </div>
@@ -153,19 +167,19 @@
   <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">06 · Results</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.08);borderRadius:18px;overflow:hidden">
-      <div style="background:#0C0E0F;padding:24px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#F2F4F1;letterSpacing:-0.02em">2 to 3</div><div style="font-size:12.5px;color:#8E958D;marginTop:7px;lineHeight:1.4">weekly exceptions, down from 60 to 80 tickets</div></div>
+      <div style="background:#0C0E0F;padding:24px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#F2F4F1;letterSpacing:-0.02em">2 to 3</div><div style="font-size:12.5px;color:#8E958D;marginTop:7px;lineHeight:1.4">exceptions a week, down from 60 to 80 tickets</div></div>
       <div style="background:#0C0E0F;padding:24px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#F2F4F1;letterSpacing:-0.02em">41 / 48</div><div style="font-size:12.5px;color:#8E958D;marginTop:7px;lineHeight:1.4">tickets in the first three weeks needed no correction</div></div>
-      <div style="background:#0C0E0F;padding:24px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#F2F4F1;letterSpacing:-0.02em">157</div><div style="font-size:12.5px;color:#8E958D;marginTop:7px;lineHeight:1.4">issues surfaced by the first reconciliation review</div></div>
-      <div style="background:#0C0E0F;padding:24px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#F2F4F1;letterSpacing:-0.02em">1,168</div><div style="font-size:12.5px;color:#8E958D;marginTop:7px;lineHeight:1.4">signed agreements parsed and compared to live billing</div></div>
+      <div style="background:#0C0E0F;padding:24px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#F2F4F1;letterSpacing:-0.02em">157</div><div style="font-size:12.5px;color:#8E958D;marginTop:7px;lineHeight:1.4">issues found in the first comparison</div></div>
+      <div style="background:#0C0E0F;padding:24px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#F2F4F1;letterSpacing:-0.02em">1,168</div><div style="font-size:12.5px;color:#8E958D;marginTop:7px;lineHeight:1.4">signed agreements read and compared with live billing</div></div>
     </div>
   </div>
 
   <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">07 · What I would flag to the next owner</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">07 · What I'd flag to the next owner</div>
     <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:20px;background:#0C0E0F;padding:28px;display:grid;gap:16px">
-      <p style="font-size:15.5px;line-height:1.65;color:#C9CFC7;margin:0;text-wrap:pretty">The change types that launched behind an approval flag were behind it as a monitoring measure, not as permanent control. That period has since closed and the flag is gone: every request type, cancellations included, now applies automatically.</p>
-      <p style="font-size:15.5px;line-height:1.65;color:#9AA09B;margin:0;text-wrap:pretty">Upstream data entry is still the weak link. When the source record is wrong, the automation faithfully produces a wrong result. That belongs to the team that owns the record, and it is the next thing worth fixing.</p>
-      <p style="font-size:15.5px;line-height:1.65;color:#9AA09B;margin:0;text-wrap:pretty">The rules in the system are not mine. They were elicited from Finance, written down with confirmed against proposed tagging, and implemented only once confirmed. Where two statements contradicted each other, I pushed back rather than picking one.</p>
+      <p style="font-size:15.5px;line-height:1.65;color:#C9CFC7;margin:0;text-wrap:pretty"><span style="color:#F2F4F1;font-weight:600">The approval step was temporary.</span> A few request types launched with a Finance approval step so the first weeks could be watched closely. That period ended, and by September 2026 every request type, cancellations included, applied automatically.</p>
+      <p style="font-size:15.5px;line-height:1.65;color:#9AA09B;margin:0;text-wrap:pretty"><span style="color:#F2F4F1;font-weight:600">The weak spot is where the agreement gets made.</span> When something a Success Manager agrees with a client never reaches the record, the automation can flag the mismatch, but it can't know what was promised. The next thing worth building is a structured place to capture those agreements when they happen.</p>
+      <p style="font-size:15.5px;line-height:1.65;color:#9AA09B;margin:0;text-wrap:pretty"><span style="color:#F2F4F1;font-weight:600">The rules came from Finance.</span> I wrote each one down, marked what Finance had confirmed apart from what I was assuming, and only built what had been confirmed. When two answers contradicted each other, I went back and asked.</p>
     </div>
   </div>
 
