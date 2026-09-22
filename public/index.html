@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Thaís Holanda — AI Solutions Engineer & Architect</title>
-<meta name="description" content="Explore systems, integrations and automation built by Thaís Holanda.">
+<title>Thaís Holanda — AI Systems & Automation Engineer</title>
+<meta name="description" content="AI agents, internal automation and production business systems built by Thaís Holanda: tool-using agents with evaluations and guardrails, on top of HubSpot, billing, RevOps and Finance systems.">
 <link rel="icon" href="./favicon.svg">
 <link rel="stylesheet" href="./vendor/fonts.css"><link rel="stylesheet" href="./responsive.css">
 <style>:focus-visible{outline:3px solid #C6F24E;outline-offset:4px}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}</style>
@@ -41,6 +41,16 @@
             <span style="font-family:'JetBrains Mono',monospace;font-size:10px">▾</span>
           </button>
           <div style="position:absolute;top:calc(100% + 10px);left:0;z-index:60;width:330px;max-width:78vw;padding:8px;borderRadius:16px;border:1px solid rgba(255,255,255,0.12);background:#0C0E0F;box-shadow:0 24px 48px rgba(0,0,0,0.55);display: {{ casesDisplay }};gap:2px">
+            <div style="padding:8px 12px 4px;font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.12em;text-transform:uppercase;color:#6F756E">AI systems</div>
+            <a href="case-dtc-revenue-agent.html" style="display:block;padding:11px 12px;borderRadius:11px;color:#F2F4F1" style-hover="background:#151819">
+              <span style="display:block;font-size:13.5px;font-weight:500">A1 · DTC Revenue Operations Agent</span>
+              <span style="display:block;font-size:11.5px;color:#8E958D;marginTop:3px">Claude, tool calling, evals, guardrails</span>
+            </a>
+            <a href="case-career-agent.html" style="display:block;padding:11px 12px;borderRadius:11px;color:#F2F4F1" style-hover="background:#151819">
+              <span style="display:block;font-size:13.5px;font-weight:500">A2 · Career Agent</span>
+              <span style="display:block;font-size:11.5px;color:#8E958D;marginTop:3px">Local-first AI platform, public alpha</span>
+            </a>
+            <div style="padding:10px 12px 4px;font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.12em;text-transform:uppercase;color:#6F756E;borderTop:1px solid rgba(255,255,255,0.08);marginTop:4px">Production systems</div>
             <a href="case-billing-automation.html" style="display:block;padding:11px 12px;borderRadius:11px;color:#F2F4F1" style-hover="background:#151819">
               <span style="display:block;font-size:13.5px;font-weight:500">01 · Subscription Billing Automation</span>
               <span style="display:block;font-size:11.5px;color:#8E958D;marginTop:3px">HubSpot ↔ Stripe, 250 nodes</span>
@@ -61,7 +71,7 @@
               <span style="display:block;font-size:13.5px;font-weight:500">05 · Onboarding Round Robin</span>
               <span style="display:block;font-size:11.5px;color:#8E958D;marginTop:3px">Caps a CRM cannot enforce</span>
             </a>
-            <a href="#work" onClick="{{ closeCases }}" style="display:block;padding:11px 12px;borderRadius:11px;color:#C6F24E;font-size:12.5px;borderTop:1px solid rgba(255,255,255,0.08);marginTop:4px" style-hover="background:#151819">
+            <a href="#ai-systems" onClick="{{ closeCases }}" style="display:block;padding:11px 12px;borderRadius:11px;color:#C6F24E;font-size:12.5px;borderTop:1px solid rgba(255,255,255,0.08);marginTop:4px" style-hover="background:#151819">
               <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">See all on this page</sc-if><sc-if value="{{ pt }}">Ver todos nesta página</sc-if>
             </a>
           </div>
@@ -69,6 +79,7 @@
         <a href="#experience" style="padding:7px 12px;borderRadius:999px;font-size:13px;color:#B7BDB6;border:1px solid rgba(255,255,255,0.09)" style-hover="color:#08090A;background:#C6F24E;border:1px solid #C6F24E">
           <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Experience</sc-if><sc-if value="{{ pt }}">Experiência</sc-if>
         </a>
+        <a href="#ai-systems" style="padding:7px 12px;borderRadius:999px;font-size:13px;color:#B7BDB6;border:1px solid rgba(255,255,255,0.09)" style-hover="color:#08090A;background:#C6F24E;border:1px solid #C6F24E"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">AI systems</sc-if><sc-if value="{{ pt }}">Sistemas de IA</sc-if></a>
         <a href="#stack" style="padding:7px 12px;borderRadius:999px;font-size:13px;color:#B7BDB6;border:1px solid rgba(255,255,255,0.09)" style-hover="color:#08090A;background:#C6F24E;border:1px solid #C6F24E">Stack</a>
         <a href="#contact" style="padding:7px 12px;borderRadius:999px;font-size:13px;color:#B7BDB6;border:1px solid rgba(255,255,255,0.09)" style-hover="color:#08090A;background:#C6F24E;border:1px solid #C6F24E">
           <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Contact</sc-if><sc-if value="{{ pt }}">Contato</sc-if>
@@ -87,17 +98,20 @@
       <div style="min-width:0">
         <div style="display:flex;align-items:center;gap:10px;font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#8E958D;marginBottom:22px">
           <span style="width:6px;height:6px;borderRadius:999px;background:#C6F24E;display:inline-block"></span>
-          Fortaleza, Brazil · Remote worldwide
+          AI Systems &amp; Automation Engineer · Fortaleza, Brazil · Remote worldwide
         </div>
         <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(38px,6.2vw,74px);line-height:0.98;letterSpacing:-0.035em;margin:0 0 24px;text-wrap:pretty">
-          <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">I architect the systems connecting GTM, operations, and revenue.</sc-if><sc-if value="{{ pt }}">Eu desenho a arquitetura dos sistemas que conectam GTM, operações e receita.</sc-if>
+          <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">I build AI agents and internal systems that turn messy business data into reliable action.</sc-if><sc-if value="{{ pt }}">Eu construo agentes de IA e sistemas internos que transformam dados de negócio bagunçados em ação confiável.</sc-if>
         </h1>
-        <p style="font-size:17px;line-height:1.62;color:#AEB5AC;max-width:620px;margin:0 0 30px;text-wrap:pretty">
-          <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">AI Senior Solutions Engineer specializing in GTM systems architecture, automation, and cross-system integrations. I translate complex business requirements into scalable solutions across CRM, billing, contracts, HRIS, and reporting - owning the work from discovery and architecture through implementation, testing, enablement, and production monitoring. Over the last 18 months, I’ve delivered five production systems with full technical ownership.</sc-if><sc-if value="{{ pt }}">Senior AI Solutions Engineer especializada em arquitetura de sistemas de GTM, automação e integrações. Transformo requisitos complexos de negócio em soluções escaláveis que conectam CRM, faturamento, contratos, sistemas de RH e dados — assumindo a solução de ponta a ponta, desde o entendimento do problema e desenho da arquitetura até implementação, testes, treinamento e monitoramento em produção. Nos últimos 18 meses, entreguei cinco sistemas em produção com responsabilidade técnica integral.</sc-if>
+        <p style="font-size:17px;line-height:1.62;color:#AEB5AC;max-width:640px;margin:0 0 16px;text-wrap:pretty">
+          <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">AI systems and automation engineer with 8+ years across business systems, Revenue Operations, Finance and integrations. I combine deterministic business logic with LLM tool use, evaluations, guardrails and human approval.</sc-if><sc-if value="{{ pt }}">Engenheira de sistemas de IA e automação com mais de 8 anos em sistemas de negócio, Revenue Operations, Financeiro e integrações. Combino lógica de negócio determinística com uso de ferramentas por LLMs, avaliações, guardrails e aprovação humana.</sc-if>
+        </p>
+        <p style="font-size:15.5px;line-height:1.62;color:#8E958D;max-width:640px;margin:0 0 30px;text-wrap:pretty">
+          <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">I build agents on top of business systems I already know how to operate in production. Over the last 18 months I owned five production systems across billing, revenue, onboarding and customer operations, and I now apply the same reliability discipline to tool-using AI agents.</sc-if><sc-if value="{{ pt }}">Construo agentes sobre sistemas de negócio que já sei operar em produção. Nos últimos 18 meses fui responsável por cinco sistemas em produção entre faturamento, receita, onboarding e operações de clientes, e hoje aplico a mesma disciplina de confiabilidade a agentes de IA que usam ferramentas.</sc-if>
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:10px;marginBottom:34px">
-          <a href="#work" style="display:inline-flex;align-items:center;gap:8px;padding:13px 20px;borderRadius:999px;background:#C6F24E;color:#08090A;font-weight:600;font-size:14px" style-hover="background:#E4FF9B;color:#08090A">
-            <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">See the case studies</sc-if><sc-if value="{{ pt }}">Ver os case studies</sc-if>
+          <a href="#ai-systems" style="display:inline-flex;align-items:center;gap:8px;padding:13px 20px;borderRadius:999px;background:#C6F24E;color:#08090A;font-weight:600;font-size:14px" style-hover="background:#E4FF9B;color:#08090A">
+            <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">See the AI systems</sc-if><sc-if value="{{ pt }}">Ver os sistemas de IA</sc-if>
             <span style="font-family:'JetBrains Mono',monospace">↓</span>
           </a>
           <a href="mailto:contato@thaisholanda.com" style="display:inline-flex;align-items:center;gap:8px;padding:13px 20px;borderRadius:999px;border:1px solid rgba(255,255,255,0.16);color:#F2F4F1;font-weight:500;font-size:14px" style-hover="border:1px solid #C6F24E;color:#C6F24E">
@@ -105,16 +119,16 @@
           </a>
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">HubSpot</span>
-          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">CRM Architecture</span>
-          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">n8n / Zapier / Workato</span>
+          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">Claude</span>
           <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">AI Agents</span>
-          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">LLMs</span>
-          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">Clay / Apollo</span>
-          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">Stripe Billing</span>
-          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">REST / GraphQL</span>
+          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">Tool Calling</span>
+          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">Evals &amp; Guardrails</span>
+          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">HubSpot</span>
           <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">Python</span>
-          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">Power BI</span>
+          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">SQL</span>
+          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">n8n</span>
+          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">APIs &amp; Webhooks</span>
+          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">RevOps</span>
         </div>
       </div>
       <div style="min-width:0;display:flex;justify-content:center;padding:38px">
@@ -150,10 +164,128 @@
   </div>
   </sc-if>
 
+  <div id="ai-systems" style="max-width:1180px;margin:0 auto;padding:72px 24px 24px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;marginBottom:36px">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:14px">01 · <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">AI systems</sc-if><sc-if value="{{ pt }}">Sistemas de IA</sc-if></div>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(28px,4vw,44px);letterSpacing:-0.03em;margin:0;lineHeight:1.05">
+          <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Two AI systems, built to be checked.</sc-if><sc-if value="{{ pt }}">Dois sistemas de IA, feitos para serem verificados.</sc-if>
+        </h2>
+      </div>
+      <p style="font-size:15px;line-height:1.6;color:#9AA09B;max-width:440px;margin:0">
+        <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Independent engineering work. Deterministic code owns the facts; the model interprets, investigates and explains. Evaluations that are still running are labelled as still running.</sc-if><sc-if value="{{ pt }}">Trabalho de engenharia independente. O código determinístico é dono dos fatos; o modelo interpreta, investiga e explica. Avaliações ainda em andamento aparecem marcadas como em andamento.</sc-if>
+      </p>
+    </div>
+
+    <div style="display:grid;gap:20px">
+
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:22px;background:#0C0E0F;padding:32px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,320px);gap:36px" style-hover="border:1px solid rgba(198,242,78,0.3)">
+        <div style="min-width:0">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;marginBottom:16px">
+            <span style="padding:5px 10px;borderRadius:999px;background:rgba(198,242,78,0.12);color:#C6F24E;font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.08em;text-transform:uppercase"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">AI agent case study · Sep 2026</sc-if><sc-if value="{{ pt }}">Case de agente de IA · set 2026</sc-if></span>
+            <span style="padding:5px 10px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);color:#9AA09B;font-family:'JetBrains Mono',monospace;font-size:10px">Claude · Python · SQL · Tool Calling · Evals · Guardrails</span>
+          </div>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:26px;letterSpacing:-0.02em;margin:0 0 10px;lineHeight:1.15"><a href="case-dtc-revenue-agent.html" style="color:#F2F4F1" style-hover="color:#C6F24E">DTC Revenue Operations Agent <span style="display:inline-block;vertical-align:middle;marginLeft:4px;padding:4px 10px;borderRadius:999px;border:1px solid rgba(198,242,78,0.35);background:rgba(198,242,78,0.08);font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.06em;text-transform:uppercase;color:#C6F24E;white-space:nowrap">Read the case ↗</span></a></h3>
+          <p style="font-size:16px;line-height:1.55;color:#C9CFC7;margin:0 0 18px;text-wrap:pretty">
+            <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">An internal AI agent for a synthetic portfolio of DTC ecommerce brands. Deterministic signals decide which accounts deserve attention; Claude investigates account context through constrained tools and produces evidence-backed recommendations inside explicit safety boundaries.</sc-if><sc-if value="{{ pt }}">Um agente interno de IA para um portfólio sintético de marcas DTC de e-commerce. Sinais determinísticos decidem quais contas merecem atenção; o Claude investiga o contexto de cada conta por meio de ferramentas restritas e produz recomendações sustentadas por evidência, dentro de limites de segurança explícitos.</sc-if>
+          </p>
+          <div style="display:grid;gap:10px">
+            <div style="display:flex;gap:12px;font-size:14px;line-height:1.55;color:#9AA09B"><span style="color:#C6F24E;font-family:'JetBrains Mono',monospace">→</span><span><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">30 synthetic accounts, a deterministic top-8 shortlist, at most 3 recommendations per run.</sc-if><sc-if value="{{ pt }}">30 contas sintéticas, uma shortlist determinística de 8, no máximo 3 recomendações por execução.</sc-if></span></div>
+            <div style="display:flex;gap:12px;font-size:14px;line-height:1.55;color:#9AA09B"><span style="color:#C6F24E;font-family:'JetBrains Mono',monospace">→</span><span><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Read-only tools, deterministic confidence, citation validation and fail-closed publication gates, with a human approving anything that would change a record.</sc-if><sc-if value="{{ pt }}">Ferramentas somente leitura, confiança determinística, validação de citações e gates de publicação que falham fechados, com um humano aprovando qualquer coisa que alteraria um registro.</sc-if></span></div>
+            <div style="display:flex;gap:12px;font-size:14px;line-height:1.55;color:#9AA09B"><span style="color:#C6F24E;font-family:'JetBrains Mono',monospace">→</span><span><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">13 evaluation scenarios covering cart recovery, win-back, performance decline, attribution conflicts, stale data, prompt injection and genuinely ambiguous signals.</sc-if><sc-if value="{{ pt }}">13 cenários de avaliação cobrindo recuperação de carrinho, win-back, queda de performance, conflitos de atribuição, dados desatualizados, prompt injection e sinais genuinamente ambíguos.</sc-if></span></div>
+          </div>
+        </div>
+        <div style="min-width:0;align-self:start;display:grid;gap:12px">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.07);borderRadius:16px;overflow:hidden">
+            <div style="background:#0F1214;padding:18px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:#F2F4F1;letterSpacing:-0.02em">30</div><div style="font-size:11px;color:#8E958D;marginTop:6px;lineHeight:1.35"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">accounts scanned</sc-if><sc-if value="{{ pt }}">contas analisadas</sc-if></div></div>
+            <div style="background:#0F1214;padding:18px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:#F2F4F1;letterSpacing:-0.02em">8</div><div style="font-size:11px;color:#8E958D;marginTop:6px;lineHeight:1.35"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">shortlisted for the agent</sc-if><sc-if value="{{ pt }}">na shortlist do agente</sc-if></div></div>
+            <div style="background:#0F1214;padding:18px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:#F2F4F1;letterSpacing:-0.02em">13</div><div style="font-size:11px;color:#8E958D;marginTop:6px;lineHeight:1.35"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">evaluation cases</sc-if><sc-if value="{{ pt }}">casos de avaliação</sc-if></div></div>
+            <div style="background:#0F1214;padding:18px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:24px;color:#F2F4F1;letterSpacing:-0.02em">0</div><div style="font-size:11px;color:#8E958D;marginTop:6px;lineHeight:1.35"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">write tools given to the agent</sc-if><sc-if value="{{ pt }}">ferramentas de escrita do agente</sc-if></div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:9px;padding:12px 14px;borderRadius:12px;border:1px solid rgba(242,201,78,0.35);background:rgba(242,201,78,0.07);font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.06em;text-transform:uppercase;color:#F2C94E">
+            <span style="width:6px;height:6px;borderRadius:999px;background:#F2C94E;display:inline-block;flex-shrink:0"></span>
+            <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Live model evaluation in progress</sc-if><sc-if value="{{ pt }}">Avaliação com modelo real em andamento</sc-if>
+          </div>
+        </div>
+      </div>
+
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:22px;background:#0C0E0F;overflow:hidden" style-hover="border:1px solid rgba(198,242,78,0.3)">
+        <div style="padding:32px 32px 26px">
+          <div style="display:flex;gap:8px;flex-wrap:wrap;marginBottom:16px">
+            <span style="padding:5px 10px;borderRadius:999px;background:rgba(198,242,78,0.12);color:#C6F24E;font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.08em;text-transform:uppercase"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Local-first AI platform · public alpha</sc-if><sc-if value="{{ pt }}">Plataforma de IA local-first · alpha pública</sc-if></span>
+            <span style="padding:5px 10px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);color:#9AA09B;font-family:'JetBrains Mono',monospace;font-size:10px">Python · FastAPI · React · TypeScript · LLM providers</span>
+          </div>
+          <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:26px;letterSpacing:-0.02em;margin:0 0 10px;lineHeight:1.15"><a href="case-career-agent.html" style="color:#F2F4F1" style-hover="color:#C6F24E">Career Agent <span style="display:inline-block;vertical-align:middle;marginLeft:4px;padding:4px 10px;borderRadius:999px;border:1px solid rgba(198,242,78,0.35);background:rgba(198,242,78,0.08);font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.06em;text-transform:uppercase;color:#C6F24E;white-space:nowrap">Read the case ↗</span></a></h3>
+          <p style="font-size:16px;line-height:1.55;color:#C9CFC7;margin:0 0 20px;max-width:780px;text-wrap:pretty">
+            <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">A local-first job intelligence application that answers a harder question than which jobs contain these keywords: which openings actually make sense for this person, and why. The model interprets messy job and résumé text; deterministic rules own eligibility, lifecycle states and scoring constraints.</sc-if><sc-if value="{{ pt }}">Uma aplicação local-first de inteligência de vagas que responde algo mais difícil do que quais vagas contêm estas palavras-chave: quais oportunidades fazem sentido para esta pessoa, e por quê. O modelo interpreta texto bagunçado de vagas e currículos; regras determinísticas cuidam de elegibilidade, estados de ciclo de vida e restrições de pontuação.</sc-if>
+          </p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px">
+            <div style="display:flex;gap:12px;font-size:14px;line-height:1.55;color:#9AA09B"><span style="color:#C6F24E;font-family:'JetBrains Mono',monospace">→</span><span><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Multi-source ingestion across 25+ integrated adapters, with permission observations recorded per source.</sc-if><sc-if value="{{ pt }}">Ingestão de múltiplas fontes com mais de 25 adaptadores integrados, com observações de permissão registradas por fonte.</sc-if></span></div>
+            <div style="display:flex;gap:12px;font-size:14px;line-height:1.55;color:#9AA09B"><span style="color:#C6F24E;font-family:'JetBrains Mono',monospace">→</span><span><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Model output never becomes confirmed experience: extracted claims are reviewed, corrected, confirmed or rejected by the candidate.</sc-if><sc-if value="{{ pt }}">A saída do modelo nunca vira experiência confirmada: afirmações extraídas são revisadas, corrigidas, confirmadas ou rejeitadas pela candidata.</sc-if></span></div>
+            <div style="display:flex;gap:12px;font-size:14px;line-height:1.55;color:#9AA09B"><span style="color:#C6F24E;font-family:'JetBrains Mono',monospace">→</span><span><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Release gates, regression tests and a public audit; production stayed unchanged when an experiment missed its predefined evaluation threshold.</sc-if><sc-if value="{{ pt }}">Gates de release, testes de regressão e uma auditoria pública; produção ficou inalterada quando um experimento não atingiu o limite de avaliação definido antes.</sc-if></span></div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:rgba(255,255,255,0.07);borderTop:1px solid rgba(255,255,255,0.07)">
+          <div style="background:#0F1214;padding:18px 22px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;color:#C6F24E">7,232</div><div style="font-size:11px;color:#8E958D;marginTop:5px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">tests passed on the release build</sc-if><sc-if value="{{ pt }}">testes aprovados no build de release</sc-if></div></div>
+          <div style="background:#0F1214;padding:18px 22px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;color:#C6F24E">25+</div><div style="font-size:11px;color:#8E958D;marginTop:5px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">job source adapters</sc-if><sc-if value="{{ pt }}">adaptadores de fontes de vagas</sc-if></div></div>
+          <div style="background:#0F1214;padding:18px 22px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;color:#C6F24E">50 / 90</div><div style="font-size:11px;color:#8E958D;marginTop:5px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">vs an 80% gate: not shipped</sc-if><sc-if value="{{ pt }}">contra um gate de 80%: não publicado</sc-if></div></div>
+          <div style="background:#0F1214;padding:18px 22px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;color:#C6F24E">0</div><div style="font-size:11px;color:#8E958D;marginTop:5px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">telemetry; data stays on the device</sc-if><sc-if value="{{ pt }}">telemetria; os dados ficam no dispositivo</sc-if></div></div>
+        </div>
+        <div style="padding:0 32px 32px">
+          <div style="borderRadius:14px;overflow:hidden;border:1px solid rgba(255,255,255,0.08);background:#0A0C0D;marginTop:0">
+            <img src="assets/career-agent.png" alt="Career Agent, jobs for you view with fit scores and evidence matched skills" style="display:block;width:100%;height:auto">
+          </div>
+          <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;marginTop:12px">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#6F756E">
+              <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Discover view. Each opening carries a fit score, the requirements matched against verified evidence, and the ones still unverified.</sc-if><sc-if value="{{ pt }}">Tela de descoberta. Cada vaga carrega uma nota de aderência, os requisitos batidos contra evidência verificada e os que seguem não verificados.</sc-if>
+            </div>
+            <a href="https://github.com/thais-stephanie/career-agent-portfolio" target="_blank" rel="noopener" style="font-family:'JetBrains Mono',monospace;font-size:11px;white-space:nowrap">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="border:1px solid rgba(198,242,78,0.25);borderRadius:22px;background:linear-gradient(150deg,rgba(198,242,78,0.08),rgba(198,242,78,0.015) 65%);padding:clamp(26px,4vw,40px)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:14px">
+          <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">How I build AI systems</sc-if><sc-if value="{{ pt }}">Como eu construo sistemas de IA</sc-if>
+        </div>
+        <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(19px,2.4vw,25px);line-height:1.3;letterSpacing:-0.02em;color:#F2F4F1;margin:0 0 26px;max-width:860px;text-wrap:pretty">
+          <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">The same rules I used for billing pipelines, applied to a component that can be confidently wrong.</sc-if><sc-if value="{{ pt }}">As mesmas regras que usei em pipelines de faturamento, aplicadas a um componente que pode errar com total confiança.</sc-if>
+        </p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:14px">
+          <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:14px;background:rgba(8,9,10,0.5);padding:20px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:#F2F4F1;marginBottom:8px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Facts before reasoning</sc-if><sc-if value="{{ pt }}">Fatos antes do raciocínio</sc-if></div>
+            <div style="font-size:13.5px;line-height:1.6;color:#9AA09B"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Metrics and business rules are computed in code, outside the model. The LLM reasons over results it cannot alter.</sc-if><sc-if value="{{ pt }}">Métricas e regras de negócio são calculadas em código, fora do modelo. O LLM raciocina sobre resultados que não consegue alterar.</sc-if></div>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:14px;background:rgba(8,9,10,0.5);padding:20px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:#F2F4F1;marginBottom:8px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Tools over giant prompts</sc-if><sc-if value="{{ pt }}">Ferramentas em vez de prompts gigantes</sc-if></div>
+            <div style="font-size:13.5px;line-height:1.6;color:#9AA09B"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Agents retrieve the context they need through narrow tools instead of receiving whole databases in the prompt.</sc-if><sc-if value="{{ pt }}">Agentes buscam o contexto de que precisam por ferramentas estreitas, em vez de receber bancos de dados inteiros no prompt.</sc-if></div>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:14px;background:rgba(8,9,10,0.5);padding:20px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:#F2F4F1;marginBottom:8px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Read-only first</sc-if><sc-if value="{{ pt }}">Somente leitura primeiro</sc-if></div>
+            <div style="font-size:13.5px;line-height:1.6;color:#9AA09B"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Side effects need explicit permission, and a human approves them when the risk is high.</sc-if><sc-if value="{{ pt }}">Efeitos colaterais exigem permissão explícita, e um humano aprova quando o risco é alto.</sc-if></div>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:14px;background:rgba(8,9,10,0.5);padding:20px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:#F2F4F1;marginBottom:8px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Fail closed</sc-if><sc-if value="{{ pt }}">Falhar fechado</sc-if></div>
+            <div style="font-size:13.5px;line-height:1.6;color:#9AA09B"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">An invalid schema, a missing source or a blocked condition stops publication. Nothing ships on a best guess.</sc-if><sc-if value="{{ pt }}">Schema inválido, fonte ausente ou condição bloqueada interrompem a publicação. Nada sai no chute.</sc-if></div>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:14px;background:rgba(8,9,10,0.5);padding:20px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:#F2F4F1;marginBottom:8px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Evals before tuning</sc-if><sc-if value="{{ pt }}">Avaliação antes de ajuste</sc-if></div>
+            <div style="font-size:13.5px;line-height:1.6;color:#9AA09B"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">The first baseline is preserved, and failures are classified before any prompt changes. The benchmark does not move to meet the result.</sc-if><sc-if value="{{ pt }}">O primeiro baseline é preservado, e as falhas são classificadas antes de qualquer mudança de prompt. O benchmark não se move para encontrar o resultado.</sc-if></div>
+          </div>
+          <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:14px;background:rgba(8,9,10,0.5);padding:20px">
+            <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;color:#F2F4F1;marginBottom:8px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Observe the system</sc-if><sc-if value="{{ pt }}">Observar o sistema</sc-if></div>
+            <div style="font-size:13.5px;line-height:1.6;color:#9AA09B"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Tokens, latency, cost, tool calls and rejected outputs are recorded for every run, as part of the result.</sc-if><sc-if value="{{ pt }}">Tokens, latência, custo, chamadas de ferramenta e saídas rejeitadas são registrados em toda execução, como parte do resultado.</sc-if></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
   <div id="work" style="max-width:1180px;margin:0 auto;padding:72px 24px 24px">
     <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;marginBottom:36px">
       <div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:14px">01 · <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Selected work</sc-if><sc-if value="{{ pt }}">Cases selecionados</sc-if></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:14px">02 · <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Production systems</sc-if><sc-if value="{{ pt }}">Sistemas em produção</sc-if></div>
         <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(28px,4vw,44px);letterSpacing:-0.03em;margin:0;lineHeight:1.05">
           <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Five systems, in production.</sc-if><sc-if value="{{ pt }}">Cinco sistemas, em produção.</sc-if>
         </h2>
@@ -318,70 +450,6 @@
     </div>
   </div>
 
-  <div style="max-width:1180px;margin:0 auto;padding:72px 24px 0">
-    <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:22px;background:#0C0E0F;padding:clamp(26px,4vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:32px;align-items:start">
-      <div>
-        <div style="display:flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">
-          <span style="width:6px;height:6px;borderRadius:999px;background:#C6F24E;display:inline-block"></span>
-          <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Currently building</sc-if><sc-if value="{{ pt }}">Construindo agora</sc-if>
-        </div>
-        <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(24px,3.4vw,34px);letterSpacing:-0.03em;margin:0 0 14px;lineHeight:1.1">Career Agent</h2>
-        <p style="font-size:16px;line-height:1.6;color:#C9CFC7;margin:0 0 14px;text-wrap:pretty">
-          <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">A local first career intelligence system built to answer a harder question than which jobs contain these keywords: which opportunities actually make sense for this person, and why. It builds an evidence backed representation of the candidate and evaluates openings across demonstrated skills, experience, preferences, compensation, location, work authorization and seniority.</sc-if><sc-if value="{{ pt }}">Um sistema local first de inteligência de carreira, feito para responder algo mais difícil do que quais vagas contêm estas palavras-chave: quais oportunidades fazem sentido para esta pessoa, e por quê. Ele monta uma representação da candidata baseada em evidências e avalia vagas por competências demonstradas, experiência, preferências, remuneração, localização, autorização de trabalho e senioridade.</sc-if>
-        </p>
-        <p style="font-size:15px;line-height:1.6;color:#9AA09B;margin:0 0 14px;text-wrap:pretty">
-          <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">The architecture puts deterministic rules and AI reasoning where each is strongest. The model interprets messy, unstructured text in résumés and job descriptions. Deterministic logic owns anything that has to stay predictable and auditable: eligibility rules, lifecycle states, filters and scoring constraints. Every recommendation traces back to the information that produced it.</sc-if><sc-if value="{{ pt }}">A arquitetura coloca regras determinísticas e raciocínio de IA onde cada um é mais forte. O modelo interpreta texto bagunçado e não estruturado de currículos e descrições de vaga. A lógica determinística cuida do que precisa continuar previsível e auditável: regras de elegibilidade, estados de ciclo de vida, filtros e restrições de pontuação. Toda recomendação é rastreável até a informação que a produziu.</sc-if>
-        </p>
-        <p style="font-size:14.5px;line-height:1.6;color:#8E958D;margin:0;text-wrap:pretty">
-          <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">The candidate profile is a living evidence base rather than a static résumé. A claim extracted from a document is not assumed to be true: it can be reviewed, corrected, confirmed, rejected or superseded before it counts as evidence. Private repository while I refine it, and I am happy to walk through the design.</sc-if><sc-if value="{{ pt }}">O perfil da candidata é uma base viva de evidências, não um currículo estático. Uma afirmação extraída de um documento não é tida como verdadeira: pode ser revisada, corrigida, confirmada, rejeitada ou substituída antes de virar evidência. Repositório privado enquanto refino, e posso mostrar o desenho por dentro.</sc-if>
-        </p>
-      </div>
-      <div style="display:grid;gap:14px;align-content:center">
-        <div style="border:1px solid rgba(255,255,255,0.08);borderRadius:14px;padding:18px;background:#0F1214">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:14px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Decision pipeline</sc-if><sc-if value="{{ pt }}">Pipeline de decisão</sc-if></div>
-          <div style="display:flex;flex-wrap:wrap;gap:7px;align-items:center">
-            <span style="padding:7px 11px;borderRadius:8px;background:#161A1C;font-size:12.5px;color:#C9CFC7">Ingestion</span>
-            <span style="font-family:'JetBrains Mono',monospace;color:#C6F24E;font-size:12px">→</span>
-            <span style="padding:7px 11px;borderRadius:8px;background:#161A1C;font-size:12.5px;color:#C9CFC7">Normalization</span>
-            <span style="font-family:'JetBrains Mono',monospace;color:#C6F24E;font-size:12px">→</span>
-            <span style="padding:7px 11px;borderRadius:8px;background:#161A1C;font-size:12.5px;color:#C9CFC7">Structured extraction</span>
-            <span style="font-family:'JetBrains Mono',monospace;color:#C6F24E;font-size:12px">→</span>
-            <span style="padding:7px 11px;borderRadius:8px;background:rgba(198,242,78,0.14);font-size:12.5px;color:#C6F24E">Eligibility reasoning</span>
-            <span style="font-family:'JetBrains Mono',monospace;color:#C6F24E;font-size:12px">→</span>
-            <span style="padding:7px 11px;borderRadius:8px;background:rgba(198,242,78,0.14);font-size:12.5px;color:#C6F24E">Evidence matching</span>
-            <span style="font-family:'JetBrains Mono',monospace;color:#C6F24E;font-size:12px">→</span>
-            <span style="padding:7px 11px;borderRadius:8px;background:#161A1C;font-size:12.5px;color:#C9CFC7">Scoring</span>
-            <span style="font-family:'JetBrains Mono',monospace;color:#C6F24E;font-size:12px">→</span>
-            <span style="padding:7px 11px;borderRadius:8px;background:#161A1C;font-size:12.5px;color:#C9CFC7">Explained recommendation</span>
-          </div>
-        </div>
-        <div style="border:1px solid rgba(255,255,255,0.08);borderRadius:14px;padding:18px;background:#0F1214">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:12px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">What it can explain</sc-if><sc-if value="{{ pt }}">O que ele consegue explicar</sc-if></div>
-          <div style="display:grid;gap:8px;font-size:13.5px;line-height:1.5;color:#C9CFC7">
-            <div><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Which evidence supports a requirement, and which requirements are still unverified</sc-if><sc-if value="{{ pt }}">Qual evidência sustenta um requisito, e quais requisitos seguem não verificados</sc-if></div>
-            <div><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Whether geographic or employment constraints affect eligibility</sc-if><sc-if value="{{ pt }}">Se restrições geográficas ou de vínculo afetam a elegibilidade</sc-if></div>
-            <div><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Why one opening ranked above another, and which preferences moved it</sc-if><sc-if value="{{ pt }}">Por que uma vaga ficou acima de outra, e quais preferências pesaram</sc-if></div>
-          </div>
-        </div>
-        <div style="display:flex;flex-wrap:wrap;gap:7px">
-          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">Local first</span>
-          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">Claude Code</span>
-          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">Python</span>
-          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">Deterministic rules</span>
-          <span style="padding:6px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);font-family:'JetBrains Mono',monospace;font-size:11px;color:#9AA09B">Human in the loop</span>
-        </div>
-      </div>
-      <div style="grid-column:1/-1">
-        <div style="borderRadius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.09);background:#0A0C0D">
-          <img src="assets/career-agent.png" alt="Career Agent, jobs for you view with fit scores and evidence matched skills" style="display:block;width:100%;height:auto">
-        </div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#6F756E;marginTop:12px">
-          <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Discover view. Each opening carries a fit score, the requirements matched against verified evidence, and the ones still unverified.</sc-if><sc-if value="{{ pt }}">Tela de descoberta. Cada vaga carrega uma nota de aderência, os requisitos batidos contra evidência verificada e os que seguem não verificados.</sc-if>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div style="max-width:1180px;margin:0 auto;padding:34px 24px 0">
     <div style="border-top:1px solid rgba(255,255,255,0.09);padding-top:34px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:baseline">
       <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E">Where I come from</div>
@@ -390,7 +458,7 @@
   </div>
 
   <div id="experience" style="max-width:1180px;margin:0 auto;padding:72px 24px 24px">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:14px">02 · <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Experience</sc-if><sc-if value="{{ pt }}">Experiência</sc-if></div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:14px">03 · <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Experience</sc-if><sc-if value="{{ pt }}">Experiência</sc-if></div>
     <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(28px,4vw,44px);letterSpacing:-0.03em;margin:0 0 36px;lineHeight:1.05">
       <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Eight years, one throughline.</sc-if><sc-if value="{{ pt }}">Oito anos, um fio condutor.</sc-if>
     </h2>
@@ -399,7 +467,7 @@
 
       <div style="display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:28px;padding:26px 0;borderBottom:1px solid rgba(255,255,255,0.09)">
         <div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#C6F24E">Mar 2025 → <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">now</sc-if><sc-if value="{{ pt }}">agora</sc-if></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#C6F24E">Mar 2025 → Sep 2026</div>
           <div style="font-size:13px;color:#8E958D;marginTop:6px">Teem LLC · Salt Lake City, UT<br />Remote · Mountain Time</div>
         </div>
         <div>
@@ -450,7 +518,7 @@
             <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Started as the person who automated the back office, ended up owning the product behind it.</sc-if><sc-if value="{{ pt }}">Comecei como a pessoa que automatizava o back office e terminei responsável pelo produto por trás dele.</sc-if>
           </p>
           <div style="display:grid;gap:10px;marginTop:16px">
-            <div style="display:flex;gap:11px;font-size:14px;line-height:1.55;color:#B7BDB6"><span style="color:#C6F24E;font-family:'JetBrains Mono',monospace;font-size:12px;marginTop:2px">→</span><span><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Built automation and API integrations connecting CRM, payments, accounting and banking services using Zapier, Workato and Python.</sc-if><sc-if value="{{ pt }}">Construí automações e integrações de API conectando CRM, pagamentos, contabilidade e serviços bancários com Zapier, Workato e Python.</sc-if></span></div>
+            <div style="display:flex;gap:11px;font-size:14px;line-height:1.55;color:#B7BDB6"><span style="color:#C6F24E;font-family:'JetBrains Mono',monospace;font-size:12px;marginTop:2px">→</span><span><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Built automation and API integrations connecting HubSpot, Stripe, QuickBooks and banking services using Zapier, Workato and Python.</sc-if><sc-if value="{{ pt }}">Construí automações e integrações de API conectando HubSpot, Stripe, QuickBooks e serviços bancários com Zapier, Workato e Python.</sc-if></span></div>
             <div style="display:flex;gap:11px;font-size:14px;line-height:1.55;color:#B7BDB6"><span style="color:#C6F24E;font-family:'JetBrains Mono',monospace;font-size:12px;marginTop:2px">→</span><span><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Reduced document generation from roughly one hour to two minutes with Zapier and CRM workflows.</sc-if><sc-if value="{{ pt }}">Reduzi a geração de documentos de cerca de uma hora para dois minutos com fluxos em Zapier e no CRM.</sc-if></span></div>
             <div style="display:flex;gap:11px;font-size:14px;line-height:1.55;color:#B7BDB6"><span style="color:#C6F24E;font-family:'JetBrains Mono',monospace;font-size:12px;marginTop:2px">→</span><span><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Replaced fragmented hiring forms with a unified intake, tripling completed contract volume from approximately 1,000 to 3,000 per semester.</sc-if><sc-if value="{{ pt }}">Substituí formulários de contratação fragmentados por um intake unificado, triplicando o volume de contratos concluídos de cerca de 1.000 para 3.000 por semestre.</sc-if></span></div>
             <div style="display:flex;gap:11px;font-size:14px;line-height:1.55;color:#B7BDB6"><span style="color:#C6F24E;font-family:'JetBrains Mono',monospace;font-size:12px;marginTop:2px">→</span><span><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Moved into product when the business operations function was wound down and I was the only team member retained. Owned requirements and discovery for incorporation and compliance workflows covering LLC, C Corporation, EIN and ITIN, and instrumented the product with analytics and SQL to prioritise the roadmap.</sc-if><sc-if value="{{ pt }}">Assumi produto quando a área de operações foi encerrada e eu fui a única pessoa mantida. Conduzi requisitos e discovery dos fluxos de abertura de empresa e compliance (LLC, C Corporation, EIN e ITIN) e instrumentei o produto com analytics e SQL para priorizar o roadmap.</sc-if></span></div>
@@ -495,85 +563,93 @@
   </div>
 
   <div id="stack" style="max-width:1180px;margin:0 auto;padding:72px 24px 24px">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:14px">03 · Stack</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:14px">04 · <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Capabilities</sc-if><sc-if value="{{ pt }}">Competências</sc-if></div>
     <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:clamp(28px,4vw,44px);letterSpacing:-0.03em;margin:0 0 36px;lineHeight:1.05">
       <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">What I build with.</sc-if><sc-if value="{{ pt }}">Com o que eu construo.</sc-if>
     </h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px">
+      <div style="border:1px solid rgba(198,242,78,0.3);borderRadius:18px;background:#0C0E0F;padding:24px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:14px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">AI agents &amp; LLM systems</sc-if><sc-if value="{{ pt }}">Agentes de IA &amp; LLMs</sc-if></div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Claude</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">LLM APIs</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Tool / function calling</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Agent loops</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Prompt design</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Structured output</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Context management</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Evaluations</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Guardrails</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Human-in-the-loop</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">AI document processing</sc-if><sc-if value="{{ pt }}">Processamento de documentos com IA</sc-if></span>
+        </div>
+      </div>
       <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:24px">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:14px">CRM &amp; GTM</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:14px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">AI tooling</sc-if><sc-if value="{{ pt }}">Ferramentas de IA</sc-if></div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Claude Code</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Codex</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Ollama · local models</span>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:24px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:14px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Automation &amp; integration</sc-if><sc-if value="{{ pt }}">Automação &amp; integração</sc-if></div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Python</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">TypeScript / Node.js</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">JavaScript</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">n8n</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Zapier</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Workato</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Make</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Boomi</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">REST APIs</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">GraphQL</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Webhooks</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Event-driven workflows</sc-if><sc-if value="{{ pt }}">Workflows orientados a eventos</sc-if></span>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:24px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:14px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Business systems &amp; RevOps</sc-if><sc-if value="{{ pt }}">Sistemas de negócio &amp; RevOps</sc-if></div>
         <div style="display:flex;flex-wrap:wrap;gap:7px">
           <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">HubSpot CRM &amp; CMS</span>
           <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Custom Objects</span>
           <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Scheduler API</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">HubL</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Stripe Billing</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">QuickBooks</span>
           <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Salesforce</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Clay</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Apollo</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Instantly</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Deel</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Fountain ATS</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Airtable</span>
         </div>
       </div>
       <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:24px">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:14px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Automation &amp; iPaaS</sc-if><sc-if value="{{ pt }}">Automação &amp; iPaaS</sc-if></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:14px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Data &amp; reliability</sc-if><sc-if value="{{ pt }}">Dados &amp; confiabilidade</sc-if></div>
         <div style="display:flex;flex-wrap:wrap;gap:7px">
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">n8n</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Workato</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Zapier</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Make</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Boomi</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Tray.io</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Webhooks</span>
-        </div>
-      </div>
-      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:24px">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:14px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Engineering</sc-if><sc-if value="{{ pt }}">Engenharia</sc-if></div>
-        <div style="display:flex;flex-wrap:wrap;gap:7px">
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">JavaScript</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Node.js</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Python</span>
           <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">SQL</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">REST / GraphQL</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Power BI · DAX</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Supabase / PostgreSQL</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Looker Studio</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Data reconciliation</sc-if><sc-if value="{{ pt }}">Reconciliação de dados</sc-if></span>
           <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Idempotency</span>
           <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Dead-letter queues</span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Error handling</sc-if><sc-if value="{{ pt }}">Tratamento de erros</sc-if></span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Production monitoring</sc-if><sc-if value="{{ pt }}">Monitoramento em produção</sc-if></span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Testing</sc-if><sc-if value="{{ pt }}">Testes</sc-if></span>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:24px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:14px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Delivery</sc-if><sc-if value="{{ pt }}">Entrega</sc-if></div>
+        <div style="display:flex;flex-wrap:wrap;gap:7px">
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Internal tools</sc-if><sc-if value="{{ pt }}">Ferramentas internas</sc-if></span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Technical discovery</sc-if><sc-if value="{{ pt }}">Discovery técnico</sc-if></span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Requirements gathering</sc-if><sc-if value="{{ pt }}">Levantamento de requisitos</sc-if></span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Process mapping</sc-if><sc-if value="{{ pt }}">Mapeamento de processos</sc-if></span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Stakeholder management</sc-if><sc-if value="{{ pt }}">Gestão de stakeholders</sc-if></span>
+          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Documentation</sc-if><sc-if value="{{ pt }}">Documentação</sc-if></span>
           <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Git / CI</span>
           <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Netlify</span>
           <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Vercel</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Replit</span>
-        </div>
-      </div>
-      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:24px">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:14px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Billing, HR &amp; data</sc-if><sc-if value="{{ pt }}">Faturamento, RH &amp; dados</sc-if></div>
-        <div style="display:flex;flex-wrap:wrap;gap:7px">
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Stripe Billing</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Deel</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Airtable</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Supabase</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Power BI · DAX</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Looker Studio</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Fountain ATS</span>
-        </div>
-      </div>
-      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:24px">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:14px">AI</div>
-        <div style="display:flex;flex-wrap:wrap;gap:7px">
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Claude Code</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Codex</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">LLMs</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Ollama · local models</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">IDP</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">AI data extraction</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">Knowledge assistants</span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7">AI workflow automation</span>
-        </div>
-      </div>
-      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:24px">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:14px"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Practice</sc-if><sc-if value="{{ pt }}">Prática</sc-if></div>
-        <div style="display:flex;flex-wrap:wrap;gap:7px">
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Requirements gathering</sc-if><sc-if value="{{ pt }}">Levantamento de requisitos</sc-if></span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Process mapping</sc-if><sc-if value="{{ pt }}">Mapeamento de processos</sc-if></span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Solution architecture</sc-if><sc-if value="{{ pt }}">Arquitetura de solução</sc-if></span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Data governance</sc-if><sc-if value="{{ pt }}">Governança de dados</sc-if></span>
-          <span style="padding:6px 10px;borderRadius:8px;background:#121517;font-size:12.5px;color:#C9CFC7"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Production monitoring</sc-if><sc-if value="{{ pt }}">Monitoramento em produção</sc-if></span>
         </div>
       </div>
     </div>
@@ -582,7 +658,7 @@
   <div style="max-width:1180px;margin:0 auto;padding:72px 24px 24px">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
       <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:22px;background:#0C0E0F;padding:30px">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:18px">04 · <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Certifications</sc-if><sc-if value="{{ pt }}">Certificações</sc-if></div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:18px">05 · <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Certifications</sc-if><sc-if value="{{ pt }}">Certificações</sc-if></div>
         <div style="display:grid;gap:12px">
           <div style="display:flex;justify-content:space-between;gap:16px;padding-bottom:12px;borderBottom:1px solid rgba(255,255,255,0.07)"><span style="font-size:14.5px;color:#E7EAE5">Automation Pro I, II &amp; III</span><span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#8E958D">Workato</span></div>
           <div style="display:flex;justify-content:space-between;gap:16px;padding-bottom:12px;borderBottom:1px solid rgba(255,255,255,0.07)"><span style="font-size:14.5px;color:#E7EAE5">Advanced Data Transformations</span><span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#8E958D">Workato</span></div>
@@ -594,7 +670,7 @@
       </div>
       <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:22px;background:#0C0E0F;padding:30px;display:flex;flex-direction:column;gap:26px">
         <div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:18px">05 · <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Education</sc-if><sc-if value="{{ pt }}">Formação</sc-if></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:18px">06 · <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Education</sc-if><sc-if value="{{ pt }}">Formação</sc-if></div>
           <h3 style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;margin:0 0 6px;letterSpacing:-0.015em"><sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Bachelor of Business Administration</sc-if><sc-if value="{{ pt }}">Bacharelado em Administração</sc-if></h3>
           <div style="font-size:14px;color:#9AA09B">Universidade Federal do Ceará (UFC) · 2018 → 2023</div>
         </div>
@@ -611,7 +687,7 @@
   </div>
 
   <div style="max-width:1180px;margin:0 auto;padding:72px 24px 0">
-    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:14px">06 · <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">What colleagues say</sc-if><sc-if value="{{ pt }}">O que dizem colegas</sc-if></div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:14px">07 · <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">What colleagues say</sc-if><sc-if value="{{ pt }}">O que dizem colegas</sc-if></div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px">
       <div style="border:1px solid rgba(198,242,78,0.3);borderRadius:22px;background:linear-gradient(150deg,rgba(198,242,78,0.10),rgba(198,242,78,0.02));padding:30px;display:flex;flex-direction:column;gap:18px;justify-content:center">
         <p style="font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:clamp(21px,2.6vw,27px);line-height:1.3;letterSpacing:-0.02em;color:#F2F4F1;margin:0;text-wrap:pretty">She is one of the smartest people I know.</p>
@@ -642,12 +718,12 @@
 
   <div id="contact" style="max-width:1180px;margin:0 auto;padding:72px 24px 24px">
     <div style="position:relative;border:1px solid rgba(198,242,78,0.22);borderRadius:26px;background:linear-gradient(150deg,rgba(198,242,78,0.10),rgba(198,242,78,0.02) 60%);padding:clamp(30px,5vw,56px);overflow:hidden">
-      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:18px">07 · <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Contact</sc-if><sc-if value="{{ pt }}">Contato</sc-if></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:18px">08 · <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Contact</sc-if><sc-if value="{{ pt }}">Contato</sc-if></div>
       <h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,5vw,54px);letterSpacing:-0.035em;margin:0 0 18px;lineHeight:1.02;max-width:820px;text-wrap:pretty">
       <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">If it repeats, it can be automated. Tell me what repeats.</sc-if><sc-if value="{{ pt }}">Onde existe repetição, existe uma oportunidade de automação. Me conta o que se repete.</sc-if>
       </h2>
       <p style="font-size:16.5px;line-height:1.6;color:#B7BDB6;max-width:600px;margin:0 0 30px;text-wrap:pretty">
-        <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Open to senior Solutions Engineering, Solutions Architecture and Revenue Systems roles, remote worldwide. Happy to walk through any of the systems above in detail.</sc-if><sc-if value="{{ pt }}">Aberta a posições sênior de Solutions Engineering, Solutions Architecture e Revenue Systems, remoto no mundo todo. Posso detalhar qualquer um dos sistemas acima.</sc-if>
+        <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Open to AI systems, agent engineering, internal automation and business systems roles, including Revenue Operations and Solutions Engineering, remote worldwide. Happy to walk through any of the systems above in detail.</sc-if><sc-if value="{{ pt }}">Aberta a posições de sistemas de IA, engenharia de agentes, automação interna e sistemas de negócio, incluindo Revenue Operations e Solutions Engineering, remoto no mundo todo. Posso detalhar qualquer um dos sistemas acima.</sc-if>
       </p>
       <div style="display:flex;flex-wrap:wrap;gap:10px">
         <a href="mailto:contato@thaisholanda.com" style="display:inline-flex;align-items:center;gap:8px;padding:14px 22px;borderRadius:999px;background:#C6F24E;color:#08090A;font-weight:600;font-size:14.5px" style-hover="background:#E4FF9B">contato@thaisholanda.com</a>
@@ -664,7 +740,7 @@
   <div style="max-width:1180px;margin:0 auto;padding:36px 24px 56px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;borderTop:1px solid rgba(255,255,255,0.07);marginTop:40px">
     <div style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#6F756E">© 2026 Thaís Holanda dos Santos · Fortaleza, Brazil</div>
     <div style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#6F756E">
-      <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">Senior Solutions Engineer / Architect</sc-if><sc-if value="{{ pt }}">Senior Solutions Engineer / Architect</sc-if>
+      <sc-if value="{{ en }}" hint-placeholder-val="{{ true }}">AI Systems &amp; Automation Engineer</sc-if><sc-if value="{{ pt }}">AI Systems &amp; Automation Engineer</sc-if>
     </div>
   </div>
 

@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 const root = new URL('./public/', import.meta.url);
-const titles = {index: 'Thaís Holanda — Solutions Engineer & Architect', 'case-billing-automation':'Billing Automation', 'case-contract-changes':'Contract Change Automation', 'case-onboarding-round-robin':'Onboarding Round Robin', 'case-requisition-builder':'Requisition Builder', 'case-revenue-model':'Compensation & Revenue Model'};
+const titles = {index: 'Thaís Holanda — AI Systems & Automation Engineer', 'case-dtc-revenue-agent':'DTC Revenue Operations Agent', 'case-career-agent':'Career Agent', 'case-billing-automation':'Billing Automation', 'case-contract-changes':'Contract Change Automation', 'case-onboarding-round-robin':'Onboarding Round Robin', 'case-requisition-builder':'Requisition Builder', 'case-revenue-model':'Compensation & Revenue Model'};
 for(const file of readdirSync(root).filter(f=>f.endsWith('.html'))){
   let html=readFileSync(new URL(file,root),'utf8');
   html=html.replace(/<link[^>]+https:\/\/fonts\.(?:googleapis|gstatic)\.com[^>]*>/g,'');
@@ -12,9 +12,10 @@ for(const file of readdirSync(root).filter(f=>f.endsWith('.html'))){
 let runtime=readFileSync(new URL('support.js',root),'utf8');
 runtime=runtime.replace('https://unpkg.com/react@18.3.1/umd/react.production.min.js','./vendor/react.production.min.js').replace('https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js','./vendor/react-dom.production.min.js').replace('https://unpkg.com/@babel/standalone@7.29.0/babel.min.js','./vendor/babel.min.js');
 writeFileSync(new URL('support.js',root),runtime);
-let references=0;
+let references=0, pages=0;
 for(const file of readdirSync(root).filter(f=>f.endsWith('.html'))){
  const html=readFileSync(new URL(file,root),'utf8');
+ pages++;
  for(const m of html.matchAll(/(?:src|href)="([^"{}]+)"/g)){
   if(/^(https?:|mailto:|#)/.test(m[1]))continue;
   const path=m[1].split('#')[0];
@@ -22,4 +23,4 @@ for(const file of readdirSync(root).filter(f=>f.endsWith('.html'))){
   references++;
  }
 }
-console.log(`Validated ${references} local references across six pages.`);
+console.log(`Validated ${references} local references across ${pages} pages.`);

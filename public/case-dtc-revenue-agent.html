@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>DTC Revenue Operations Agent</title>
+<meta name="description" content="DTC Revenue Operations Agent: an AI agent case study by Thaís Holanda, with deterministic signals, tool calling, evaluations and fail-closed guardrails.">
+<link rel="icon" href="./favicon.svg">
+<link rel="stylesheet" href="./vendor/fonts.css"><link rel="stylesheet" href="./responsive.css">
+<style>:focus-visible{outline:3px solid #C6F24E;outline-offset:4px}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<link rel="canonical" href="https://thais-stephanie.github.io/portfolio/case-dtc-revenue-agent.html"></head>
+<body>
+<x-dc>
+<helmet>
+
+
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #08090A; color: #F2F4F1; font-family: 'Archivo', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  a { color: #C6F24E; text-decoration: none; }
+  a:hover { color: #E4FF9B; }
+  ::selection { background: #C6F24E; color: #08090A; }
+</style>
+</helmet>
+
+<div style="background:#08090A;color:#F2F4F1;min-height:100vh">
+
+  <div style="position:sticky;top:0;z-index:40;backdrop-filter:blur(14px);background:rgba(8,9,10,0.8);borderBottom:1px solid rgba(255,255,255,0.07)">
+    <div style="max-width:1000px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+      <a href="index.html#ai-systems" style="display:inline-flex;align-items:center;gap:9px;font-size:13.5px;color:#B7BDB6" style-hover="color:#C6F24E"><span style="font-family:'JetBrains Mono',monospace">←</span> Thaís Holanda</a>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.12em;text-transform:uppercase;color:#6F756E">AI system A1</div>
+    </div>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:64px 24px 0">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;marginBottom:22px">
+      <span style="padding:5px 11px;borderRadius:999px;background:rgba(198,242,78,0.12);color:#C6F24E;font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.08em;text-transform:uppercase">AI agent case study · synthetic data</span>
+      <span style="padding:5px 11px;borderRadius:999px;border:1px solid rgba(255,255,255,0.1);color:#9AA09B;font-family:'JetBrains Mono',monospace;font-size:10.5px">Claude · Python · SQL · tool calling · evals</span>
+    </div>
+    <h1 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(32px,5.4vw,58px);lineHeight:1.02;letterSpacing:-0.035em;margin:0 0 20px;text-wrap:pretty">Which accounts deserve a human's attention today?</h1>
+    <p style="font-size:18px;line-height:1.6;color:#B7BDB6;max-width:780px;margin:0 0 30px;text-wrap:pretty">An internal Revenue Operations agent for a synthetic portfolio of DTC ecommerce brands. Deterministic Python and SQL signals shortlist the accounts first; Claude then investigates each one through constrained, read-only tools and produces source-backed recommendations that a person approves.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;padding:22px 0;borderTop:1px solid rgba(255,255,255,0.09);borderBottom:1px solid rgba(255,255,255,0.09)">
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:7px">Role</div><div style="font-size:14px;color:#E7EAE5">Sole designer and engineer</div></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:7px">Data</div><div style="font-size:14px;color:#E7EAE5">30 synthetic DTC brands</div></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:7px">Output</div><div style="font-size:14px;color:#E7EAE5">At most 3 recommendations per run</div></div>
+      <div><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:7px">Status</div><div style="font-size:14px;color:#E7EAE5">Live model evaluation in progress</div></div>
+    </div>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">01 · The business problem</div>
+    <p style="font-size:16px;line-height:1.65;color:#C9CFC7;max-width:780px;margin:0 0 22px;text-wrap:pretty">A Revenue Operations team looking after dozens of ecommerce brands cannot read every dashboard every morning. Most days, most accounts are fine. The useful question is narrower: which accounts deserve a human's attention today, what changed, and what would a reasonable next step be?</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#9AA09B;max-width:780px;margin:0 0 22px;text-wrap:pretty">The case is built on a synthetic portfolio of 30 direct-to-consumer brands with the signals a retention and lifecycle team actually watches: abandoned carts, lapsed customers, campaign performance, attribution and data freshness. The data is invented; the constraints are the ones a real team would impose.</p>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">02 · Why not just an LLM?</div>
+    <p style="font-size:16px;line-height:1.65;color:#C9CFC7;max-width:780px;margin:0 0 22px;text-wrap:pretty">Handing 30 accounts of raw metrics to a model and asking what matters would be cheap to build and impossible to trust. So the work is split by what each side is good at.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px">
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:10px">Deterministic signal engine · Python / SQL</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;color:#F2F4F1;marginBottom:9px">Owns the facts</div><div style="font-size:13.5px;line-height:1.6;color:#9AA09B">Metrics, time windows, thresholds, the shortlist ranking and the confidence score are computed in code. Same input, same output, every run. The model never calculates a number it later cites.</div></div>
+      <div style="border:1px solid rgba(198,242,78,0.25);borderRadius:16px;background:rgba(198,242,78,0.05);padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:10px">Agent · Claude with tool calling</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;color:#F2F4F1;marginBottom:9px">Owns the interpretation</div><div style="font-size:13.5px;line-height:1.6;color:#9AA09B">For each shortlisted account, the agent decides what to look at, pulls context through narrow tools, weighs conflicting signals and writes a recommendation that cites where every claim came from.</div></div>
+    </div>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">03 · Architecture</div>
+    <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:20px;background:#0C0E0F;padding:24px;marginBottom:22px"><div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><span style="padding:9px 13px;borderRadius:9px;background:#161A1C;color:#C9CFC7;font-size:13px">30 accounts</span><span style="font-family:'JetBrains Mono',monospace;color:#C6F24E;font-size:13px">→</span><span style="padding:9px 13px;borderRadius:9px;background:#161A1C;color:#C9CFC7;font-size:13px">Python / SQL signals</span><span style="font-family:'JetBrains Mono',monospace;color:#C6F24E;font-size:13px">→</span><span style="padding:9px 13px;borderRadius:9px;background:#161A1C;color:#C9CFC7;font-size:13px">Deterministic top-8 shortlist</span><span style="font-family:'JetBrains Mono',monospace;color:#C6F24E;font-size:13px">→</span><span style="padding:9px 13px;borderRadius:9px;background:rgba(198,242,78,0.14);color:#C6F24E;font-size:13px">Claude + read-only tools</span><span style="font-family:'JetBrains Mono',monospace;color:#C6F24E;font-size:13px">→</span><span style="padding:9px 13px;borderRadius:9px;background:rgba(198,242,78,0.14);color:#C6F24E;font-size:13px">Publication gate</span><span style="font-family:'JetBrains Mono',monospace;color:#C6F24E;font-size:13px">→</span><span style="padding:9px 13px;borderRadius:9px;background:#161A1C;color:#C9CFC7;font-size:13px">Human approval</span><span style="font-family:'JetBrains Mono',monospace;color:#C6F24E;font-size:13px">→</span><span style="padding:9px 13px;borderRadius:9px;background:#161A1C;color:#C9CFC7;font-size:13px">≤ 3 recommendations</span></div></div>
+    <p style="font-size:15.5px;line-height:1.65;color:#9AA09B;max-width:780px;margin:0 0 22px;text-wrap:pretty">The shortlist is bounded before the model is involved, so model cost and attention scale with the number of accounts worth discussing, not with the size of the portfolio. Per-run and per-account budgets cap how many tool calls the agent can spend before it must conclude.</p>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">04 · Tool contract</div>
+    <p style="font-size:16px;line-height:1.65;color:#C9CFC7;max-width:780px;margin:0 0 22px;text-wrap:pretty">The agent sees five tools. Four read context; one proposes an action. None of them writes to a system of record.</p>
+    <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:20px;background:#0C0E0F;padding:10px 24px;marginBottom:22px"><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;borderBottom:1px solid rgba(255,255,255,0.07);"><div style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#C6F24E;word-break:break-word">get_account_context</div><div style="font-size:14px;line-height:1.55;color:#B7BDB6">Profile and baseline for one account, so the agent can tell a real change from normal behaviour.</div></div><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;borderBottom:1px solid rgba(255,255,255,0.07);"><div style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#C6F24E;word-break:break-word">get_campaign_performance</div><div style="font-size:14px;line-height:1.55;color:#B7BDB6">Lifecycle and campaign results for the account over the analysis window.</div></div><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;borderBottom:1px solid rgba(255,255,255,0.07);"><div style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#C6F24E;word-break:break-word">get_commerce_context</div><div style="font-size:14px;line-height:1.55;color:#B7BDB6">Commerce signals such as carts, orders and revenue context behind a flagged change.</div></div><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;borderBottom:1px solid rgba(255,255,255,0.07);"><div style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#C6F24E;word-break:break-word">get_recent_account_activity</div><div style="font-size:14px;line-height:1.55;color:#B7BDB6">Recent activity on the account, so a recommendation does not repeat something already in motion.</div></div><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;"><div style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#C6F24E;word-break:break-word">propose_crm_task</div><div style="font-size:14px;line-height:1.55;color:#B7BDB6">Drafts a follow-up task as a proposal. It returns a structured suggestion for a person to approve; it does not create anything.</div></div></div>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">05 · Guardrails</div>
+    <p style="font-size:16px;line-height:1.65;color:#C9CFC7;max-width:780px;margin:0 0 22px;text-wrap:pretty">Every recommendation passes through checks that fail closed. If any of them fails, the recommendation is not published, and the rejection is recorded with its reason.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px">
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:10px">Data freshness</div><div style="font-size:13.5px;line-height:1.6;color:#9AA09B">Stale inputs block publication instead of producing a confident answer about last month.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:10px">Reconciliation</div><div style="font-size:13.5px;line-height:1.6;color:#9AA09B">Figures the agent cites must reconcile with the deterministic layer.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:10px">Citation validity</div><div style="font-size:13.5px;line-height:1.6;color:#9AA09B">Every claim must point to a tool result that actually contains it.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:10px">Schema validation</div><div style="font-size:13.5px;line-height:1.6;color:#9AA09B">Output that does not match the recommendation schema is rejected, not repaired silently.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:10px">Tool budgets</div><div style="font-size:13.5px;line-height:1.6;color:#9AA09B">Per-run and per-account limits on tool calls keep the loop bounded.</div></div>
+      <div style="border:1px solid rgba(198,242,78,0.25);borderRadius:16px;background:rgba(198,242,78,0.05);padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:10px">No write tools · human approval</div><div style="font-size:13.5px;line-height:1.6;color:#9AA09B">The agent can only propose. A person decides what reaches a CRM.</div></div>
+    </div>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">06 · Evaluations</div>
+    <p style="font-size:16px;line-height:1.65;color:#C9CFC7;max-width:780px;margin:0 0 22px;text-wrap:pretty">Two kinds of test, kept apart on purpose. Offline pipeline tests check the deterministic layer and the gates without calling a model. Agent-behaviour cases check what the model does with a scenario, and live-model results are preserved separately from offline ones so neither can flatter the other.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.07);borderRadius:18px;overflow:hidden;marginBottom:22px"><div style="background:#0F1214;padding:20px 22px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#C6F24E">13</div><div style="font-size:12px;color:#8E958D;marginTop:6px;lineHeight:1.4">agent-behaviour evaluation cases</div></div><div style="background:#0F1214;padding:20px 22px"><div style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:26px;color:#F2F4F1">2</div><div style="font-size:12px;color:#8E958D;marginTop:6px;lineHeight:1.4">test layers, reported apart: offline pipeline and live model</div></div></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:16px">
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:10px">Growth &amp; retention</div><div style="font-size:13.5px;line-height:1.6;color:#9AA09B">Cart recovery and win-back opportunities the agent should surface.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:10px">Decline</div><div style="font-size:13.5px;line-height:1.6;color:#9AA09B">Performance drops that deserve a person's attention.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:10px">Conflicting data</div><div style="font-size:13.5px;line-height:1.6;color:#9AA09B">Attribution conflicts and stale data, where the right answer is often to hold back.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:10px">Adversarial &amp; ambiguous</div><div style="font-size:13.5px;line-height:1.6;color:#9AA09B">Prompt injection inside account data, and genuinely ambiguous signals where no recommendation is a valid outcome.</div></div>
+    </div>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">07 · Failure log</div>
+    <p style="font-size:16px;line-height:1.65;color:#C9CFC7;max-width:780px;margin:0 0 22px;text-wrap:pretty">Kept in public because the failures say more about the engineering than the passes do.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px">
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:10px">Deterministic layer</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;color:#F2F4F1;marginBottom:9px">An off-by-one in the 30-day window</div><div style="font-size:13.5px;line-height:1.6;color:#9AA09B">The lookback window counted one day wrong. It lived in signal code, not in a prompt, which is exactly why facts belong in code: it could be found, fixed and tested like any other bug.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:10px">Evaluation harness</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;color:#F2F4F1;marginBottom:9px">An evaluator that passed on tool-call count</div><div style="font-size:13.5px;line-height:1.6;color:#9AA09B">A check treated "the agent called its tools" as evidence of a good investigation. That produced false positives. Activity is not correctness; checks have to judge the output itself.</div></div>
+    </div>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">08 · Live evaluation</div>
+    <div style="border:1px solid #F2C94E59;borderRadius:20px;background:#F2C94E12;padding:26px;marginBottom:22px"><div style="display:flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#F2C94E;marginBottom:12px"><span style="width:7px;height:7px;borderRadius:999px;background:#F2C94E;display:inline-block"></span>In progress</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;color:#F2F4F1;marginBottom:10px">Live-model baseline is running</div><div style="font-size:14.5px;line-height:1.65;color:#B7BDB6;max-width:780px">Results will be published here as measured, including the ones that fail. The first baseline is preserved before any prompt is changed, and failures are classified before they are tuned.</div></div>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">09 · Observability &amp; scaling</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px">
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:10px">Per run</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;color:#F2F4F1;marginBottom:9px">What gets recorded</div><div style="font-size:13.5px;line-height:1.6;color:#9AA09B">Tokens, cost, latency, every tool call and every rejected output, stored with the run so a recommendation can be traced back to what produced it.</div></div>
+      <div style="border:1px solid rgba(255,255,255,0.09);borderRadius:16px;background:#0C0E0F;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:10px">As the portfolio grows</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px;color:#F2F4F1;marginBottom:9px">What scales, and what does not</div><div style="font-size:13.5px;line-height:1.6;color:#9AA09B">The deterministic scan grows with the number of accounts. The model's work stays bounded by the shortlist and the recommendation cap.</div></div>
+    </div>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letterSpacing:0.14em;text-transform:uppercase;color:#C6F24E;marginBottom:16px">10 · Production extension</div>
+    <div style="border:1px solid #8E958D59;borderRadius:20px;background:#8E958D12;padding:26px;marginBottom:22px"><div style="display:flex;align-items:center;gap:9px;font-family:'JetBrains Mono',monospace;font-size:10.5px;letterSpacing:0.1em;text-transform:uppercase;color:#8E958D;marginBottom:12px"><span style="width:7px;height:7px;borderRadius:999px;background:#8E958D;display:inline-block"></span>Not implemented in the synthetic demo</div><div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;color:#F2F4F1;marginBottom:10px">Production integration path</div><div style="font-size:14.5px;line-height:1.65;color:#B7BDB6;max-width:780px">Where this would plug into a real stack: HubSpot for accounts and approved tasks, Shopify and Klaviyo event streams as signal sources, n8n for scheduling, Slack for delivering the daily shortlist, Metabase for the underlying metrics, and MCP to expose the same read-only tools to other agents. Listed to show the design intent, not as work that exists.</div></div>
+  </div>
+
+  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 72px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
+      <a href="case-career-agent.html" style="border:1px solid rgba(255,255,255,0.09);borderRadius:18px;background:#0C0E0F;padding:24px;display:block" style-hover="border:1px solid rgba(198,242,78,0.35)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#6F756E;marginBottom:9px">Next case</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;color:#F2F4F1">Career Agent</div>
+      </a>
+      <a href="mailto:contato@thaisholanda.com" style="border:1px solid rgba(198,242,78,0.25);borderRadius:18px;background:linear-gradient(150deg,rgba(198,242,78,0.10),rgba(198,242,78,0.02));padding:24px;display:block" style-hover="border:1px solid rgba(198,242,78,0.5)">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letterSpacing:0.1em;text-transform:uppercase;color:#C6F24E;marginBottom:9px">Talk about it</div>
+        <div style="font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:19px;color:#F2F4F1">contato@thaisholanda.com</div>
+      </a>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<!-- Cloudflare Web Analytics -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"ea612ad2de7d4fd8b68e2578ae50ca27"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>
