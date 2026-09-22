@@ -1,4 +1,4 @@
-# Thaís Holanda — AI Systems & Automation Engineer Portfolio
+# Thaís Holanda | AI Systems & Automation Engineer Portfolio
 
 I build AI agents and internal systems on top of business software, APIs, workflows and data. This portfolio brings together two AI system case studies, five production case studies and my professional experience.
 
