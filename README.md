@@ -1,3 +1,5 @@
+[![The Desk: Thaís Holanda's portfolio. Seven systems, each one a folder with the real numbers inside.](.github/assets/the-desk-cover.webp)](https://thais-stephanie.github.io/portfolio/)
+
 # Thaís Holanda | AI Systems & Automation Engineer Portfolio
 
 I build AI agents and internal systems on top of business software, APIs, workflows and data. This portfolio brings together two AI system case studies, five production case studies, a detailed experience page and an honest map of every technology I've worked with, and how deeply.
