@@ -1,6 +1,6 @@
 # Thaís Holanda | AI Systems & Automation Engineer Portfolio
 
-I build AI agents and internal systems on top of business software, APIs, workflows and data. This portfolio brings together two AI system case studies, five production case studies and my professional experience.
+I build AI agents and internal systems on top of business software, APIs, workflows and data. This portfolio brings together two AI system case studies, five production case studies, a detailed experience page and an honest map of every technology I've worked with, and how deeply.
 
 The AI case studies explain how deterministic logic, tool-using agents, evaluations and guardrails divide the work, including the evaluations still in progress. The production case studies explain the operational problem, the system constraints, my role, the implementation and the outcomes. I use this space to make the reasoning behind my work as visible as the results.
 
@@ -8,28 +8,33 @@ The AI case studies explain how deterministic logic, tool-using agents, evaluati
 
 ## Architecture
 
-I keep the portfolio static and portable: HTML, CSS and JavaScript, hosted on GitHub Pages. Fonts and rendering dependencies are bundled locally, so browsing does not depend on third-party APIs or CDNs.
+I keep the portfolio static and portable: HTML, CSS and JavaScript, hosted on GitHub Pages. Fonts, tool icons and rendering dependencies are bundled locally, so browsing does not depend on third-party APIs or CDNs.
+
+The visual system is "The Desk": an off-white editorial layout with Bricolage Grotesque headlines, Instrument Sans body text, Caveat for a handful of handwritten notes, and one pastel accent per case study.
 
 Runtime infrastructure cost: $0
 
-There is no backend, database, authentication or required environment configuration. JavaScript is required for rendering and the homepage language switch. The homepage is available in English and Portuguese; the case studies are currently in English.
+There is no backend, database, authentication or required environment configuration. JavaScript is required for rendering; without it, each page shows a short fallback with the CV and email. The site is in English.
 
 ## Visitor analytics
 
-I use free Cloudflare Web Analytics to understand visits, page views and which case studies attract interest. Its script is installed on the homepage and every case-study page. Analytics is independent of the portfolio: blocking the script or a service outage does not prevent browsing.
+I use free Cloudflare Web Analytics to understand visits, page views and which case studies attract interest. Its script is installed on the homepage, the experience page and every case-study page. Analytics is independent of the portfolio: blocking the script or a service outage does not prevent browsing.
 
 The beacon token in the HTML is a public site identifier, not an API credential. No private key is required. Reports are available in my Cloudflare account under **Analytics → Web analytics → thais-stephanie.github.io**. To remove analytics, remove the marked Cloudflare Web Analytics script block from each HTML page.
 
 ## Repository structure
 
-- `public/index.html` — homepage, experience, technologies and contact information.
+- `public/index.html` — homepage: hero desk, the seven systems, recommendations, technology depth, career summary and contact.
+- `public/experience.html` — the detailed career: chapters, the Teem systems, everything I've built, searchable technology by depth, credentials, education and languages.
 - `public/case-dtc-revenue-agent.html`, `public/case-career-agent.html` — AI system case studies.
 - `public/case-*.html` (the other five) — production case studies.
-- `public/assets/` — project visuals, my portrait and downloadable CV.
+- `public/tech-data.js` — single source of truth for the technology history and its depth levels, read by both the homepage and the experience page.
+- `public/assets/` — project visuals, my portrait, tool icons (`icons/`, from Simple Icons, CC0) and downloadable CV.
 - `public/support.js` — rendering runtime.
 - `public/vendor/` — locally bundled libraries, fonts and their license notices.
+- `public/desk.css` — shared base styles (colours, links, focus, reduced motion).
 - `public/responsive.css` — small-screen layout adjustments.
-- `prepare.mjs` — page preparation and local reference validation.
+- `prepare.mjs` — validation: local files, cross-page anchors, required metadata and analytics, no CDN dependencies.
 - `.github/workflows/pages.yml` — GitHub Pages deployment.
 
 ## Local preview and validation
@@ -42,16 +47,17 @@ python -m http.server 8000 --directory public
 
 Then open `http://localhost:8000`.
 
-To validate local references and check the rendering runtime syntax, use Node.js:
+To validate references, anchors and metadata, and check the scripts' syntax, use Node.js:
 
 ```sh
 node prepare.mjs
 node --check public/support.js
+node --check public/tech-data.js
 ```
 
 ## Updating the portfolio
 
-I maintain the page content in the corresponding HTML files. Asset paths are relative, so the same directory structure works locally and on GitHub Pages. To update my CV, I replace the PDF in `public/assets/` while keeping its filename, or update the download links if the filename changes.
+I maintain the page content in the corresponding HTML files. Asset paths are relative, so the same directory structure works locally and on GitHub Pages. Technologies live in `public/tech-data.js`; adding an entry there makes it appear on both pages. To update my CV, I replace `public/assets/Thais-Holanda-AI-Agent-Automation-Engineer.pdf` while keeping its filename. The older filename, `Thais-Holanda-Senior-Solutions-Engineer-Architect.pdf`, is kept as a copy of the current CV so existing links keep working.
 
 Changes pushed to `main` trigger GitHub Actions, which validates the pages and publishes `public` to GitHub Pages. The same folder can also be served by another static host.
 

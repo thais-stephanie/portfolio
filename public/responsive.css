@@ -1,9 +1,58 @@
-/* Preserve the supplied desktop design; stack editorial columns on phones. */
-@media (max-width: 700px) {
-  div[style*="grid-template-columns"] { grid-template-columns: minmax(0, 1fr) !important; }
-  div[style*="min-width: 640px"] { min-width: 0 !important; }
-  div[style*="display: grid"] > *, div[style*="display: flex"] > * { min-width: 0; }
-  a[href="#top"] { flex-shrink: 0; width: 86px; overflow-wrap: normal; }
-  img { max-width: 100%; height: auto; }
-  p, h1, h2, h3, a { overflow-wrap: anywhere; }
+/* Small-screen adjustments for The Desk. Desktop layout lives inline in each template;
+   these rules only re-flow components whose fixed columns don't fit a phone. */
+img{max-width:100%}
+
+/* Experience chapters: the body spans two columns on wide screens; once the grid is a single column it must not. */
+@media (max-width:720px){
+  .ch-body{grid-column:auto!important}
+}
+
+@media (max-width:700px){
+  /* 16px gutters instead of 32px on every page container */
+  [style*="max-width: 1240px"],[style*="max-width:1240px"]{padding-left:16px!important;padding-right:16px!important}
+  /* Nav: name + primary pill on the first row, section links on a second row that scrolls sideways if it must */
+  .nav-bar{position:relative;padding-top:10px!important;padding-bottom:10px!important;row-gap:8px!important;min-height:36px}
+  .nav-links{width:100%;flex-wrap:nowrap!important;gap:16px!important;font-size:14.5px!important;overflow-x:auto;scrollbar-width:none;padding:2px 0}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links>*{flex-shrink:0}
+  .nav-links>a[href$="#contact"],.nav-links>a[href$=".pdf"]{position:absolute;right:16px;top:10px}
+  .cases-menu{position:fixed!important;top:92px!important;left:16px!important;right:16px!important;width:auto!important;max-width:none!important}
+
+  /* Hero desk: same composition, scaled to the phone rather than squeezed */
+  .desk{padding-top:8px!important}
+  .desk-top{height:282px!important}
+  .polaroid{width:228px!important;padding:10px 10px 40px!important}
+  .polaroid figcaption{font-size:20px!important;bottom:8px!important}
+  .note{width:184px!important;top:84px!important;padding:13px 14px!important}
+  .note>div:last-child{font-size:14px!important}
+  .folders{flex-wrap:nowrap!important;gap:8px!important}
+  .folders>button>span:first-child{width:60px!important;height:47px!important}
+  .folders>button>span:last-child{white-space:normal!important;width:62px;text-align:center;line-height:1.2;font-size:13px!important}
+
+  /* Career Agent: product screenshots stay legible (scroll sideways) instead of shrinking to thumbnails */
+  .shot-frame{overflow-x:auto!important;-webkit-overflow-scrolling:touch}
+  .shot-frame img{width:760px!important;max-width:none!important}
+  .proof-strip{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:24px 16px!important}
+
+  /* Home: path rows, "also in production" rows, requisition lanes and time bars */
+  .path-row{grid-template-columns:minmax(0,1fr)!important;gap:6px!important}
+  .more-row{grid-template-columns:minmax(0,1fr)!important;gap:8px!important}
+  .more-row>:last-child{text-align:left!important}
+  .lane{grid-template-columns:minmax(0,1fr)!important;gap:10px!important}
+  .time-bar{grid-template-columns:52px minmax(0,1fr) auto!important;gap:10px!important}
+
+  /* Experience: labelled chapter rows stack label over content */
+  .ch-row{grid-template-columns:minmax(0,1fr)!important;gap:4px!important}
+  .sys-row{grid-template-columns:26px minmax(0,1fr) 16px!important;gap:6px 10px!important;padding:14px 16px!important}
+  .sys-row>:nth-child(3){grid-column:2;grid-row:2}
+  .sys-row>:nth-child(4){grid-column:3;grid-row:1}
+  .sys-detail{padding:0 16px 18px 52px!important}
+  .built-row{grid-template-columns:30px minmax(0,1fr)!important;gap:6px 12px!important}
+  .built-row>:nth-child(n+3){grid-column:2}
+  .tech-row{grid-template-columns:minmax(0,1fr) 16px!important;gap:6px 12px!important}
+  .tech-row>:nth-child(-n+4){grid-column:1}
+  .tech-row>:nth-child(5){grid-column:2;grid-row:1}
+  .cert-row{grid-template-columns:minmax(0,1fr) auto!important;gap:2px 12px!important}
+  .cert-row>:nth-child(3){grid-column:2;grid-row:1}
+  .cert-row>:nth-child(2),.cert-row>:nth-child(4){grid-column:1}
 }
