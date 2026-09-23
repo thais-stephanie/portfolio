@@ -23,7 +23,7 @@ for (const file of pages) {
     if (html.includes(banned)) errors.push(`${file}: still references ${banned}`);
   for (const m of html.matchAll(/(?:src|href)="([^"{}]+)"/g)) {
     const ref = m[1];
-    if (/^(https?:|mailto:)/.test(ref)) continue;
+    if (/^(https?:|mailto:|tel:)/.test(ref)) continue;
     const [path, frag] = ref.split('#');
     if (path && !existsSync(new URL(path, root))) { errors.push(`${file}: missing ${path}`); continue; }
     if (!path || path.endsWith('.html')) checkFragment(file, path || file, frag);
