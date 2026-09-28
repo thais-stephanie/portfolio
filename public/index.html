@@ -600,7 +600,7 @@ const FOLDERS = [
   { k: 'held', label: 'not shipped', tab: '#EFC1B2', body: '#F8D9CF', rot: -2.5 }
 ];
 const SHEETS = {
-  billing: { color: '#CFE3F5', kicker: 'billing · HubSpot ↔ Stripe ↔ n8n', title: 'Finance stopped operating billing and started auditing it.', metric: '60–80 → 1–3', metricLabel: 'tickets a week', decision: 'build the contract-to-billing reconciliation that did not exist. Its first sweep found 157 issues.', anchor: '#case-billing' },
+  billing: { color: '#CFE3F5', kicker: 'billing · HubSpot ↔ Stripe ↔ n8n', title: 'Finance stopped operating billing and started auditing it.', metric: '60–80 → 2–3', metricLabel: 'tickets a week', decision: 'build the contract-to-billing reconciliation that did not exist. Its first sweep found 157 issues.', anchor: '#case-billing' },
   revenue: { color: '#F6EAB0', kicker: 'revenue · Power BI over five systems', title: 'One traceable number, where there used to be five fragments.', metric: '307', metricLabel: 'data quality findings, documented', decision: 'each month opens where the last one closed, so every figure points at a movement, a ticket and a contract.', anchor: '#case-revenue' },
   agents: { color: '#DCD6F7', kicker: 'ai agents · Claude, tool calling, evals', title: 'An agent that investigates, but can’t write.', metric: '0', metricLabel: 'write tools given to the agent', decision: 'deterministic signals pick the shortlist. Claude investigates through read-only tools, and a human approves anything that changes a record.', anchor: '#case-agents' },
   career: { color: '#E7E3FA', kicker: 'career agent · local-first, public alpha', title: 'Which jobs actually make sense for this person, and why.', metric: '7,232', metricLabel: 'tests on the release build', decision: 'model output never becomes confirmed experience. The candidate confirms or rejects every claim.', anchor: '#case-career' },
@@ -760,7 +760,7 @@ class Component extends DCLogic {
 
       shotTabs, shot: SHOTS[s.shot], isShot0: s.shot === 0, isShot1: s.shot === 1, isShot2: s.shot === 2, isShot3: s.shot === 3,
 
-      squares, billCount: after ? '1–3' : '60–80', billLabel: after ? 'exceptions a week' : 'tickets a week',
+      squares, billCount: after ? '2–3' : '60–80', billLabel: after ? 'exceptions a week' : 'tickets a week',
       billBefore: () => this.setState({ bill: 'before' }), billAfter: () => this.setState({ bill: 'after' }),
       billIsBefore: !after, billIsAfter: after, billBgBefore: pill(!after), billBgAfter: pill(after),
 
