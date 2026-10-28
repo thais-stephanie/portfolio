@@ -2,9 +2,9 @@
 
 # Thaís Holanda | AI Systems & Automation Engineer Portfolio
 
-I build AI agents and internal systems on top of business software, APIs, workflows and data. This portfolio brings together two AI system case studies, five production case studies, a detailed experience page and an honest map of every technology I've worked with, and how deeply.
+I build AI agents and internal systems on top of business software, APIs, workflows and data. This portfolio brings together a production AI agent, three AI prototypes, five production case studies, a detailed experience page and an honest map of every technology I've worked with, and how deeply.
 
-The AI case studies explain how deterministic logic, tool-using agents, evaluations and guardrails divide the work, including the evaluations still in progress. The production case studies explain the operational problem, the system constraints, my role, the implementation and the outcomes. I use this space to make the reasoning behind my work as visible as the results.
+The AI case studies explain how deterministic logic, tool-using agents, evaluations and guardrails divide the work, and which results are production evidence and which come from synthetic data. The production case studies explain the operational problem, the system constraints, my role, the implementation and the outcomes. I use this space to make the reasoning behind my work as visible as the results.
 
 **[Explore my portfolio](https://thais-stephanie.github.io/portfolio/)**
 
@@ -28,7 +28,8 @@ The beacon token in the HTML is a public site identifier, not an API credential.
 
 - `public/index.html` — homepage: hero desk, the seven systems, recommendations, technology depth, career summary and contact.
 - `public/experience.html` — the detailed career: chapters, the Teem systems, everything I've built, searchable technology by depth, credentials, education and languages.
-- `public/case-dtc-revenue-agent.html`, `public/case-career-agent.html` — AI system case studies.
+- `public/case-revenue-assurance-agent.html` — the Claude agent in production on billing exceptions at Teem.
+- `public/case-career-agent.html`, `public/case-dtc-revenue-agent.html`, `public/case-revenue-radar.html` — AI system case studies (personal projects).
 - `public/case-*.html` (the other five) — production case studies.
 - `public/tech-data.js` — single source of truth for the technology history and its depth levels, read by both the homepage and the experience page.
 - `public/assets/` — project visuals, my portrait, tool icons (`icons/`, from Simple Icons, CC0) and downloadable CV.

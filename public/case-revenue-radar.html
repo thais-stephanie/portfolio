@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revenue Radar · Thaís Holanda</title>
+<meta name="description" content="A synthetic-data RevOps prototype that retrieves cited evidence with hybrid search, lets a deterministic policy decide what may be proposed, and binds every human approval to a proposal hash. Thaís Holanda was product owner and architect; Claude Code wrote most of the code under her direction.">
+<link rel="canonical" href="https://thais-stephanie.github.io/portfolio/case-revenue-radar.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Thaís Holanda">
+<meta property="og:title" content="Revenue Radar · Thaís Holanda">
+<meta property="og:description" content="A RevOps review queue on synthetic data. Hybrid retrieval with cited evidence, a deterministic policy gate, and human approval bound to a proposal hash. Execution is simulated.">
+<meta property="og:url" content="https://thais-stephanie.github.io/portfolio/case-revenue-radar.html">
+<meta property="og:image" content="https://thais-stephanie.github.io/portfolio/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="hi, i'm thaís. i make business systems talk to each other. AI Systems &amp; Automation Engineer.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="./favicon-192.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="stylesheet" href="./vendor/fonts.css">
+<link rel="stylesheet" href="./desk.css">
+<link rel="stylesheet" href="./responsive.css">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="background:#F7F5F1;color:#1B1A19;min-height:100vh;overflow-x:clip">
+
+<a href="#main" class="skip-link">skip to content</a>
+  <header style="position:sticky;top:0;z-index:40;background:rgba(247,245,241,0.96);border-bottom:1px solid #E4E0D8">
+    <div class="nav-bar" style="max-width:1240px;margin:0 auto;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+      <a href="index.html" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;text-decoration:none;letter-spacing:-0.01em">thaís holanda</a>
+      <nav aria-label="Main" class="nav-links" style="display:flex;gap:22px;font-size:15px;flex-wrap:wrap;align-items:center">
+        <a href="index.html#case-prototypes" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:2px;background:#DCD6F7;display:inline-block"></span>← all cases</a>
+        <a href="experience.html" style="text-decoration:none">experience</a>
+        <a href="index.html#contact" style="text-decoration:none;padding:7px 14px;border-radius:999px;background:#1B1A19;color:#F7F5F1" style-hover="background:#34322F;color:#F7F5F1">contact</a>
+      </nav>
+    </div>
+  </header>
+<main id="main">
+
+  <section aria-labelledby="page-title" style="max-width:1000px;margin:0 auto;padding:64px 24px 0">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px">
+      <span style="padding:5px 11px;border-radius:999px;background:#F3F0FB;color:#4B3F8C;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase">Personal prototype · synthetic data</span>
+      <span style="padding:5px 11px;border-radius:999px;border:1px solid #E4E0D8;color:#5F5B55;font-size:12.5px">Python · SQLite FTS5 · NumPy · DeepSeek · Anthropic API · Claude Code</span>
+    </div>
+    <h1 id="page-title" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(32px,5.4vw,58px);line-height:1.02;letter-spacing:-0.035em;margin:0 0 20px;text-wrap:pretty">Account decisions for RevOps, with cited evidence, a policy gate and a person approving every action</h1>
+    <p style="font-size:18px;line-height:1.6;color:#34322F;max-width:780px;margin:0 0 16px;text-wrap:pretty">Revenue Radar is a portfolio prototype I designed and directed. It joins CRM, marketing, store, billing and contract data for synthetic accounts, retrieves cited evidence with hybrid search, and lets a deterministic policy decide which action may be proposed. A person approves every action, and the approval is bound to the exact proposal it approved. Execution is simulated. Running an action writes one row to a local outbox.</p>
+    <p style="font-size:18px;line-height:1.6;color:#4A4743;max-width:780px;margin:0 0 30px;text-wrap:pretty">All accounts, people and figures in the prototype are invented, and the interface says so on every screen. The numbers below come from the repository's evaluation reports, test runs and decision record, and none of them is a business result. Model costs are calculated from provider-reported token usage.</p>
+    <dl style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;padding:22px 0;margin:0;border-top:1px solid #E4E0D8;border-bottom:1px solid #E4E0D8">
+      <div><dt style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6962;margin-bottom:7px">Role</dt><dd style="margin:0;font-size:14px">Product owner and architect</dd></div>
+      <div><dt style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6962;margin-bottom:7px">Data</dt><dd style="margin:0;font-size:14px">Synthetic only</dd></div>
+      <div><dt style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6962;margin-bottom:7px">Release</dt><dd style="margin:0;font-size:14px">Public prototype, MIT licence</dd></div>
+      <div><dt style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6962;margin-bottom:7px">Repository</dt><dd style="margin:0;font-size:14px;overflow-wrap:anywhere"><a href="https://github.com/thais-stephanie/revenue-radar">github.com/thais-stephanie/revenue-radar</a></dd></div>
+    </dl>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:1px;background:#E4E0D8;border:1px solid #E4E0D8;border-radius:18px;overflow:hidden;margin-top:32px">
+      <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.03em;line-height:1.05;white-space:nowrap">0</div><div style="font-size:13px;color:#5F5B55;margin-top:8px;line-height:1.45">critical blocks missed in any evaluated split</div></div>
+      <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.03em;line-height:1.05;white-space:nowrap">53 cases</div><div style="font-size:13px;color:#5F5B55;margin-top:8px;line-height:1.45">in the demo data, from 163 export files across five systems</div></div>
+      <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.03em;line-height:1.05;white-space:nowrap">1.00 vs 0.44</div><div style="font-size:13px;color:#5F5B55;margin-top:8px;line-height:1.45">holdout interpretation, model reader against rules; the reader stays disabled</div></div>
+      <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.03em;line-height:1.05;white-space:nowrap">21 / 60</div><div style="font-size:13px;color:#5F5B55;margin-top:8px;line-height:1.45">model narratives accepted against a 0.80 threshold</div></div>
+      <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.03em;line-height:1.05;white-space:nowrap">about $0.14</div><div style="font-size:13px;color:#5F5B55;margin-top:8px;line-height:1.45">for four paid model runs, calculated from usage</div></div>
+      <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.03em;line-height:1.05;white-space:nowrap">118 tests</div><div style="font-size:13px;color:#5F5B55;margin-top:8px;line-height:1.45">in Revenue Radar, passing on a clean clone</div></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-problem" style="max-width:1000px;margin:0 auto;padding:72px 24px 0">
+    <div style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:#4B3F8C;margin-bottom:12px">01 · The problem it models</div>
+    <h2 id="s-problem" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(26px,3vw,34px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 20px;max-width:760px">Five systems describe each customer, and they disagree</h2>
+    <div style="max-width:760px">
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 16px;text-wrap:pretty">The prototype imagines a direct-mail marketing platform that serves ecommerce brands. Account managers, billing operations and RevOps analysts work one portfolio from a CRM workbook, marketing, store and billing exports, and a corpus of contracts, amendments and notes.</p>
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 26px;text-wrap:pretty">Before anyone acts, the team has to know which accounts need attention, what evidence explains the situation, and which action that evidence can justify. Revenue Radar answers all three in one queue, ordered by urgency.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;margin-bottom:32px">
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 10px">Usage drops</h3>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">A drop can be a planned pause, a budget review, a failed card or real churn. The numbers alone cannot tell them apart, and a note usually can.</p>
+      </div>
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 10px">Billing differences</h3>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">An invoice that differs from contract price times mailed pieces can be a signed discount, an expired one, a credit memo or an error. The answer sits in a document in force on the right date.</p>
+      </div>
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 10px">Expansion signals</h3>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">A cart-recovery or win-back gap looks like an upsell. It counts as one only if nothing in the customer's records rules it out and the store's attribution agrees with the revenue behind it.</p>
+      </div>
+    </div>
+    <div style="border-left:3px solid #DCD6F7;padding-left:20px;max-width:760px">
+      <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;margin:0 0 12px">The failure that set the requirements</h3>
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 14px;text-wrap:pretty">An early version of the rules read a customer note asking the team not to launch anything new before January. No rule matched, so the expansion stayed open for review instead of being blocked. Three other paraphrased misses in the same holdout failed safe, because the system abstained. This one looked like a clearance.</p>
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty">From then on I treated an empty rule result as a statement about the rule. A person reads each record before an expansion can move.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-arch" style="max-width:1000px;margin:0 auto;padding:72px 24px 0">
+    <div style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:#4B3F8C;margin-bottom:12px">02 · Architecture</div>
+    <h2 id="s-arch" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(26px,3vw,34px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 20px;max-width:760px">Facts, evidence, readings and proposals stay in separate layers</h2>
+    <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:760px;margin:0 0 26px;text-wrap:pretty">Code computes the facts. Retrieval returns evidence cited by chunk, document version and character offsets. Fixed readers turn that evidence into hypotheses, and rules choose a proposal. The policy reads only the hypotheses.</p>
+    <ol aria-label="Decision flow" style="list-style:none;margin:0 0 28px;padding:0;display:flex;flex-wrap:wrap;gap:9px;align-items:center">
+      <li style="display:flex;align-items:center;gap:9px"><span style="padding:9px 14px;border-radius:10px;background:#FFFFFF;border:1px solid #E4E0D8;font-size:13.5px;color:#34322F">Ingest exports from five systems</span><span aria-hidden="true" style="color:#6E6962">→</span></li>
+      <li style="display:flex;align-items:center;gap:9px"><span style="padding:9px 14px;border-radius:10px;background:#FFFFFF;border:1px solid #E4E0D8;font-size:13.5px;color:#34322F">Resolve identity</span><span aria-hidden="true" style="color:#6E6962">→</span></li>
+      <li style="display:flex;align-items:center;gap:9px"><span style="padding:9px 14px;border-radius:10px;background:#FFFFFF;border:1px solid #E4E0D8;font-size:13.5px;color:#34322F">Detect cases</span><span aria-hidden="true" style="color:#6E6962">→</span></li>
+      <li style="display:flex;align-items:center;gap:9px"><span style="padding:9px 14px;border-radius:10px;background:#FFFFFF;border:1px solid #E4E0D8;font-size:13.5px;color:#34322F">Retrieve cited evidence</span><span aria-hidden="true" style="color:#6E6962">→</span></li>
+      <li style="display:flex;align-items:center;gap:9px"><span style="padding:9px 14px;border-radius:10px;background:#FFFFFF;border:1px solid #E4E0D8;font-size:13.5px;color:#34322F">Read with fixed rules</span><span aria-hidden="true" style="color:#6E6962">→</span></li>
+      <li style="display:flex;align-items:center;gap:9px"><span style="padding:9px 14px;border-radius:10px;background:#F3F0FB;border:1px solid #C5BCF0;font-size:13.5px;color:#1B1A19;font-weight:600">Policy gate</span><span aria-hidden="true" style="color:#6E6962">→</span></li>
+      <li style="display:flex;align-items:center;gap:9px"><span style="padding:9px 14px;border-radius:10px;background:#F3F0FB;border:1px solid #C5BCF0;font-size:13.5px;color:#1B1A19;font-weight:600">Human approval bound to the proposal hash</span><span aria-hidden="true" style="color:#6E6962">→</span></li>
+      <li style="display:flex;align-items:center;gap:9px"><span style="padding:9px 14px;border-radius:10px;background:#FFFFFF;border:1px solid #E4E0D8;font-size:13.5px;color:#34322F">Simulated execution to a local outbox</span></li>
+    </ol>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-bottom:24px">
+      <div style="border:1px solid #C5BCF0;border-radius:16px;background:#F3F0FB;padding:24px">
+        <div style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#4B3F8C;margin-bottom:6px">Runs offline</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;margin:0 0 14px">The deterministic pipeline</h3>
+        <ul style="margin:0;padding:0 0 0 18px;display:grid;gap:8px;font-size:14.5px;line-height:1.5;color:#34322F">
+          <li>163 export files across five systems, with quarantine and data-quality checks</li>
+          <li>Identity resolved by registrable domain; ambiguous matches wait for a person</li>
+          <li>Usage drops, billing differences net of credits, and growth gaps, for 53 cases in the demo data</li>
+          <li>Store revenue, marketing spend and platform revenue kept as separate measures</li>
+        </ul>
+      </div>
+      <div style="border:1px solid #C5BCF0;border-radius:16px;background:#F3F0FB;padding:24px">
+        <div style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#4B3F8C;margin-bottom:6px">Checked again at execution</div>
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;margin:0 0 14px">Approval bound to the proposal</h3>
+        <p style="font-size:14.5px;line-height:1.55;color:#34322F;margin:0 0 10px">An approval stores the hash of the exact proposal it approved. If a review reopens, the evidence changes or the proposal changes, the approval stops applying and execution is refused until someone approves the current version.</p>
+        <p style="font-size:14.5px;line-height:1.55;color:#34322F;margin:0">The policy and the restriction register run again at the moment of execution.</p>
+      </div>
+    </div>
+    <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:760px;margin:0;text-wrap:pretty">The review interface shows one account per screen, with a four-step decision panel (check the numbers, read the notes, approve, run) and one primary action per state. Every number and state in it comes from the server.</p>
+  </section>
+
+  <section aria-labelledby="s-retrieval" style="max-width:1000px;margin:0 auto;padding:72px 24px 0">
+    <div style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:#4B3F8C;margin-bottom:12px">03 · Retrieval and citations</div>
+    <h2 id="s-retrieval" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(26px,3vw,34px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 20px;max-width:760px">Every reading cites the characters it came from</h2>
+    <div style="max-width:760px">
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 16px;text-wrap:pretty">Search fuses BM25 lexical results from SQLite FTS5 with LSA vectors computed locally in NumPy, combined by reciprocal rank. Access filters are evaluated inside the ranking SQL. Each search gets one bounded reformulation, and after that the system abstains.</p>
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 16px;text-wrap:pretty">A cited passage opens in its source with the exact characters marked. Each reading shows its status and basis, so a reviewer can tell a rule reading from a calculated figure, a human interpretation and a policy decision.</p>
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 26px;text-wrap:pretty">Retrieval found the relevant chunk in its top results on every development and holdout case, and isolation probes returned no text from another account.</p>
+    </div>
+    <h3 style="font-size:12.5px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:#5F5B55;margin:0 0 6px">Data rules behind the evidence</h3>
+    <ul style="margin:0;padding:0;list-style:none;border-top:1px solid #E4E0D8;max-width:860px">
+      <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F"><span style="color:#1B1A19;font-weight:600">Point in time.</span> Usage is replayed at the investigation date. Store facts have no history, so the system refuses a historical expansion instead of answering it with today's numbers.</li>
+      <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F"><span style="color:#1B1A19;font-weight:600">Scope.</span> A restriction can cover new campaigns, budget increases, all mail or another channel. A restriction on text messages leaves mail open.</li>
+      <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F"><span style="color:#1B1A19;font-weight:600">Reconciliation apart from billing.</span> Atlas &amp; Ivy, one demo account, reports 82% more mail revenue than the store credits. I classify that as a measurement dispute, and it blocks expansion on its own.</li>    </ul>
+  </section>
+
+  <section aria-labelledby="s-eval" style="max-width:1000px;margin:0 auto;padding:72px 24px 0">
+    <div style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:#4B3F8C;margin-bottom:12px">04 · Evaluation</div>
+    <h2 id="s-eval" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(26px,3vw,34px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 20px;max-width:760px">I measured retrieval, interpretation and claim support separately</h2>
+    <div style="max-width:760px">
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 16px;text-wrap:pretty">A classifier that quotes a note verbatim proves the words exist. Whether retrieval found the right documents, and whether the quote supports the conclusion, are separate questions, and each one got its own measurement.</p>
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 26px;text-wrap:pretty">Before every paid evaluation I froze the cases, the criteria, the prompt and the validator by hash, and after the first failure, the exact effective request too. Post-hoc fixes carry a post-hoc label and never replace the official result.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px;margin-bottom:32px">
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 4px">Model document reader</h3>
+        <div style="font-size:12.5px;color:#6E6962;margin-bottom:10px">holdout result, criteria not met, disabled</div>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">Interpretation reached 1.00 against 0.44 for the rules, and whole-claim support 0.80 against 0.50. Unrecognized restrictions fell from 5 to 1 and undue blocks from 2 to 1. The pass criteria were not met, so the reader stays disabled.</p>
+      </div>
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 4px">Evidence-based narrative</h3>
+        <div style="font-size:12.5px;color:#6E6962;margin-bottom:10px">official result failed, deterministic narrative by default</div>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">The validator accepted 21 of 60 model narratives against a 0.80 threshold and rejected 39, mostly over numbers. A post-hoc diagnostic found no invented figures and no non-verbatim quotes. Nobody reviewed meaning, so the narrative has no semantic approval, and the deterministic narrative stays the default.</p>
+      </div>
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 4px">Rules-only reader</h3>
+        <div style="font-size:12.5px;color:#6E6962;margin-bottom:10px">misses paraphrased records</div>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">The review register catches every miss, and the interpretation and claim-support criteria remain unmet. On one holdout case the rules read "no new campaigns were needed" as a restriction, and the results count it as an undue block.</p>
+      </div>
+    </div>
+    <div style="border-left:3px solid #DCD6F7;padding-left:20px;max-width:760px">
+      <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;margin:0 0 12px">A failed run I first recorded as pending</h3>
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 14px;text-wrap:pretty">The first paid narrative run delivered 0 of 60 model narratives. The provider transport appended the document reader's JSON example to every system prompt, so every reply came back in the wrong format, and the frozen hashes covered the prompt without the request actually sent. I first recorded the run as review pending, then corrected it to a failed run caused by a pipeline defect and left the correction visible. The fix froze the effective request, made the cache key equal to it, and added a test that inspects the real payload.</p>
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty">Later, a diagnostic found two validator defects. It knew "blocked" and rejected "blocking", and it rejected values written with a currency sign or a unit. Fixing both offline moves the result from 21 to 24 of 60. I proposed the fix and left it unapplied, because it would change a frozen hash, and a fix measured on replies I had already read is no evidence about the next run.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-guard" style="max-width:1000px;margin:0 auto;padding:72px 24px 0">
+    <div style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:#4B3F8C;margin-bottom:12px">05 · Guardrails</div>
+    <h2 id="s-guard" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(26px,3vw,34px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 20px;max-width:760px">Failures block, and a model can only add caution</h2>
+    <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:760px;margin:0 0 26px;text-wrap:pretty">My design target was that no text, rule or model could release a block on its own. Every retrieval or provider failure fails closed.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-bottom:32px">
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 4px">Fail closed</h3>
+        <div style="font-size:12.5px;color:#6E6962;margin-bottom:10px">missing or failed means blocked</div>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">Missing evidence, an unread customer record and a failed retrieval all block. The policy also blocks on overdue billing, reconciliation exceptions, stale or unlinked store data, pending identity matches and confirmed restrictions.</p>
+      </div>
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 4px">Restriction register</h3>
+        <div style="font-size:12.5px;color:#6E6962;margin-bottom:10px">the burden is to prove there is none</div>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">Every recent note and every contract in force enters a persisted register. An expansion stays blocked while any applicable record is unreviewed, any reading is pending or any restriction is confirmed.</p>
+      </div>
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 4px">Instructions inside retrieved text</h3>
+        <div style="font-size:12.5px;color:#6E6962;margin-bottom:10px">held back and shown as text</div>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">Retrieved text cannot change the role, the account filter, the tools or the gate. Passages with instructions aimed at the system are held back and shown only as text.</p>
+      </div>
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 4px">Models add caution only</h3>
+        <div style="font-size:12.5px;color:#6E6962;margin-bottom:10px">a block can be added, never removed</div>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">A model reading can add a hypothesis, a conflict or a block. It can never release, silence or authorize anything.</p>
+      </div>
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 4px">Spend caps</h3>
+        <div style="font-size:12.5px;color:#6E6962;margin-bottom:10px">one persistent budget, command line only</div>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">Paid calls run only from the command line, behind a confirmation of maximum spend and one budget shared by the reader, the narrative and the agent loop. Each attempt is reserved at its worst-case cost before it is sent. The interface never makes a paid call.</p>
+      </div>
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 4px">Audit log</h3>
+        <div style="font-size:12.5px;color:#6E6962;margin-bottom:10px">append-only, enforced by SQLite triggers</div>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">Review events go into append-only event stores. A source project had two approval paths that contradicted each other, and Revenue Radar keeps only the persisted one.</p>
+      </div>
+    </div>
+    <h3 style="font-size:12.5px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:#5F5B55;margin:0 0 14px">Four paid runs, each authorized once with a cap</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:1px;background:#E4E0D8;border:1px solid #E4E0D8;border-radius:18px;overflow:hidden">
+      <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;letter-spacing:-0.02em">$0.0111</div><div style="font-size:13px;color:#5F5B55;margin-top:7px;line-height:1.45">first document-reader evaluation</div></div>
+      <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;letter-spacing:-0.02em">$0.0193</div><div style="font-size:13px;color:#5F5B55;margin-top:7px;line-height:1.45">second document-reader evaluation</div></div>
+      <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;letter-spacing:-0.02em">$0.0428</div><div style="font-size:13px;color:#5F5B55;margin-top:7px;line-height:1.45">the failed narrative run</div></div>
+      <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;letter-spacing:-0.02em">$0.068237</div><div style="font-size:13px;color:#5F5B55;margin-top:7px;line-height:1.45">narrative smoke test plus full round</div></div>
+    </div>
+    <p style="font-size:13px;line-height:1.55;color:#5F5B55;margin:14px 0 0;max-width:760px">About $0.14 in total, calculated from provider-reported usage, with nothing left unsettled in the budget.</p>
+  </section>
+
+  <section aria-labelledby="s-limits" style="max-width:1000px;margin:0 auto;padding:72px 24px 0">
+    <div style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:#4B3F8C;margin-bottom:12px">06 · What it does not claim</div>
+    <h2 id="s-limits" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(26px,3vw,34px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 20px;max-width:760px">Limits recorded in the repository</h2>
+    <ul style="margin:0;padding:0;list-style:none;border-top:1px solid #E4E0D8;max-width:860px">
+      <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F">Execution is simulated, and the repository ships with an explicit list of what is not validated.</li>
+      <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F">The model reader and the model narrative both failed their pass criteria, and both stay off by default.</li>
+      <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F">The generation protocol requires a reviewer who is neither the generator nor the code author. That review was not performed, and the results say so.</li>
+      <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F">Every evaluation result in the public repository is marked as inherited from the development repository, and none of them is a new run.</li>
+      <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F">One known issue is recorded and still open. Only the editable install from a clone works, because the regular package leaves out a module that the ingestion step imports.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="s-role" style="max-width:1000px;margin:0 auto;padding:72px 24px 0">
+    <div style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:#4B3F8C;margin-bottom:12px">07 · My role</div>
+    <h2 id="s-role" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(26px,3vw,34px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 20px;max-width:760px">Product owner and architect, with Claude Code as coding agent</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:26px">
+      <div>
+        <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 16px;text-wrap:pretty">I defined the problem, the architecture and the pass criteria. I decided which paid runs to authorize and under what cap, how to record a failed run, what the interface could claim, and what could be published.</p>
+        <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty">Claude Code wrote most of the code and documentation under my direction and reported back for every decision that was mine. I reviewed the interface myself and rejected wording that claimed more than the evidence supported. It first recorded "Close without action" as "customer declined", and I had it changed to a neutral resolution.</p>
+      </div>
+      <div>
+        <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 16px;text-wrap:pretty">Revenue Radar joins two earlier projects of mine, the DTC Revenue Operations Agent and Account Check, behind one data model. Before writing integration code I audited both against their own documentation and ran their test suites. DTC let an overdue invoice through to an expansion, and its baseline evaluation case for that situation failed. In Revenue Radar, overdue billing blocks.</p>
+        <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty">For the public release I started a fresh history and rebuilt one component's demo data from a generic synthetic factory.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-stack" style="max-width:1000px;margin:0 auto;padding:72px 24px 0">
+    <div style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:#4B3F8C;margin-bottom:12px">08 · Stack</div>
+    <h2 id="s-stack" class="visually-hidden">Stack</h2>
+    <dl style="margin:0;border-top:1px solid #E4E0D8">
+      <div class="ch-row" style="display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:20px;padding:14px 0;border-bottom:1px solid #E4E0D8"><dt style="font-size:13.5px;color:#6E6962">core</dt><dd style="margin:0;font-size:15px;line-height:1.55">Python 3 (SQLite with FTS5, http.server) · NumPy · openpyxl · PyYAML</dd></div>
+      <div class="ch-row" style="display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:20px;padding:14px 0;border-bottom:1px solid #E4E0D8"><dt style="font-size:13.5px;color:#6E6962">models</dt><dd style="margin:0;font-size:15px;line-height:1.55">DeepSeek for the paid evaluations · Anthropic API as an optional provider · Claude Code as coding agent</dd></div>
+      <div class="ch-row" style="display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:20px;padding:14px 0;border-bottom:1px solid #E4E0D8"><dt style="font-size:13.5px;color:#6E6962">reliability</dt><dd style="margin:0;font-size:15px;line-height:1.55">proposal hashing · frozen protocols with request hashing · cached replies replayed with the network blocked</dd></div>
+      <div class="ch-row" style="display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:20px;padding:14px 0;border-bottom:1px solid #E4E0D8"><dt style="font-size:13.5px;color:#6E6962">interface</dt><dd style="margin:0;font-size:15px;line-height:1.55">HTML and JavaScript with no framework · strict Content-Security-Policy</dd></div>
+      <div class="ch-row" style="display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:20px;padding:14px 0;border-bottom:1px solid #E4E0D8"><dt style="font-size:13.5px;color:#6E6962">tests</dt><dd style="margin:0;font-size:15px;line-height:1.55">118 in Revenue Radar · 463 in Account Check · 305 in DTC · passing on a clean clone with no credentials</dd></div>
+    </dl>
+  </section>
+
+  <div style="max-width:1000px;margin:0 auto;padding:72px 24px 72px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px">
+      <a href="case-revenue-assurance-agent.html" style="text-decoration:none;border:1px solid #E4E0D8;border-radius:18px;background:#FFFFFF;padding:24px;display:block" style-hover="border:1px solid #C5BCF0">
+        <div style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6962;margin-bottom:9px">The production agent</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:19px;color:#1B1A19">Revenue Assurance Agent</div>
+      </a>
+      <a href="https://github.com/thais-stephanie/revenue-radar" style="text-decoration:none;border:1px solid #E4E0D8;border-radius:18px;background:#FFFFFF;padding:24px;display:block" style-hover="border:1px solid #C5BCF0">
+        <div style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6962;margin-bottom:9px">Repository</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:19px;color:#1B1A19;overflow-wrap:anywhere">github.com/thais-stephanie/revenue-radar</div>
+      </a>
+      <a href="mailto:contato@thaisholanda.com" style="text-decoration:none;border:1px solid #C5BCF0;border-radius:18px;background:#F3F0FB;padding:24px;display:block" style-hover="border:1px solid #4B3F8C">
+        <div style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#4B3F8C;margin-bottom:9px">Talk about it</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:19px;color:#1B1A19;overflow-wrap:anywhere">contato@thaisholanda.com</div>
+      </a>
+    </div>
+  </div>
+
+</main>
+</div>
+</x-dc>
+<!-- Cloudflare Web Analytics -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"ea612ad2de7d4fd8b68e2578ae50ca27"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>
