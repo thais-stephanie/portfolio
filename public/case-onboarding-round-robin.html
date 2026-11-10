@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="./desk.css">
 <link rel="stylesheet" href="./responsive.css">
 <script src="./support.js"></script>
+<script src="./case-toc.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -42,7 +43,9 @@
   </header>
 <main id="main">
 
-  <div style="max-width:1000px;margin:0 auto;padding:64px 24px 0">
+  <div class="case-layout">
+  <div class="case-body">
+<div style="max-width:1000px;margin:0 auto;padding:64px 24px 0">
     <div style="display:flex;gap:8px;flex-wrap:wrap;marginBottom:22px">
       <span style="padding:5px 11px;borderRadius:999px;background:#EDF5EE;color:#2F5A33;font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.08em;text-transform:uppercase">Live 10 Oct 2025 · in production when I left</span>
       <span style="padding:5px 11px;borderRadius:999px;border:1px solid #E4E0D8;color:#5F5B55;font-family:'Instrument Sans',sans-serif;font-size:12.5px">HubSpot Meetings · Scheduler API · CMS · Airtable · n8n</span>
@@ -57,7 +60,7 @@
     </div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s01" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#2F5A33;marginBottom:16px">01 · It was never a capacity problem</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;align-items:start">
       <div>
@@ -65,7 +68,7 @@
         <p style="font-size:16px;line-height:1.65;color:#5F5B55;margin:0;text-wrap:pretty">Had I read it as capacity, I would have argued for more Success Managers, or for relaxing the cap, or for shorter calls. All three would have been wrong, because the pool had the capacity and the calls were assigned by calendar availability alone. HubSpot's native round robin distributes on calendar availability, which is a different question from who is eligible for the next call.</p>
       </div>
       <div style="border:1px solid #E4E0D8;borderRadius:18px;background:#FFFFFF;padding:24px">
-        <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.1em;text-transform:uppercase;color:#5F5B55;marginBottom:18px">Pool utilisation against an 18 call ceiling</div>
+        <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.1em;text-transform:uppercase;color:#5F5B55;marginBottom:18px">Pool utilization against an 18 call ceiling</div>
         <div style="display:grid;gap:16px">
           <div>
             <div style="display:flex;justify-content:space-between;font-size:12px;color:#5F5B55;marginBottom:7px"><span>Before</span><span>4–5 calls a week</span></div>
@@ -81,7 +84,7 @@
     </div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s02" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#2F5A33;marginBottom:16px">02 · Architecture</div>
     <div style="border:1px solid #E4E0D8;borderRadius:20px;background:#FFFFFF;padding:28px;overflow-x:auto">
       <div style="min-width:680px;display:grid;gap:14px">
@@ -95,7 +98,7 @@
         <div style="display:flex;justify-content:center;font-family:'Instrument Sans',sans-serif;color:#2F5A33;font-size:15px">↓ state corrects itself ↓</div>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
           <div style="border:1px solid #E4E0D8;borderRadius:12px;padding:13px;background:#FFFFFF;font-size:12.5px;color:#34322F">Booked</div>
-          <div style="border:1px solid #E4E0D8;borderRadius:12px;padding:13px;background:#FFFFFF;font-size:12.5px;color:#34322F">Cancelled</div>
+          <div style="border:1px solid #E4E0D8;borderRadius:12px;padding:13px;background:#FFFFFF;font-size:12.5px;color:#34322F">Canceled</div>
           <div style="border:1px solid #E4E0D8;borderRadius:12px;padding:13px;background:#FFFFFF;font-size:12.5px;color:#34322F">Rescheduled</div>
           <div style="border:1px solid #E4E0D8;borderRadius:12px;padding:13px;background:#FFFFFF;font-size:12.5px;color:#34322F">Any unrelated meeting on that calendar</div>
         </div>
@@ -108,7 +111,7 @@
     </div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s03" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#2F5A33;marginBottom:16px">03 · Two constraints that shaped everything</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
       <div style="border:1px solid #E4E0D8;borderRadius:16px;background:#FFFFFF;padding:24px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:17px;marginBottom:9px">The closing rep has to be in the meeting</div><div style="font-size:13.5px;line-height:1.6;color:#5F5B55">The rep had to be in the invite from the moment the client booked. That ruled out anything that assembled the invite later.</div></div>
@@ -117,7 +120,7 @@
     </div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s04" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#2F5A33;marginBottom:16px">04 · Production record</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:#E4E0D8;border:1px solid #E4E0D8;borderRadius:18px;overflow:hidden">
       <div style="background:#FFFFFF;padding:24px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;color:#1B1A19">791</div><div style="font-size:12.5px;color:#5F5B55;marginTop:7px;lineHeight:1.4">executions in the retained window, roughly 24 meeting events a day</div></div>
@@ -125,7 +128,7 @@
       <div style="background:#FFFFFF;padding:24px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;color:#1B1A19">784</div><div style="font-size:12.5px;color:#5F5B55;marginTop:7px;lineHeight:1.4">consecutive failure free executions since</div></div>
       <div style="background:#FFFFFF;padding:24px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;color:#1B1A19">$2,160</div><div style="font-size:12.5px;color:#5F5B55;marginTop:7px;lineHeight:1.4">per year saved by moving scheduling onto HubSpot seats already paid for</div></div>
     </div>
-    <p style="font-size:15px;line-height:1.65;color:#5F5B55;max-width:780px;margin:22px 0 0;text-wrap:pretty">The event workflow went live on 10 October 2025 and was in production when I left Teem in October 2026. n8n prunes execution history, so 791 is what the instance held at the time of writing rather than a lifetime total. The new system ran in parallel with Calendly, the paid scheduling tool it replaced, before nine Calendly seats were cancelled at $20 per user per month, $2,160 per year. Weekly onboarding calls went from 4–5 to 8–9 with the same six-person pool. Those volumes are the weekly averages the team worked from rather than an exported count.</p>
+    <p style="font-size:15px;line-height:1.65;color:#5F5B55;max-width:780px;margin:22px 0 0;text-wrap:pretty">The event workflow went live on 10 October 2025 and was in production when I left Teem in October 2026. n8n prunes execution history, so 791 is what the instance held at the time of writing rather than a lifetime total. The new system ran in parallel with Calendly, the paid scheduling tool it replaced, before nine Calendly seats were canceled at $20 per user per month, $2,160 per year. Weekly onboarding calls went from 4–5 to 8–9 with the same six-person pool. Those volumes are the weekly averages the team worked from rather than an exported count.</p>
   </div>
 
   <div style="max-width:1000px;margin:0 auto;padding:56px 24px 72px">
@@ -140,7 +143,19 @@
       </a>
     </div>
   </div>
-
+  </div>
+  <aside class="case-aside" aria-label="On this page and key facts">
+    <nav aria-labelledby="toc-title">
+      <h2 id="toc-title" class="aside-label">On this page</h2>
+      <ol class="toc"><li><a href="#s01" class="toc-link"><span class="toc-num">01</span>It was never a capacity problem</a></li><li><a href="#s02" class="toc-link"><span class="toc-num">02</span>Architecture</a></li><li><a href="#s03" class="toc-link"><span class="toc-num">03</span>Two constraints that shaped everything</a></li><li><a href="#s04" class="toc-link"><span class="toc-num">04</span>Production record</a></li></ol>
+    </nav>
+    <dl class="aside-facts">
+      <div><dt class="aside-label">Role</dt><dd>Discovery through operation, alone</dd></div>
+      <div><dt class="aside-label">Stack</dt><dd>HubSpot Meetings · Scheduler API · CMS · Airtable · n8n</dd></div>
+      <div><dt class="aside-label">Period</dt><dd>Live from Oct 2025; in production when I left</dd></div>
+    </dl>
+  </aside>
+</div>
 </main>
 </div>
 </x-dc>

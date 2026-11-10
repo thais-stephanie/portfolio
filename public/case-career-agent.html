@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="./desk.css">
 <link rel="stylesheet" href="./responsive.css">
 <script src="./support.js"></script>
+<script src="./case-toc.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -42,7 +43,9 @@
   </header>
 <main id="main">
 
-  <div style="max-width:1000px;margin:0 auto;padding:64px 24px 0">
+  <div class="case-layout">
+  <div class="case-body">
+<div style="max-width:1000px;margin:0 auto;padding:64px 24px 0">
     <div style="display:flex;gap:8px;flex-wrap:wrap;marginBottom:22px">
       <span style="padding:5px 11px;borderRadius:999px;background:#F3F0FB;color:#4B3F8C;font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.08em;text-transform:uppercase">Local-first AI platform · public beta</span>
       <span style="padding:5px 11px;borderRadius:999px;border:1px solid #E4E0D8;color:#5F5B55;font-family:'Instrument Sans',sans-serif;font-size:12.5px">Python 3.12 · SQLite · JavaScript · Playwright</span>
@@ -57,7 +60,7 @@
     </div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s01" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#4B3F8C;marginBottom:16px">01 · Deterministic where it has to be</div>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:780px;margin:0 0 22px;text-wrap:pretty">The model is good at reading loosely written text: a job description that buries the location rule in paragraph six, a résumé that describes the same skill three different ways. Eligibility, lifecycle and scoring must stay predictable, so the architecture keeps them in deterministic code.</p>
     <div style="border:1px solid #E4E0D8;borderRadius:20px;background:#FFFFFF;padding:24px;marginBottom:22px"><div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><span style="padding:9px 13px;borderRadius:9px;background:#F4F1EC;color:#34322F;font-size:13px">Ingestion</span><span style="font-family:'Instrument Sans',sans-serif;color:#4B3F8C;font-size:13.5px">→</span><span style="padding:9px 13px;borderRadius:9px;background:#F4F1EC;color:#34322F;font-size:13px">Normalization</span><span style="font-family:'Instrument Sans',sans-serif;color:#4B3F8C;font-size:13.5px">→</span><span style="padding:9px 13px;borderRadius:9px;background:#F4F1EC;color:#34322F;font-size:13px">Structured extraction</span><span style="font-family:'Instrument Sans',sans-serif;color:#4B3F8C;font-size:13.5px">→</span><span style="padding:9px 13px;borderRadius:9px;background:#F3F0FB;color:#4B3F8C;font-size:13px">Eligibility reasoning</span><span style="font-family:'Instrument Sans',sans-serif;color:#4B3F8C;font-size:13.5px">→</span><span style="padding:9px 13px;borderRadius:9px;background:#F4F1EC;color:#34322F;font-size:13px">Search Fit</span><span style="font-family:'Instrument Sans',sans-serif;color:#4B3F8C;font-size:13.5px">→</span><span style="padding:9px 13px;borderRadius:9px;background:#F3F0FB;color:#4B3F8C;font-size:13px">Quote-verified deep reading</span><span style="font-family:'Instrument Sans',sans-serif;color:#4B3F8C;font-size:13.5px">→</span><span style="padding:9px 13px;borderRadius:9px;background:#F4F1EC;color:#34322F;font-size:13px">Explained recommendation</span></div></div>
@@ -68,7 +71,7 @@
     </div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s02" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#4B3F8C;marginBottom:16px">02 · Evidence the candidate confirms</div>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:780px;margin:0 0 22px;text-wrap:pretty">The candidate profile is an evidence base that grows as the candidate reviews it. A claim extracted from a document is a suggestion until the candidate reviews it.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px">
@@ -80,20 +83,20 @@
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;color:#6E6962;marginTop:10px;marginBottom:22px">Why this matches. Reasons and missing facts are shown next to the score. Synthetic demo data.</div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s03" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#4B3F8C;marginBottom:16px">03 · A result I did not ship</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:#E4E0D8;border:1px solid #E4E0D8;borderRadius:18px;overflow:hidden;marginBottom:22px"><div style="background:#FFFFFF;padding:20px 22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;color:#1B1A19">80%</div><div style="font-size:12px;color:#5F5B55;marginTop:6px;lineHeight:1.4">evaluation gate, set before the experiment</div></div><div style="background:#FFFFFF;padding:20px 22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;color:#7A3524">50 / 90</div><div style="font-size:12px;color:#5F5B55;marginTop:6px;lineHeight:1.4">experiment result</div></div><div style="background:#FFFFFF;padding:20px 22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;color:#4B3F8C">Unchanged</div><div style="font-size:12px;color:#5F5B55;marginTop:6px;lineHeight:1.4">production, by decision</div></div></div>
-    <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:780px;margin:0 0 22px;text-wrap:pretty">The experiment missed a threshold that was defined before it ran. The threshold did not move to meet the result, and production kept the existing deterministic score. It was the best candidate of a research programme on semantic matching, and every candidate failed a gate fixed before its run. I closed the programme and kept the last holdout sealed and unspent.</p>
+    <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:780px;margin:0 0 22px;text-wrap:pretty">The experiment missed a threshold that was defined before it ran. The threshold did not move to meet the result, and production kept the existing deterministic score. It was the best candidate of a research program on semantic matching, and every candidate failed a gate fixed before its run. I closed the program and kept the last holdout sealed and unspent.</p>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s04" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#4B3F8C;marginBottom:16px">04 · Measuring the order</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:#E4E0D8;border:1px solid #E4E0D8;borderRadius:18px;overflow:hidden;marginBottom:22px"><div style="background:#FFFFFF;padding:20px 22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;color:#7A3524">0.06</div><div style="font-size:12px;color:#5F5B55;marginTop:6px;lineHeight:1.4">NDCG@20, default order</div></div><div style="background:#FFFFFF;padding:20px 22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;color:#4B3F8C">0.67</div><div style="font-size:12px;color:#5F5B55;marginTop:6px;lineHeight:1.4">NDCG@20, same postings ordered by deep reading</div></div><div style="background:#FFFFFF;padding:20px 22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;color:#1B1A19">15 / 20</div><div style="font-size:12px;color:#5F5B55;marginTop:6px;lineHeight:1.4">kept in a blind review of the new top 20</div></div></div>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:780px;margin:0 0 22px;text-wrap:pretty">I measured the list against my own review of 181 postings the product had graded GOOD or STRONG. I kept 17 and rejected 164. The release that followed ordered the list by the deep reading and set 4,077 postings with no readable description aside as leads instead of giving them low scores. The first full deep reading round read 1,500 postings in 6.1 hours, and quote verification rejected none of them.</p>
-    <p style="font-size:15.5px;line-height:1.65;color:#5F5B55;max-width:780px;margin:0 0 22px;text-wrap:pretty">Every relevance label here is mine, so this measures the system against one person's judgement. The top 20 review still failed one of its own criteria, and recall across the whole market has never been measured.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#5F5B55;max-width:780px;margin:0 0 22px;text-wrap:pretty">Every relevance label here is mine, so this measures the system against one person's judgment. The top 20 review still failed one of its own criteria, and recall across the whole market has never been measured.</p>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s05" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#4B3F8C;marginBottom:16px">05 · Local-first by design</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px">
       <div style="border:1px solid #E4E0D8;borderRadius:16px;background:#FFFFFF;padding:22px"><div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.1em;text-transform:uppercase;color:#5F5B55;marginBottom:10px">Storage</div><div style="font-size:13.5px;line-height:1.6;color:#5F5B55">Settings, jobs, notes and evidence live on the user's machine. Personal and demo data sit in separate directories.</div></div>
@@ -104,15 +107,15 @@
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;color:#6E6962;marginTop:10px;marginBottom:22px">Resume tailoring in an earlier prerelease, when it ran as a separate engine. Since v0.2.0-beta.3 it lives inside the app as the Resumes workspace, with versions, PDF and Word import, an editor and PDF, Word and JSON export. Synthetic demo data.</div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s06" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#4B3F8C;marginBottom:16px">06 · Release discipline</div>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:780px;margin:0 0 22px;text-wrap:pretty">I built the project in a private repository and later published a curated public repository. It went through about 1,160 commits, 60 database migrations, 39 architecture decision records and four public prereleases.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:#E4E0D8;border:1px solid #E4E0D8;borderRadius:18px;overflow:hidden;marginBottom:22px"><div style="background:#FFFFFF;padding:20px 22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;color:#4B3F8C">11,007</div><div style="font-size:12px;color:#5F5B55;marginTop:6px;lineHeight:1.4">tests passed on the v0.2.0-beta.3 gate</div></div><div style="background:#FFFFFF;padding:20px 22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;color:#1B1A19">6</div><div style="font-size:12px;color:#5F5B55;marginTop:6px;lineHeight:1.4">skipped</div></div><div style="background:#FFFFFF;padding:20px 22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;color:#1B1A19">0</div><div style="font-size:12px;color:#5F5B55;marginTop:6px;lineHeight:1.4">failed, on one exact commit</div></div></div>
     <div style="border:1px solid #E4E0D8;borderRadius:20px;background:#FFFFFF;padding:10px 24px;marginBottom:22px"><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;borderBottom:1px solid #E4E0D8;"><div style="font-family:'Instrument Sans',sans-serif;font-size:13.5px;color:#4B3F8C;word-break:break-word">Unit and integration</div><div style="font-size:14px;line-height:1.55;color:#4A4743">10,560 passed</div></div><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;borderBottom:1px solid #E4E0D8;"><div style="font-family:'Instrument Sans',sans-serif;font-size:13.5px;color:#4B3F8C;word-break:break-word">Browser (Playwright)</div><div style="font-size:14px;line-height:1.55;color:#4A4743">447 passed</div></div><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;borderBottom:1px solid #E4E0D8;"><div style="font-family:'Instrument Sans',sans-serif;font-size:13.5px;color:#4B3F8C;word-break:break-word">Clean install</div><div style="font-size:14px;line-height:1.55;color:#4A4743">Release ZIP installed in a new folder whose path contains spaces, on a machine with no uv or Python beforehand; demo, personal mode, restart and shutdown checked</div></div><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;borderBottom:1px solid #E4E0D8;"><div style="font-family:'Instrument Sans',sans-serif;font-size:13.5px;color:#4B3F8C;word-break:break-word">Upgrade path</div><div style="font-size:14px;line-height:1.55;color:#4A4743">Update from the previous beta, with synthetic data and resumes made in the old engine, following the published update steps</div></div><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;"><div style="font-family:'Instrument Sans',sans-serif;font-size:13.5px;color:#4B3F8C;word-break:break-word">Static checks</div><div style="font-size:14px;line-height:1.55;color:#4A4743">Ruff, mypy and contrast checks</div></div></div>
-    <p style="font-size:15.5px;line-height:1.65;color:#5F5B55;max-width:780px;margin:0 0 22px;text-wrap:pretty">The gate ran on Windows 11 with Python 3.12, and provider behaviour was mocked in release testing. Published bytes are fixed per version, so a fix needs a new version and never a moved tag. There is no continuous integration, and the gate runs on my computer.</p>
+    <p style="font-size:15.5px;line-height:1.65;color:#5F5B55;max-width:780px;margin:0 0 22px;text-wrap:pretty">The gate ran on Windows 11 with Python 3.12, and provider behavior was mocked in release testing. Published bytes are fixed per version, so a fix needs a new version and never a moved tag. There is no continuous integration, and the gate runs on my computer.</p>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s07" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#4B3F8C;marginBottom:16px">07 · Sources and recovery</div>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:780px;margin:0 0 22px;text-wrap:pretty">27 integrated sources cover employer hiring systems such as Greenhouse, Lever, Ashby and Workday, remote job boards, aggregators, and Brazilian and Latin American sites. I reviewed each source's terms of service and robots rules before building it, and did not build one remote hiring network whose terms forbid scraping. Ingestion paces requests per host, handles rate limits and backs off after transient failures. Each source's coverage is recorded, so a feed that exposes only metadata or a window of recent postings is never treated as a full inventory. A source that refuses or changes its format shows as failed, never as zero jobs.</p>
     <div style="border:1px solid #C5BCF0;borderRadius:20px;background:#F3F0FB;padding:26px;marginBottom:22px"><div style="display:flex;align-items:center;gap:9px;font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.1em;text-transform:uppercase;color:#4B3F8C;marginBottom:12px"><span style="width:7px;height:7px;borderRadius:999px;background:#DCD6F7;display:inline-block"></span>Public beta</div><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:20px;color:#1B1A19;marginBottom:10px">Open source, with honest limits</div><div style="font-size:14.5px;line-height:1.65;color:#4A4743;max-width:780px">Released as v0.2.0-beta.3, the fourth public prerelease. Only Windows 11 has been tested; macOS and Linux instructions exist and were not run. The release does not claim a live-provider benchmark. <a href="https://github.com/thais-stephanie/career-agent-portfolio" target="_blank" rel="noopener">Read the code and validation notes on GitHub ↗</a></div></div>
@@ -130,7 +133,19 @@
       </a>
     </div>
   </div>
-
+  </div>
+  <aside class="case-aside" aria-label="On this page and key facts">
+    <nav aria-labelledby="toc-title">
+      <h2 id="toc-title" class="aside-label">On this page</h2>
+      <ol class="toc"><li><a href="#s01" class="toc-link"><span class="toc-num">01</span>Deterministic where it has to be</a></li><li><a href="#s02" class="toc-link"><span class="toc-num">02</span>Evidence the candidate confirms</a></li><li><a href="#s03" class="toc-link"><span class="toc-num">03</span>A result I did not ship</a></li><li><a href="#s04" class="toc-link"><span class="toc-num">04</span>Measuring the order</a></li><li><a href="#s05" class="toc-link"><span class="toc-num">05</span>Local-first by design</a></li><li><a href="#s06" class="toc-link"><span class="toc-num">06</span>Release discipline</a></li><li><a href="#s07" class="toc-link"><span class="toc-num">07</span>Sources and recovery</a></li></ol>
+    </nav>
+    <dl class="aside-facts">
+      <div><dt class="aside-label">Role</dt><dd>Product owner, architect, evaluator and operator</dd></div>
+      <div><dt class="aside-label">Stack</dt><dd>Python 3.12 · SQLite · JavaScript · Playwright</dd></div>
+      <div><dt class="aside-label">Status</dt><dd>Public beta, v0.2.0-beta.3</dd></div>
+    </dl>
+  </aside>
+</div>
 </main>
 </div>
 </x-dc>

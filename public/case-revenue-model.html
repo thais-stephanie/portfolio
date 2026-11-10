@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="./desk.css">
 <link rel="stylesheet" href="./responsive.css">
 <script src="./support.js"></script>
+<script src="./case-toc.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -42,7 +43,9 @@
   </header>
 <main id="main">
 
-  <div style="max-width:1000px;margin:0 auto;padding:64px 24px 0">
+  <div class="case-layout">
+  <div class="case-body">
+<div style="max-width:1000px;margin:0 auto;padding:64px 24px 0">
     <div style="display:flex;gap:8px;flex-wrap:wrap;marginBottom:22px">
       <span style="padding:5px 11px;borderRadius:999px;background:#FBF5DA;color:#5E4B0E;font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.08em;text-transform:uppercase">v1 Nov 2025 · v2 Jan 2026 · audit Jun 2026</span>
       <span style="padding:5px 11px;borderRadius:999px;border:1px solid #E4E0D8;color:#5F5B55;font-family:'Instrument Sans',sans-serif;font-size:12.5px">Power BI · HubSpot · Stripe · Deel · Airtable · n8n</span>
@@ -52,12 +55,12 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;padding:22px 0;borderTop:1px solid #E4E0D8;borderBottom:1px solid #E4E0D8">
       <div><div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.1em;text-transform:uppercase;color:#6E6962;marginBottom:7px">Role</div><div style="font-size:14px;color:#1B1A19">Architect and builder</div></div>
       <div><div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.1em;text-transform:uppercase;color:#6E6962;marginBottom:7px">Scope</div><div style="font-size:14px;color:#1B1A19">18 to 20 managers, 30 to 80 accounts each</div></div>
-      <div><div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.1em;text-transform:uppercase;color:#6E6962;marginBottom:7px">Book modelled</div><div style="font-size:14px;color:#1B1A19">~$1.85M monthly recurring</div></div>
+      <div><div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.1em;text-transform:uppercase;color:#6E6962;marginBottom:7px">Book modeled</div><div style="font-size:14px;color:#1B1A19">~$1.85M monthly recurring</div></div>
       <div><div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.1em;text-transform:uppercase;color:#6E6962;marginBottom:7px">Close effort</div><div style="font-size:14px;color:#1B1A19">1 to 1.5 weeks, then by exception</div></div>
     </div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s01" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#5E4B0E;marginBottom:16px">01 · Why the number could not be trusted</div>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:780px;margin:0 0 26px;text-wrap:pretty">Five unanswerable questions sat underneath every compensation cycle: which contract was in force, how much to attribute to each account, which manager receives that attribution, when an addition or cancellation counts, and which amount belongs in recurring revenue, churn or expansion. Everything else was investigation and interpretation, which is another way of saying the number depended on who worked it out.</p>
     <div style="border:1px solid #E4E0D8;borderRadius:20px;background:#FFFFFF;padding:28px;overflow-x:auto">
@@ -71,7 +74,7 @@
         </div>
         <div style="display:flex;justify-content:center;font-family:'Instrument Sans',sans-serif;color:#5E4B0E;font-size:16px;marginBottom:14px">↓ precedence rules ↓</div>
         <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center">
-          <div style="border:1px solid #E7D27A;borderRadius:12px;padding:16px;background:#FBF5DA"><div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;color:#5E4B0E;marginBottom:6px">INTEGRATION LAYER</div><div style="font-size:13.5px;color:#34322F;lineHeight:1.5">n8n workflows and webhooks, REST across four systems, historical backfill including cancelled records</div></div>
+          <div style="border:1px solid #E7D27A;borderRadius:12px;padding:16px;background:#FBF5DA"><div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;color:#5E4B0E;marginBottom:6px">INTEGRATION LAYER</div><div style="font-size:13.5px;color:#34322F;lineHeight:1.5">n8n workflows and webhooks, REST across four systems, historical backfill including canceled records</div></div>
           <div style="font-family:'Instrument Sans',sans-serif;color:#5E4B0E;font-size:16px">→</div>
           <div style="border:1px solid #E7D27A;borderRadius:12px;padding:16px;background:#FBF5DA"><div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;color:#5E4B0E;marginBottom:6px">DIMENSIONAL MODEL</div><div style="font-size:13.5px;color:#34322F;lineHeight:1.5">Power BI: dated dimensions, monthly records with balances carried forward, DAX measures, reconciliation layer</div></div>
         </div>
@@ -79,7 +82,7 @@
     </div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s02" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#5E4B0E;marginBottom:16px">02 · The monthly record</div>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:780px;margin:0 0 26px;text-wrap:pretty">Each month's closing is stored as a validated state of the book. The following month opens from that close rather than being rebuilt from scratch. Month end stops being an excavation, because you explain the difference between two known states instead of reconstructing the state itself. And every figure gains somewhere to be traced back to: a movement points at an event, an event points at a ticket, a ticket points at a contract and a subscription.</p>
     <div style="border:1px solid #E4E0D8;borderRadius:20px;background:#FFFFFF;padding:28px;overflow-x:auto">
@@ -102,10 +105,10 @@
     </div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s03" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#5E4B0E;marginBottom:16px">03 · History had to exist first</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;align-items:start">
-      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty">I reconstructed the history from HubSpot, Stripe, Deel (the contractor and payroll platform that held the contracts), Airtable and the retired document archive, with a backfill in n8n, a workflow automation tool, that covered live and cancelled records. A churn number asks about arrangements that ended, so a reconstruction that only sees what is currently active makes every historical movement invisible by construction. The contract count running near three times active headcount is the point, not an anomaly.</p>
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty">I reconstructed the history from HubSpot, Stripe, Deel (the contractor and payroll platform that held the contracts), Airtable and the retired document archive, with a backfill in n8n, a workflow automation tool, that covered live and canceled records. A churn number asks about arrangements that ended, so a reconstruction that only sees what is currently active makes every historical movement invisible by construction. The contract count running near three times active headcount is the point, not an anomaly.</p>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#E4E0D8;border:1px solid #E4E0D8;borderRadius:18px;overflow:hidden;align-self:start">
         <div style="background:#FFFFFF;padding:20px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:22px;color:#5E4B0E">~7,000</div><div style="font-size:12px;color:#5F5B55;marginTop:6px">tickets reviewed</div></div>
         <div style="background:#FFFFFF;padding:20px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:22px;color:#5E4B0E">~2,800</div><div style="font-size:12px;color:#5F5B55;marginTop:6px">contracts, active and inactive</div></div>
@@ -115,7 +118,7 @@
     </div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s04" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#5E4B0E;marginBottom:16px">04 · The dashboard</div>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:780px;margin:0 0 22px;text-wrap:pretty">The first version, published in Power BI at the end of November 2025, was built to do four things at once: bring the data together, show which movements were being counted, make the calculation legible to the people it described, and expose the records that were wrong. A second version followed at the end of January 2026, shaped by what the first month of real use taught me.</p>
     <div style="borderRadius:18px;overflow:hidden;border:1px solid #E4E0D8;background:#FFFFFF">
@@ -124,7 +127,7 @@
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;color:#6E6962;marginTop:12px">Manager level churn and retention view. Client and company data replaced with placeholders.</div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s05" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#5E4B0E;marginBottom:16px">05 · Then I audited my own work</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
       <div style="border:1px solid #E4E0D8;borderRadius:18px;background:#FFFFFF;padding:26px">
@@ -140,7 +143,7 @@
     <p style="font-size:15.5px;line-height:1.65;color:#5F5B55;max-width:780px;margin:22px 0 0;text-wrap:pretty">The model replaced one to one and a half weeks of manual monthly checking with checks by exception, refreshing every two hours for about 20 users. It also fed board reporting and supported renewal and customer-health metrics.</p>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s06" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#5E4B0E;marginBottom:16px">06 · The Sales side of the plan</div>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:780px;margin:0 0 22px;text-wrap:pretty">The model above covers Customer Success compensation. I also implemented the Revenue team's compensation plan, organizing its data sources, normalizations and calculations, and built its reporting in Power BI.</p>
     <div style="border:1px solid #E4E0D8;borderRadius:20px;background:#FFFFFF;padding:6px 24px;marginBottom:22px"><div style="display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:20px;padding:14px 0;borderBottom:1px solid #E4E0D8"><div style="font-size:13.5px;color:#5E4B0E">Against target</div><div style="font-size:14.5px;line-height:1.55;color:#34322F">Full-time-equivalent placements closed and live, month to date, against the monthly targets.</div></div><div style="display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:20px;padding:14px 0;borderBottom:1px solid #E4E0D8"><div style="font-size:13.5px;color:#5E4B0E">Where leads come from</div><div style="font-size:14.5px;line-height:1.55;color:#34322F">Qualified leads by source: Business Development, Events and Marketing.</div></div><div style="display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:20px;padding:14px 0;borderBottom:1px solid #E4E0D8"><div style="font-size:13.5px;color:#5E4B0E">Conversion</div><div style="font-size:14.5px;line-height:1.55;color:#34322F">From qualified lead to discovery to closed-won, filterable by department, vertical, sales rep and month.</div></div><div style="display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:20px;padding:14px 0"><div style="font-size:13.5px;color:#5E4B0E">Pipeline health</div><div style="font-size:14.5px;line-height:1.55;color:#34322F">Reports on deal inactivity, time in stage, conversion and forecast, so commercial stakeholders could find stalled opportunities and decide what to follow up first.</div></div></div>
@@ -159,7 +162,19 @@
       </a>
     </div>
   </div>
-
+  </div>
+  <aside class="case-aside" aria-label="On this page and key facts">
+    <nav aria-labelledby="toc-title">
+      <h2 id="toc-title" class="aside-label">On this page</h2>
+      <ol class="toc"><li><a href="#s01" class="toc-link"><span class="toc-num">01</span>Why the number could not be trusted</a></li><li><a href="#s02" class="toc-link"><span class="toc-num">02</span>The monthly record</a></li><li><a href="#s03" class="toc-link"><span class="toc-num">03</span>History had to exist first</a></li><li><a href="#s04" class="toc-link"><span class="toc-num">04</span>The dashboard</a></li><li><a href="#s05" class="toc-link"><span class="toc-num">05</span>Then I audited my own work</a></li><li><a href="#s06" class="toc-link"><span class="toc-num">06</span>The Sales side of the plan</a></li></ol>
+    </nav>
+    <dl class="aside-facts">
+      <div><dt class="aside-label">Role</dt><dd>Architect and builder</dd></div>
+      <div><dt class="aside-label">Stack</dt><dd>Power BI · HubSpot · Stripe · Deel · Airtable · n8n</dd></div>
+      <div><dt class="aside-label">Period</dt><dd>v1 Nov 2025; audit Jun 2026</dd></div>
+    </dl>
+  </aside>
+</div>
 </main>
 </div>
 </x-dc>

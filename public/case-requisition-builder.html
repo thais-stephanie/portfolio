@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="./desk.css">
 <link rel="stylesheet" href="./responsive.css">
 <script src="./support.js"></script>
+<script src="./case-toc.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -42,7 +43,9 @@
   </header>
 <main id="main">
 
-  <div style="max-width:1040px;margin:0 auto;padding:64px 24px 0">
+  <div class="case-layout">
+  <div class="case-body">
+<div style="max-width:1040px;margin:0 auto;padding:64px 24px 0">
     <div style="display:flex;gap:8px;flex-wrap:wrap;marginBottom:22px">
       <span style="padding:5px 11px;borderRadius:999px;background:#FCEDE8;color:#7A3524;font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.08em;text-transform:uppercase">Sixth release · in production when I left</span>
       <span style="padding:5px 11px;borderRadius:999px;border:1px solid #E4E0D8;color:#5F5B55;font-family:'Instrument Sans',sans-serif;font-size:12.5px">HubSpot · Fountain ATS · Airtable · n8n · Netlify</span>
@@ -57,7 +60,7 @@
     </div>
   </div>
 
-  <div style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
+  <div id="s01" style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#7A3524;marginBottom:16px">01 · Before</div>
     <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(24px,3.4vw,34px);letterSpacing:-0.03em;margin:0 0 16px;lineHeight:1.1;max-width:760px;text-wrap:pretty">One requisition meant repeating the same operational process from scratch</h2>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:800px;margin:0 0 26px;text-wrap:pretty">A Success Manager had to leave the onboarding ticket, open other systems, locate or create supporting records, reproduce information the CRM already held, configure the opening, assign the recruiter, set access permissions, choose the correct workflow, and then return to HubSpot to document what had happened. For every single requisition.</p>
@@ -108,7 +111,7 @@
     </div>
   </div>
 
-  <div style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
+  <div id="s02" style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#7A3524;marginBottom:16px">02 · After</div>
     <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:clamp(24px,3.4vw,34px);letterSpacing:-0.03em;margin:0 0 16px;lineHeight:1.1;max-width:800px;text-wrap:pretty">HubSpot stopped being where the process started and became where the process is controlled</h2>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:800px;margin:0 0 26px;text-wrap:pretty">With the builder, the Success Manager stopped building the requisition across systems. She described the hiring request once, from the onboarding record she already owned. The builder opened with twelve pieces of context already carried over from the ticket. After submit, the orchestration resolves identities, creates or reuses locations, creates the openings, assigns the recruiter, grants access, registers every opening for traceability, writes a note back into HubSpot, pins it to the ticket, advances the pipeline stage, and for Enterprise creates child tickets linked to the parent.</p>
@@ -118,7 +121,7 @@
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;color:#6E6962;marginTop:12px">To be. One entry point, one submission, several openings.</div>
   </div>
 
-  <div style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
+  <div id="s03" style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#7A3524;marginBottom:16px">03 · The interface</div>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:800px;margin:0 0 24px;text-wrap:pretty">Multiple roles under one contract are tabs, not separate trips through the process. The form detects when a request spans several locations or entities and says so, because each requisition can carry its own interview date, recruiter and schedule.</p>
     <div style="borderRadius:18px;overflow:hidden;border:1px solid #E4E0D8;background:#FFFFFF;padding:12px">
@@ -127,7 +130,7 @@
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;color:#6E6962;marginTop:12px">Validation runs before execution, so an error is caught in the form rather than discovered downstream in the ATS.</div>
   </div>
 
-  <div style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
+  <div id="s04" style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#7A3524;marginBottom:16px">04 · From data entry to orchestration</div>
     <div style="border:1px solid #E4E0D8;borderRadius:20px;overflow:hidden">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:15px 22px;background:#FFFFFF;font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.1em;text-transform:uppercase;color:#5F5B55"><span>Before</span><span style="color:#7A3524">After</span></div>
@@ -145,10 +148,10 @@
     </div>
   </div>
 
-  <div style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
+  <div id="s05" style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#7A3524;marginBottom:16px">05 · The model broke before the code did</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;align-items:start">
-      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty">The first version assumed one deal equals one hiring cycle. Enterprise clients break that: a single contract and a single invoice can cover three roles that are operationally independent, with different interview dates, different interviewers, different start dates and sometimes different locations. One ticket could not hold that, and Finance had no signal telling them when each individual hire should start being billed. I evaluated custom objects, child records and custom properties before choosing, because the modelling decision was the actual problem. The orchestration was the easy part.</p>
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty">The first version assumed one deal equals one hiring cycle. Enterprise clients break that: a single contract and a single invoice can cover three roles that are operationally independent, with different interview dates, different interviewers, different start dates and sometimes different locations. One ticket could not hold that, and Finance had no signal telling them when each individual hire should start being billed. I evaluated custom objects, child records and custom properties before choosing, because the modeling decision was the actual problem. The orchestration was the easy part.</p>
       <div style="border:1px solid #E4E0D8;borderRadius:18px;background:#FFFFFF;padding:24px">
         <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.1em;text-transform:uppercase;color:#5F5B55;marginBottom:16px">Parent and child, one invoice</div>
         <div style="display:grid;gap:9px">
@@ -163,7 +166,7 @@
     </div>
   </div>
 
-  <div style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
+  <div id="s06" style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#7A3524;marginBottom:16px">06 · Outcome</div>
     <div style="border:1px solid #E4E0D8;borderRadius:20px;overflow:hidden">
       <div style="display:grid;grid-template-columns:1fr auto;gap:16px;padding:16px 22px;background:#FFFFFF;font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.1em;text-transform:uppercase;color:#5F5B55"><span>Measure</span><span>Result</span></div>
@@ -188,7 +191,7 @@
     </div>
   </div>
 
-  <div style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
+  <div id="s07" style="max-width:1040px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#7A3524;marginBottom:16px">07 · How it was built</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
       <div style="border:1px solid #E4E0D8;borderRadius:16px;background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:16px;marginBottom:8px">Front end, no build step</div><div style="font-size:13.5px;line-height:1.55;color:#5F5B55">~5,100 lines of JavaScript: a central state container with subscription based rendering, crosstab coordination between windows, cancellable requests with timeouts, retry with growing waits, and DOM rendering protected against injected content.</div></div>
@@ -209,7 +212,19 @@
       </a>
     </div>
   </div>
-
+  </div>
+  <aside class="case-aside" aria-label="On this page and key facts">
+    <nav aria-labelledby="toc-title">
+      <h2 id="toc-title" class="aside-label">On this page</h2>
+      <ol class="toc"><li><a href="#s01" class="toc-link"><span class="toc-num">01</span>Before</a></li><li><a href="#s02" class="toc-link"><span class="toc-num">02</span>After</a></li><li><a href="#s03" class="toc-link"><span class="toc-num">03</span>The interface</a></li><li><a href="#s04" class="toc-link"><span class="toc-num">04</span>From data entry to orchestration</a></li><li><a href="#s05" class="toc-link"><span class="toc-num">05</span>The model broke before the code did</a></li><li><a href="#s06" class="toc-link"><span class="toc-num">06</span>Outcome</a></li><li><a href="#s07" class="toc-link"><span class="toc-num">07</span>How it was built</a></li></ol>
+    </nav>
+    <dl class="aside-facts">
+      <div><dt class="aside-label">Role</dt><dd>Sole developer</dd></div>
+      <div><dt class="aside-label">Stack</dt><dd>HubSpot · Fountain ATS · Airtable · n8n · Netlify</dd></div>
+      <div><dt class="aside-label">Period</dt><dd>Dec 2025 – Jul 2026; in production when I left</dd></div>
+    </dl>
+  </aside>
+</div>
 </main>
 </div>
 </x-dc>

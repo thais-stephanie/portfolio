@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="./desk.css">
 <link rel="stylesheet" href="./responsive.css">
 <script src="./support.js"></script>
+<script src="./case-toc.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -42,7 +43,9 @@
   </header>
 <main id="main">
 
-  <div style="max-width:1000px;margin:0 auto;padding:64px 24px 0">
+  <div class="case-layout">
+  <div class="case-body">
+<div style="max-width:1000px;margin:0 auto;padding:64px 24px 0">
     <div style="display:flex;gap:8px;flex-wrap:wrap;marginBottom:22px">
       <span style="padding:5px 11px;borderRadius:999px;background:#F3F0FB;color:#4B3F8C;font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.08em;text-transform:uppercase">Personal prototype · synthetic data</span>
       <span style="padding:5px 11px;borderRadius:999px;border:1px solid #E4E0D8;color:#5F5B55;font-family:'Instrument Sans',sans-serif;font-size:12.5px">Claude · Python · SQL · tool calling · evals</span>
@@ -57,13 +60,13 @@
     </div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s01" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#4B3F8C;marginBottom:16px">01 · The business problem</div>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:780px;margin:0 0 22px;text-wrap:pretty">A Revenue Operations team looking after dozens of ecommerce brands cannot read every dashboard every morning. Most days, most accounts are fine. The useful question is narrower: which accounts deserve a human's attention today, what changed, and what would a reasonable next step be?</p>
     <p style="font-size:15.5px;line-height:1.65;color:#5F5B55;max-width:780px;margin:0 0 22px;text-wrap:pretty">The case is built on a synthetic portfolio of 30 direct-to-consumer brands with the signals a retention and lifecycle team watches: abandoned carts, lapsed customers, campaign performance, attribution and data freshness. The data is invented, and the guardrails follow the constraints a real team would impose.</p>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s02" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#4B3F8C;marginBottom:16px">02 · Why not hand it all to an LLM?</div>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:780px;margin:0 0 22px;text-wrap:pretty">Handing 30 accounts of raw metrics to a model and asking what matters would be cheap to build, and nothing would show where its numbers came from. So code computes the facts and the model interprets them.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px">
@@ -72,19 +75,19 @@
     </div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s03" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#4B3F8C;marginBottom:16px">03 · Architecture</div>
     <div style="border:1px solid #E4E0D8;borderRadius:20px;background:#FFFFFF;padding:24px;marginBottom:22px"><div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"><span style="padding:9px 13px;borderRadius:9px;background:#F4F1EC;color:#34322F;font-size:13px">30 accounts</span><span style="font-family:'Instrument Sans',sans-serif;color:#4B3F8C;font-size:13.5px">→</span><span style="padding:9px 13px;borderRadius:9px;background:#F4F1EC;color:#34322F;font-size:13px">Python / SQL signals</span><span style="font-family:'Instrument Sans',sans-serif;color:#4B3F8C;font-size:13.5px">→</span><span style="padding:9px 13px;borderRadius:9px;background:#F4F1EC;color:#34322F;font-size:13px">Deterministic top-8 shortlist</span><span style="font-family:'Instrument Sans',sans-serif;color:#4B3F8C;font-size:13.5px">→</span><span style="padding:9px 13px;borderRadius:9px;background:#F3F0FB;color:#4B3F8C;font-size:13px">Claude + read-only tools</span><span style="font-family:'Instrument Sans',sans-serif;color:#4B3F8C;font-size:13.5px">→</span><span style="padding:9px 13px;borderRadius:9px;background:#F3F0FB;color:#4B3F8C;font-size:13px">Publication gate</span><span style="font-family:'Instrument Sans',sans-serif;color:#4B3F8C;font-size:13.5px">→</span><span style="padding:9px 13px;borderRadius:9px;background:#F4F1EC;color:#34322F;font-size:13px">Human approval</span><span style="font-family:'Instrument Sans',sans-serif;color:#4B3F8C;font-size:13.5px">→</span><span style="padding:9px 13px;borderRadius:9px;background:#F4F1EC;color:#34322F;font-size:13px">≤ 3 recommendations</span></div></div>
     <p style="font-size:15.5px;line-height:1.65;color:#5F5B55;max-width:780px;margin:0 0 22px;text-wrap:pretty">The shortlist is bounded before the model is involved, so model cost and attention depend on a shortlist of eight accounts, whatever the size of the portfolio. Tool, cost and iteration budgets, plus a cap on output tokens, limit how much the agent can spend before it must conclude.</p>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s04" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#4B3F8C;marginBottom:16px">04 · Tool contract</div>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:780px;margin:0 0 22px;text-wrap:pretty">The agent sees five tools. Four read context; one proposes an action. None of them writes to a system of record.</p>
-    <div style="border:1px solid #E4E0D8;borderRadius:20px;background:#FFFFFF;padding:10px 24px;marginBottom:22px"><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;borderBottom:1px solid #E4E0D8;"><div style="font-family:'Instrument Sans',sans-serif;font-size:13.5px;color:#4B3F8C;word-break:break-word">get_account_context</div><div style="font-size:14px;line-height:1.55;color:#4A4743">Profile and baseline for one account, so the agent can tell a real change from normal behaviour.</div></div><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;borderBottom:1px solid #E4E0D8;"><div style="font-family:'Instrument Sans',sans-serif;font-size:13.5px;color:#4B3F8C;word-break:break-word">get_campaign_performance</div><div style="font-size:14px;line-height:1.55;color:#4A4743">Lifecycle and campaign results for the account over the analysis window.</div></div><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;borderBottom:1px solid #E4E0D8;"><div style="font-family:'Instrument Sans',sans-serif;font-size:13.5px;color:#4B3F8C;word-break:break-word">get_commerce_context</div><div style="font-size:14px;line-height:1.55;color:#4A4743">Commerce signals such as carts, orders and revenue context behind a flagged change.</div></div><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;borderBottom:1px solid #E4E0D8;"><div style="font-family:'Instrument Sans',sans-serif;font-size:13.5px;color:#4B3F8C;word-break:break-word">get_recent_account_activity</div><div style="font-size:14px;line-height:1.55;color:#4A4743">Recent activity on the account, so a recommendation does not repeat something already in motion.</div></div><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;"><div style="font-family:'Instrument Sans',sans-serif;font-size:13.5px;color:#4B3F8C;word-break:break-word">propose_crm_task</div><div style="font-size:14px;line-height:1.55;color:#4A4743">Drafts a follow-up task as a proposal. It returns a structured suggestion for a person to approve; it does not create anything.</div></div></div>
+    <div style="border:1px solid #E4E0D8;borderRadius:20px;background:#FFFFFF;padding:10px 24px;marginBottom:22px"><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;borderBottom:1px solid #E4E0D8;"><div style="font-family:'Instrument Sans',sans-serif;font-size:13.5px;color:#4B3F8C;word-break:break-word">get_account_context</div><div style="font-size:14px;line-height:1.55;color:#4A4743">Profile and baseline for one account, so the agent can tell a real change from normal behavior.</div></div><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;borderBottom:1px solid #E4E0D8;"><div style="font-family:'Instrument Sans',sans-serif;font-size:13.5px;color:#4B3F8C;word-break:break-word">get_campaign_performance</div><div style="font-size:14px;line-height:1.55;color:#4A4743">Lifecycle and campaign results for the account over the analysis window.</div></div><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;borderBottom:1px solid #E4E0D8;"><div style="font-family:'Instrument Sans',sans-serif;font-size:13.5px;color:#4B3F8C;word-break:break-word">get_commerce_context</div><div style="font-size:14px;line-height:1.55;color:#4A4743">Commerce signals such as carts, orders and revenue context behind a flagged change.</div></div><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;borderBottom:1px solid #E4E0D8;"><div style="font-family:'Instrument Sans',sans-serif;font-size:13.5px;color:#4B3F8C;word-break:break-word">get_recent_account_activity</div><div style="font-size:14px;line-height:1.55;color:#4A4743">Recent activity on the account, so a recommendation does not repeat something already in motion.</div></div><div style="display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px;padding:14px 0;"><div style="font-family:'Instrument Sans',sans-serif;font-size:13.5px;color:#4B3F8C;word-break:break-word">propose_crm_task</div><div style="font-size:14px;line-height:1.55;color:#4A4743">Drafts a follow-up task as a proposal. It returns a structured suggestion for a person to approve; it does not create anything.</div></div></div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s05" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#4B3F8C;marginBottom:16px">05 · Guardrails</div>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:780px;margin:0 0 22px;text-wrap:pretty">Every recommendation passes through checks that fail closed. If any of them fails, the recommendation is not published, and the rejection is recorded with its reason.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px">
@@ -97,7 +100,7 @@
     </div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s06" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#4B3F8C;marginBottom:16px">06 · Evaluations</div>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:780px;margin:0 0 22px;text-wrap:pretty">Two kinds of test, kept apart on purpose. Automated tests and scenario cases check the deterministic layer, the gates and the agent's handling of prepared situations. Live Claude canaries run against the real model, and their results are reported apart from the automated ones.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:#E4E0D8;border:1px solid #E4E0D8;borderRadius:18px;overflow:hidden;marginBottom:22px"><div style="background:#FFFFFF;padding:20px 22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;color:#4B3F8C">305</div><div style="font-size:12px;color:#5F5B55;marginTop:6px;lineHeight:1.4">automated tests</div></div><div style="background:#FFFFFF;padding:20px 22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;color:#4B3F8C">14</div><div style="font-size:12px;color:#5F5B55;marginTop:6px;lineHeight:1.4">scenario cases</div></div><div style="background:#FFFFFF;padding:20px 22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:26px;color:#1B1A19">2</div><div style="font-size:12px;color:#5F5B55;marginTop:6px;lineHeight:1.4">layers, reported apart: automated suite and live Claude canaries</div></div></div>
@@ -109,7 +112,7 @@
     </div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s07" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#4B3F8C;marginBottom:16px">07 · Failure log</div>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:780px;margin:0 0 22px;text-wrap:pretty">Three defects I found and fixed, kept in the public repository.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px">
@@ -119,12 +122,12 @@
     </div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s08" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#4B3F8C;marginBottom:16px">08 · What is published</div>
     <div style="border:1px solid #C5BCF0;borderRadius:20px;background:#F3F0FB;padding:26px;marginBottom:22px"><div style="display:flex;align-items:center;gap:9px;font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.1em;text-transform:uppercase;color:#4B3F8C;marginBottom:12px"><span style="width:7px;height:7px;borderRadius:999px;background:#DCD6F7;display:inline-block"></span>Public repository</div><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:20px;color:#1B1A19;marginBottom:10px">305 tests and 14 scenario cases</div><div style="font-size:14.5px;line-height:1.65;color:#4A4743;max-width:780px">The scenarios include prompt injection in CRM notes, stale data and competing signals. Live Claude canaries are reported separately from this suite. It is a personal prototype running on synthetic data. <a href="https://github.com/thais-stephanie/revenue-ops-agent" target="_blank" rel="noopener">Read the code on GitHub ↗</a></div></div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s09" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#4B3F8C;marginBottom:16px">09 · Observability &amp; scaling</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px">
       <div style="border:1px solid #E4E0D8;borderRadius:16px;background:#FFFFFF;padding:22px"><div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.1em;text-transform:uppercase;color:#5F5B55;marginBottom:10px">Per run</div><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:17px;color:#1B1A19;marginBottom:9px">What gets recorded</div><div style="font-size:13.5px;line-height:1.6;color:#5F5B55">Each run writes a receipt to a SQLite ledger with the model, tokens, estimated cost, run latency, tool arguments and rejections, so a recommendation can be traced back to what produced it.</div></div>
@@ -135,7 +138,7 @@
     </div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s10" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#4B3F8C;marginBottom:16px">10 · Production extension</div>
     <div style="border:1px solid #D6D1C7;borderRadius:20px;background:#F4F1EC;padding:26px;marginBottom:22px"><div style="display:flex;align-items:center;gap:9px;font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.1em;text-transform:uppercase;color:#5F5B55;marginBottom:12px"><span style="width:7px;height:7px;borderRadius:999px;background:#8E958D;display:inline-block"></span>Adapters built, read-only</div><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:20px;color:#1B1A19;marginBottom:10px">Production integration path</div><div style="font-size:14.5px;line-height:1.65;color:#4A4743;max-width:780px">Read-only adapters for HubSpot, Shopify and Klaviyo exist, with Slack and Healthchecks monitoring. None of them writes to a business system, and a person still approves every proposed task. n8n scheduling, Metabase dashboards and an MCP server exposing the same read-only tools are design intent and have not been built.</div></div>
   </div>
@@ -152,7 +155,19 @@
       </a>
     </div>
   </div>
-
+  </div>
+  <aside class="case-aside" aria-label="On this page and key facts">
+    <nav aria-labelledby="toc-title">
+      <h2 id="toc-title" class="aside-label">On this page</h2>
+      <ol class="toc"><li><a href="#s01" class="toc-link"><span class="toc-num">01</span>The business problem</a></li><li><a href="#s02" class="toc-link"><span class="toc-num">02</span>Why not hand it all to an LLM?</a></li><li><a href="#s03" class="toc-link"><span class="toc-num">03</span>Architecture</a></li><li><a href="#s04" class="toc-link"><span class="toc-num">04</span>Tool contract</a></li><li><a href="#s05" class="toc-link"><span class="toc-num">05</span>Guardrails</a></li><li><a href="#s06" class="toc-link"><span class="toc-num">06</span>Evaluations</a></li><li><a href="#s07" class="toc-link"><span class="toc-num">07</span>Failure log</a></li><li><a href="#s08" class="toc-link"><span class="toc-num">08</span>What is published</a></li><li><a href="#s09" class="toc-link"><span class="toc-num">09</span>Observability &amp; scaling</a></li><li><a href="#s10" class="toc-link"><span class="toc-num">10</span>Production extension</a></li></ol>
+    </nav>
+    <dl class="aside-facts">
+      <div><dt class="aside-label">Role</dt><dd>Sole designer and engineer</dd></div>
+      <div><dt class="aside-label">Stack</dt><dd>Claude · Python · SQL · tool calling · evals</dd></div>
+      <div><dt class="aside-label">Status</dt><dd>Personal prototype, synthetic data</dd></div>
+    </dl>
+  </aside>
+</div>
 </main>
 </div>
 </x-dc>

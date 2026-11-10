@@ -12,3 +12,21 @@ input::placeholder{color:#6E6962}
 .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .noscript{max-width:720px;margin:0 auto;padding:64px 32px;font-size:17px;line-height:1.6}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}html{scroll-behavior:auto}}
+/* Case pages: one column below 1200px (sections keep their own centred width); from 1200px, a 1240px container
+   with the case in a wide column (text capped at 72ch, cards and tables full column width) and a sticky aside. */
+.case-aside{display:none}
+.aside-label{font-size:12px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:#6E6962;margin:0 0 10px}
+.toc{list-style:none;margin:0 0 28px;padding:0;border-left:1px solid #E4E0D8}
+.toc-link{display:flex;gap:10px;padding:6px 0 6px 14px;margin-left:-1px;border-left:2px solid transparent;font-size:14px;line-height:1.35;color:#5F5B55;text-decoration:none}
+.toc-link:hover{color:#1B1A19;border-left-color:#B9B0EE}
+.toc-link[aria-current]{color:#1B1A19;font-weight:600;border-left-color:#1B1A19}
+.toc-num{flex:none;width:20px;color:#6E6962;font-weight:400}
+.aside-facts{margin:0;display:grid;gap:14px;padding-top:20px;border-top:1px solid #E4E0D8}
+.aside-facts dt{margin-bottom:4px}
+.aside-facts dd{margin:0;font-size:14px;line-height:1.45;color:#34322F}
+@media (min-width:1200px){
+  .case-layout{max-width:1240px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:56px;align-items:start}
+  .case-body>*{max-width:none!important;padding-left:0!important;padding-right:0!important}
+  .case-body p{max-width:72ch!important}
+  .case-aside{display:block;position:sticky;top:88px;margin-top:64px;max-height:calc(100vh - 112px);overflow-y:auto}
+}

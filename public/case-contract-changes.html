@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="./desk.css">
 <link rel="stylesheet" href="./responsive.css">
 <script src="./support.js"></script>
+<script src="./case-toc.js" defer></script>
 </head>
 <body>
 <x-dc>
@@ -42,7 +43,9 @@
   </header>
 <main id="main">
 
-  <div style="max-width:1000px;margin:0 auto;padding:64px 24px 0">
+  <div class="case-layout">
+  <div class="case-body">
+<div style="max-width:1000px;margin:0 auto;padding:64px 24px 0">
     <div style="display:flex;gap:8px;flex-wrap:wrap;marginBottom:22px">
       <span style="padding:5px 11px;borderRadius:999px;background:#EDF5EE;color:#2F5A33;font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.08em;text-transform:uppercase">Live Apr 2026 · in production when I left</span>
       <span style="padding:5px 11px;borderRadius:999px;border:1px solid #E4E0D8;color:#5F5B55;font-family:'Instrument Sans',sans-serif;font-size:12.5px">HubSpot · Deel · Stripe · n8n · Netlify</span>
@@ -57,7 +60,7 @@
     </div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s01" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#2F5A33;marginBottom:16px">01 · Seven steps, three systems</div>
     <div style="border:1px solid #E4E0D8;borderRadius:20px;background:#FFFFFF;padding:28px;overflow-x:auto">
       <div style="min-width:660px;display:grid;gap:18px">
@@ -88,7 +91,7 @@
     <p style="font-size:15.5px;line-height:1.65;color:#5F5B55;max-width:780px;margin:22px 0 0;text-wrap:pretty">Three workflows in n8n, a workflow automation tool, sat behind the form. One client with eight increases used to receive eight separate quotes to sign; with the tool, the batch produced one.</p>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s02" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#2F5A33;marginBottom:16px">02 · Two bugs worth the whole project</div>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:780px;margin:0 0 24px;text-wrap:pretty">Converting a monthly increase into a Deel rate has rules: hourly contracts use a monthly hours multiplier, fixed contracts divide by two for biweekly, part time needs proportional scaling. At least three people had received incorrect values before the tool existed. Cents look small until they repeat every month, and until you remember they land in someone's pay.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px">
@@ -113,16 +116,16 @@
     </div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s03" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#2F5A33;marginBottom:16px">03 · Where my responsibility started and stopped</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px">
       <div style="border:1px solid #A9D1AC;borderRadius:16px;background:#EDF5EE;padding:22px"><div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.1em;text-transform:uppercase;color:#2F5A33;marginBottom:10px">Accountable</div><div style="font-size:13.5px;line-height:1.55;color:#34322F">Architecture, both API endpoints, all three workflows, the front end, documentation, training.</div></div>
-      <div style="border:1px solid #E4E0D8;borderRadius:16px;background:#FFFFFF;padding:22px"><div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.1em;text-transform:uppercase;color:#5F5B55;marginBottom:10px">Consulted</div><div style="font-size:13.5px;line-height:1.55;color:#5F5B55">Every pricing rule belonged to Finance. I wrote them down, modelled them, and pushed back when two statements contradicted each other. I did not invent a single billing rule.</div></div>
+      <div style="border:1px solid #E4E0D8;borderRadius:16px;background:#FFFFFF;padding:22px"><div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.1em;text-transform:uppercase;color:#5F5B55;marginBottom:10px">Consulted</div><div style="font-size:13.5px;line-height:1.55;color:#5F5B55">Every pricing rule belonged to Finance. I wrote them down, modeled them, and pushed back when two statements contradicted each other. I did not invent a single billing rule.</div></div>
       <div style="border:1px solid #E4E0D8;borderRadius:16px;background:#FFFFFF;padding:22px"><div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.1em;text-transform:uppercase;color:#5F5B55;marginBottom:10px">Informed</div><div style="font-size:13.5px;line-height:1.55;color:#5F5B55">Contract data entry sat with another team. Wrong source data still produced wrong output, and the tool did not solve that.</div></div>
     </div>
   </div>
 
-  <div style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
+  <div id="s04" style="max-width:1000px;margin:0 auto;padding:56px 24px 0">
     <div style="font-family:'Instrument Sans',sans-serif;font-size:12.5px;letterSpacing:0.14em;text-transform:uppercase;color:#2F5A33;marginBottom:16px">04 · After launch</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:26px;align-items:start">
       <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty">The tool went into production in April 2026 and was in production when I left Teem in October 2026. The whole Success team used it, 18 to 20 people, with zero calculation errors since launch against at least three known incorrect payments before it. Request volume stayed in the same range. Each request took 5 minutes instead of 90, on one screen instead of three systems and a spreadsheet.</p>
@@ -145,7 +148,19 @@
       </a>
     </div>
   </div>
-
+  </div>
+  <aside class="case-aside" aria-label="On this page and key facts">
+    <nav aria-labelledby="toc-title">
+      <h2 id="toc-title" class="aside-label">On this page</h2>
+      <ol class="toc"><li><a href="#s01" class="toc-link"><span class="toc-num">01</span>Seven steps, three systems</a></li><li><a href="#s02" class="toc-link"><span class="toc-num">02</span>Two bugs worth the whole project</a></li><li><a href="#s03" class="toc-link"><span class="toc-num">03</span>Where my responsibility started and stopped</a></li><li><a href="#s04" class="toc-link"><span class="toc-num">04</span>After launch</a></li></ol>
+    </nav>
+    <dl class="aside-facts">
+      <div><dt class="aside-label">Role</dt><dd>Sole technical implementer</dd></div>
+      <div><dt class="aside-label">Stack</dt><dd>HubSpot · Deel · Stripe · n8n · Netlify</dd></div>
+      <div><dt class="aside-label">Period</dt><dd>Live from Apr 2026; in production when I left</dd></div>
+    </dl>
+  </aside>
+</div>
 </main>
 </div>
 </x-dc>
