@@ -29,9 +29,35 @@ img{max-width:100%}
   .folders>button>span:first-child{width:60px!important;height:47px!important}
   .folders>button>span:last-child{white-space:normal!important;width:62px;text-align:center;line-height:1.2;font-size:13px!important}
 
-  /* Career Agent: product screenshots stay legible (scroll sideways) instead of shrinking to thumbnails */
-  .shot-frame{overflow-x:auto!important;-webkit-overflow-scrolling:touch}
-  .shot-frame img{width:760px!important;max-width:none!important}
+  /* Career Agent: screen tabs two by two; the screenshot shows whole ("view full size" opens it large) */
+  .shot-tabs{display:grid!important;grid-template-columns:1fr 1fr;gap:0 16px!important;width:100%}
+  .shot-tabs>button{text-align:left}
+
+  /* Billing audit table: each client becomes a small card instead of a table that scrolls sideways */
+  .audit-table{min-width:0!important}
+  .audit-head{display:none!important}
+  .audit-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr) 16px!important;gap:8px 12px!important;padding:14px 20px!important;align-items:start!important}
+  .audit-row>:nth-child(1){grid-column:1/3}
+  .audit-row>:nth-child(4){grid-column:1/3}
+  .audit-row>:nth-child(5){grid-column:3;grid-row:1}
+  .audit-row>:nth-child(2)::before,.audit-row>:nth-child(3)::before{display:block;font-size:12px;color:#6E6962;margin-bottom:2px}
+  .audit-row>:nth-child(2)::before{content:"signed agreement"}
+  .audit-row>:nth-child(3)::before{content:"billed in Stripe"}
+
+  /* Label and value rows: label above the value instead of a fixed label column that squeezes the text */
+  [style*="grid-template-columns: minmax(0px, 170px) minmax(0px, 1fr)"],
+  [style*="grid-template-columns: minmax(0px, 220px) minmax(0px, 1fr)"],
+  [style*="grid-template-columns: minmax(0px, 260px) minmax(0px, 1fr)"]{grid-template-columns:minmax(0,1fr)!important;gap:4px!important}
+
+  /* Number grids: two columns, and an odd last number takes the full row instead of leaving an empty cell */
+  [style*="gap: 1px"][style*="repeat(auto-fit"]{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  [style*="gap: 1px"][style*="repeat(auto-fit"]>:last-child:nth-child(odd){grid-column:1/-1}
+
+  /* Less empty space between blocks */
+  #main>article[id^="case-"]{padding-top:72px!important}
+  #case-more,#built,#tech,#credentials,section[aria-label="Choices and positions"]{padding-top:72px!important}
+  #recommendations{margin-top:80px!important}
+  #about{padding-top:80px!important}
   .proof-strip{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:24px 16px!important}
 
   /* Home: path rows, "also in production" rows, requisition lanes and time bars */

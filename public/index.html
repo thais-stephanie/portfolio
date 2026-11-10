@@ -33,7 +33,7 @@
 <div style="background:#F7F5F1;min-height:100vh;overflow-x:clip">
 <a href="#main" class="skip-link">skip to content</a>
 
-<header style="position:sticky;top:0;z-index:40;background:rgba(247,245,241,0.96);border-bottom:1px solid #E4E0D8">
+<header style="position:sticky;top:0;z-index:40;background:#F7F5F1;border-bottom:1px solid #E4E0D8">
   <div class="nav-bar" style="max-width:1240px;margin:0 auto;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
     <a href="#top" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;text-decoration:none;letter-spacing:-0.01em">thaís holanda</a>
     <nav aria-label="Main" class="nav-links" style="display:flex;gap:22px;font-size:15px;flex-wrap:wrap;align-items:center">
@@ -216,13 +216,13 @@
       </div>
     </div>
     <div style="overflow-x:auto">
-      <div style="min-width:680px">
-        <div aria-hidden="true" style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.3fr) 28px;gap:12px;padding:12px 24px;font-size:12.5px;color:#6E6962;border-bottom:1px solid #ECE8E1">
+      <div class="audit-table" style="min-width:680px">
+        <div aria-hidden="true" class="audit-head" style="display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.3fr) 28px;gap:12px;padding:12px 24px;font-size:12.5px;color:#6E6962;border-bottom:1px solid #ECE8E1">
           <span>client</span><span>signed agreement</span><span>billed in Stripe</span><span>health</span><span></span>
         </div>
         <sc-for list="{{ clients }}" as="c">
           <div style="border-bottom:1px solid #F1EEE8">
-            <button type="button" onClick="{{ c.toggle }}" aria-expanded="{{ c.open }}" aria-label="{{ c.aria }}" style="width:100%;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.3fr) 28px;gap:12px;align-items:center;padding:13px 24px;background:{{ c.rowBg }};border:0;text-align:left;cursor:pointer;font-family:'Instrument Sans',sans-serif;font-size:15px;color:#1B1A19;transition:background 220ms" style-hover="background:#FAF8F4">
+            <button type="button" onClick="{{ c.toggle }}" aria-expanded="{{ c.open }}" aria-label="{{ c.aria }}" class="audit-row" style="width:100%;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.3fr) 28px;gap:12px;align-items:center;padding:13px 24px;background:{{ c.rowBg }};border:0;text-align:left;cursor:pointer;font-family:'Instrument Sans',sans-serif;font-size:15px;color:#1B1A19;transition:background 220ms" style-hover="background:#FAF8F4">
               <span style="font-weight:600">{{ c.name }}</span>
               <span>{{ c.signed }}</span>
               <span>{{ c.billed }}</span>
