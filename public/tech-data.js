@@ -60,8 +60,8 @@ window.TECH_DATA = [
     proof: [['1 h → 2 min', 'document generation'], ['78%', 'PoC conversion · employer-reported']] },
   { k: 'pipefy', name: 'Pipefy', cat: 1, depth: 'built', note: 'certified', used: 'Pipefy · Profectum · Globalfy', owned: ['Workflow implementation, API & integrations, enterprise rollouts'], proof: [['70', 'processes automated for FIEC · co-delivered']] },
   { k: 'make', name: 'Make', cat: 1, depth: 'applied', used: 'Prototypes', owned: ['Prototype automations'] },
-  { k: 'boomi', name: 'Boomi', cat: 1, depth: 'certified', used: '—', owned: ['Professional Integration Developer, Feb 2025'], systems: ['None. My production integration work is in Workato, n8n and Zapier.'] },
-  { k: 'glide', name: 'Glide', cat: 1, depth: 'certified', used: '—', owned: ['Glide Certification Levels 1–3, Sep 2026'], systems: ['None yet.'] },
+  { k: 'boomi', name: 'Boomi', cat: 1, depth: 'certified', used: 'certification only', owned: ['Professional Integration Developer, Feb 2025'], systems: ['None. My production integration work is in Workato, n8n and Zapier.'] },
+  { k: 'glide', name: 'Glide', cat: 1, depth: 'certified', used: 'certification only', owned: ['Glide Certification Levels 1–3, Sep 2026'], systems: ['None yet.'] },
   // Development
   { k: 'python', name: 'Python', cat: 2, depth: 'built', note: 'agents, engines and data work', used: 'Career Agent · DTC agent · Teem · Pipefy · Globalfy',
     owned: ['Agent loops, repositories and evaluation harnesses', 'The Career Agent core engine (3.12): connectors, extraction, eligibility and scoring', 'Document parsing and data reconciliation', 'Workato and Pipefy automations'],
@@ -147,7 +147,7 @@ window.techView = function (t, prefix) {
   const p = prefix || '';
   return {
     name: t.name, depthLabel: d.label + (t.note ? ' · ' + t.note : ''), chip: d.chip, chipBd: d.bd,
-    used: t.used || '—', labelA: d.a, labelB: d.b,
+    used: t.used || 'not recorded', labelA: d.a, labelB: d.b,
     owned: (t.owned || []).map(x => ({ t: x })), systems: (t.systems || []).map(x => ({ t: x })),
     proof: (t.proof || []).map(x => ({ n: x[0], l: x[1] })),
     related: (t.related || []).map(x => ({ label: x[0] + ' →', href: x[1].charAt(0) === '#' ? p + x[1] : x[1] })),
