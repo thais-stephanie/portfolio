@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customer Success Engineering Lab · Thaís Holanda</title>
+<meta name="description" content="A personal lab with synthetic data: a FastAPI checkout service whose new flow is released through self-hosted Flagsmith, with bounded failure handling, Docker, a one-node local kind cluster, 170 automated tests and a log of 12 findings, one still open.">
+<link rel="canonical" href="https://thais-stephanie.github.io/portfolio/case-cs-engineering-lab.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Thaís Holanda">
+<meta property="og:title" content="Customer Success Engineering Lab · Thaís Holanda">
+<meta property="og:description" content="A personal lab on synthetic data: deployment separated from release with Flagsmith, safe defaults when the flag service fails, rollouts on a local kind cluster with 0 failed requests, and 170 tests in five tiers.">
+<meta property="og:url" content="https://thais-stephanie.github.io/portfolio/case-cs-engineering-lab.html">
+<meta property="og:image" content="https://thais-stephanie.github.io/portfolio/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="hi, i'm thaís. i make business systems talk to each other. AI Systems &amp; Automation Engineer.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="./favicon-192.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="stylesheet" href="./vendor/fonts.css">
+<link rel="stylesheet" href="./desk.css">
+<link rel="stylesheet" href="./responsive.css">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="background:#F7F5F1;color:#1B1A19;min-height:100vh;overflow-x:clip">
+
+<a href="#main" class="skip-link">skip to content</a>
+  <header style="position:sticky;top:0;z-index:40;background:rgba(247,245,241,0.96);border-bottom:1px solid #E4E0D8">
+    <div class="nav-bar" style="max-width:1240px;margin:0 auto;padding:14px 32px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+      <a href="index.html" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;text-decoration:none;letter-spacing:-0.01em">thaís holanda</a>
+      <nav aria-label="Main" class="nav-links" style="display:flex;gap:22px;font-size:15px;flex-wrap:wrap;align-items:center">
+        <a href="index.html#case-prototypes" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px"><span aria-hidden="true" style="width:9px;height:9px;border-radius:2px;background:#D8EBD9;display:inline-block"></span>← all cases</a>
+        <a href="experience.html" style="text-decoration:none">experience</a>
+        <a href="index.html#contact" style="text-decoration:none;padding:7px 14px;border-radius:999px;background:#1B1A19;color:#F7F5F1" style-hover="background:#34322F;color:#F7F5F1">contact</a>
+      </nav>
+    </div>
+  </header>
+<main id="main">
+
+  <section aria-labelledby="page-title" style="max-width:1000px;margin:0 auto;padding:64px 24px 0">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px">
+      <span style="padding:5px 11px;border-radius:999px;background:#D8EBD9;color:#2F5A33;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase">Personal lab · synthetic data</span>
+      <span style="padding:5px 11px;border-radius:999px;border:1px solid #E4E0D8;color:#5F5B55;font-size:12.5px">FastAPI · Flagsmith · Docker · kind · GitHub Actions</span>
+    </div>
+    <h1 id="page-title" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(32px,5.4vw,58px);line-height:1.02;letter-spacing:-0.035em;margin:0 0 20px;text-wrap:pretty">A checkout service where shipping the code and turning it on are separate steps</h1>
+    <p style="font-size:18px;line-height:1.6;color:#34322F;max-width:780px;margin:0 0 16px;text-wrap:pretty">I built this lab to practice the technical side of Customer Success Engineering. A FastAPI checkout service gets its new flow from Flagsmith, an open-source feature-flag platform, through the official Python SDK. One container image runs as a Development instance and a Production instance, so the code ships once and a flag decides who sees the new checkout.</p>
+    <p style="font-size:18px;line-height:1.6;color:#4A4743;max-width:780px;margin:0 0 26px;text-wrap:pretty">Around that service I tested what happens when Flagsmith fails, ran everything in Docker Compose and on a local Kubernetes cluster, wrote 170 automated tests in five tiers, logged 12 failures I found while building, and wrote Customer Success exercises against fictional accounts.</p>
+    <div style="border:1px solid #A9D1AC;border-radius:16px;background:#EDF5EE;padding:20px 22px;max-width:780px;margin:0 0 30px">
+      <p style="font-size:15px;line-height:1.6;color:#2F5A33;margin:0;text-wrap:pretty"><span style="font-weight:600">Read this first.</span> This is a personal lab with synthetic data. It has no real customers and no commercial results, and it is not affiliated with Flagsmith. Every figure on this page is a lab test result, measured on my machine or on a CI runner. "Development" and "Production" are the names of two lab instances. The code lives in a private repository.</p>
+    </div>
+    <dl style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;padding:22px 0;margin:0;border-top:1px solid #E4E0D8;border-bottom:1px solid #E4E0D8">
+      <div><dt style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6962;margin-bottom:7px">Role</dt><dd style="margin:0;font-size:14px">Scope, requirements and review, with Claude Code writing code</dd></div>
+      <div><dt style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6962;margin-bottom:7px">Data</dt><dd style="margin:0;font-size:14px">Synthetic accounts and test personas</dd></div>
+      <div><dt style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6962;margin-bottom:7px">Stack</dt><dd style="margin:0;font-size:14px">Python, FastAPI, Flagsmith SDK, Docker, kind</dd></div>
+      <div><dt style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6962;margin-bottom:7px">Repository</dt><dd style="margin:0;font-size:14px">private</dd></div>
+    </dl>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,170px),1fr));gap:1px;background:#E4E0D8;border:1px solid #E4E0D8;border-radius:18px;overflow:hidden;margin-top:32px">
+      <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.03em;line-height:1.05;white-space:nowrap">170 / 170</div><div style="font-size:13px;color:#5F5B55;margin-top:8px;line-height:1.45">tests passing, in five tiers</div></div>
+      <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.03em;line-height:1.05;white-space:nowrap">7 of 7</div><div style="font-size:13px;color:#5F5B55;margin-top:8px;line-height:1.45">GitHub Actions jobs passing on the final commit</div></div>
+      <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.03em;line-height:1.05;white-space:nowrap">12</div><div style="font-size:13px;color:#5F5B55;margin-top:8px;line-height:1.45">findings logged, 11 fixed and 1 still open</div></div>
+      <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.03em;line-height:1.05;white-space:nowrap">0</div><div style="font-size:13px;color:#5F5B55;margin-top:8px;line-height:1.45">failed requests during rollouts on the local cluster</div></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-release" style="max-width:1000px;margin:0 auto;padding:72px 24px 0">
+    <div style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:#2F5A33;margin-bottom:12px">01 · Deployment and release</div>
+    <h2 id="s-release" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(26px,3vw,34px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 20px;max-width:760px">The same code, on in one instance and off in the other</h2>
+    <div style="max-width:760px">
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 16px;text-wrap:pretty">Flagsmith runs self-hosted from upstream's Compose file, pinned at version 2.290.0. On each checkout, the service asks it whether the new flow is on for that customer. Development and Production are two instances of the same image, each with its own environment key, and a script sets up the flag configuration through Flagsmith's admin API.</p>
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 26px;text-wrap:pretty">With identical code deployed to both, the live Flagsmith tests show the feature on in Development and off in Production, and the segment and override values reach the right test personas.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px">
+      <div style="border:1px solid #A9D1AC;border-radius:16px;background:#EDF5EE;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 10px">A segment rule</h3>
+        <p style="font-size:14px;line-height:1.55;color:#34322F;margin:0">Customers whose plan is beta form a segment, and the segment gets the new flow.</p>
+      </div>
+      <div style="border:1px solid #A9D1AC;border-radius:16px;background:#EDF5EE;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 10px">An identity override</h3>
+        <p style="font-size:14px;line-height:1.55;color:#34322F;margin:0">One pilot customer is switched on through an override on its own identity.</p>
+      </div>
+      <div style="border:1px solid #A9D1AC;border-radius:16px;background:#EDF5EE;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 10px">An off switch</h3>
+        <p style="font-size:14px;line-height:1.55;color:#34322F;margin:0">Turning the flag off takes effect with no restart of the service, and a live Flagsmith test checks it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-failure" style="max-width:1000px;margin:0 auto;padding:72px 24px 0">
+    <div style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:#2F5A33;margin-bottom:12px">02 · Failure handling</div>
+    <h2 id="s-failure" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(26px,3vw,34px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 20px;max-width:760px">When Flagsmith fails, checkout serves a safe default within a known time</h2>
+    <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:760px;margin:0 0 26px;text-wrap:pretty">A flag lookup sits in the checkout request, so a slow or broken flag service becomes a slow or broken checkout unless the failure is bounded. New features fail closed. When a lookup fails, the feature stays off for that request.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:16px;margin-bottom:26px">
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 4px">An overall deadline per lookup</h3>
+        <div style="font-size:12.5px;color:#6E6962;margin-bottom:10px">2s socket timeout, 2.5s in total</div>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">Socket timeouts do not cover DNS. During an outage, DNS resolution took 3 to 8 seconds outside any socket timeout, so each lookup also has a 2.5-second overall deadline.</p>
+      </div>
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 4px">SDK retries removed</h3>
+        <div style="font-size:12.5px;color:#6E6962;margin-bottom:10px">a bounded wait for a failed lookup</div>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">The SDK's default retries turned a 2-second timeout into more than 8 seconds. I set them to zero so a failed lookup costs a bounded amount of time. This bounds failure time, and I did not design a retry strategy.</p>
+      </div>
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 4px">Readiness without Flagsmith</h3>
+        <div style="font-size:12.5px;color:#6E6962;margin-bottom:10px">a flag outage keeps checkout in service</div>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">The readiness check does not depend on Flagsmith, so an outage of the flag service cannot take checkout out of rotation. Liveness and readiness are separate endpoints.</p>
+      </div>
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 4px">Every default leaves a trace</h3>
+        <div style="font-size:12.5px;color:#6E6962;margin-bottom:10px">logs and named diagnostics</div>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">A default flag handler and a catch around unexpected SDK errors serve the default, and each default served writes a log line. Diagnostics name a rejected key, a wrong endpoint or an incompatible API.</p>
+      </div>
+    </div>
+    <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:760px;margin:0;text-wrap:pretty">The contract tests run the real SDK against a local HTTP server whose behavior the test controls. Connection refused, a slow server, slow DNS, 401 and 403, 500, an HTML page and JSON with the wrong schema all end the same way, with a default served and no 500 on checkout.</p>
+  </section>
+
+  <section aria-labelledby="s-k8s" style="max-width:1000px;margin:0 auto;padding:72px 24px 0">
+    <div style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:#2F5A33;margin-bottom:12px">03 · Containers and local Kubernetes</div>
+    <h2 id="s-k8s" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(26px,3vw,34px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 20px;max-width:760px">Rollouts under constant traffic on a one-node local cluster</h2>
+    <div style="max-width:760px">
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 16px;text-wrap:pretty">The service builds from a Dockerfile on python:3.12-slim, runs as a non-root user and declares a health check. A Docker Compose stack runs Flagsmith, PostgreSQL and two app instances, and the Compose tests cause real Flagsmith outages against it.</p>
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 26px;text-wrap:pretty">I then deployed it to kind, a tool that runs a Kubernetes cluster inside Docker on one machine, with kubectl and Kustomize, using a shared base and one overlay per lab instance. Each instance gets its own namespace, Deployment and Service, and its environment key comes from a Secret. The Deployment has readiness and liveness probes, a preStop hook, and a rolling update that adds one pod at a time and keeps every existing pod serving until its replacement is ready (maxSurge 1, maxUnavailable 0).</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;margin-bottom:22px">
+      <div style="border:1px solid #E4E0D8;border-radius:14px;background:#FFFFFF;padding:18px"><div style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#2F5A33;margin-bottom:8px">Scenario 1</div><div style="font-size:15px;line-height:1.45;color:#1B1A19">A rolling update</div></div>
+      <div style="border:1px solid #E4E0D8;border-radius:14px;background:#FFFFFF;padding:18px"><div style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#2F5A33;margin-bottom:8px">Scenario 2</div><div style="font-size:15px;line-height:1.45;color:#1B1A19">A bad release, blocked by readiness</div></div>
+      <div style="border:1px solid #E4E0D8;border-radius:14px;background:#FFFFFF;padding:18px"><div style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#2F5A33;margin-bottom:8px">Scenario 3</div><div style="font-size:15px;line-height:1.45;color:#1B1A19">A rollback with <code>rollout undo</code></div></div>
+      <div style="border:1px solid #E4E0D8;border-radius:14px;background:#FFFFFF;padding:18px"><div style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#2F5A33;margin-bottom:8px">Scenario 4</div><div style="font-size:15px;line-height:1.45;color:#1B1A19">A pod replaced</div></div>
+    </div>
+    <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:760px;margin:0;text-wrap:pretty">All four ran under constant traffic with 0 failed requests. The latest local run sent 167, 128, 82 and 85 requests through the four scenarios, and a CI run sent 200, 266, 148 and 123.</p>
+  </section>
+
+  <section aria-labelledby="s-tests" style="max-width:1000px;margin:0 auto;padding:72px 24px 0">
+    <div style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:#2F5A33;margin-bottom:12px">04 · Testing tiers and CI</div>
+    <h2 id="s-tests" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(26px,3vw,34px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 20px;max-width:760px">170 tests in five tiers, from the SDK contract to the cluster</h2>
+    <div style="border:1px solid #E4E0D8;border-radius:20px;background:#FFFFFF;padding:24px;margin-bottom:26px">
+      <div style="display:grid;gap:18px">
+        <div>
+          <div style="display:flex;justify-content:space-between;gap:12px;font-size:14px;margin-bottom:7px"><span style="font-weight:600">Contract</span><span style="color:#2F5A33;font-weight:600">81</span></div>
+          <div style="height:10px;border-radius:99px;background:#F4F1EC;overflow:hidden"><div style="width:100%;height:100%;background:#A9D1AC"></div></div>
+          <div style="font-size:13px;color:#5F5B55;margin-top:7px;line-height:1.45">The real SDK against a controllable local HTTP server</div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;gap:12px;font-size:14px;margin-bottom:7px"><span style="font-weight:600">Interface</span><span style="color:#2F5A33;font-weight:600">58</span></div>
+          <div style="height:10px;border-radius:99px;background:#F4F1EC;overflow:hidden"><div style="width:72%;height:100%;background:#A9D1AC"></div></div>
+          <div style="font-size:13px;color:#5F5B55;margin-top:7px;line-height:1.45">Playwright in Chromium, keyboard use, six pages at four widths, axe accessibility scans in both themes</div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;gap:12px;font-size:14px;margin-bottom:7px"><span style="font-weight:600">Live Flagsmith</span><span style="color:#2F5A33;font-weight:600">11</span></div>
+          <div style="height:10px;border-radius:99px;background:#F4F1EC;overflow:hidden"><div style="width:14%;height:100%;background:#A9D1AC"></div></div>
+          <div style="font-size:13px;color:#5F5B55;margin-top:7px;line-height:1.45">Against the self-hosted instance, including the off switch</div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;gap:12px;font-size:14px;margin-bottom:7px"><span style="font-weight:600">Compose</span><span style="color:#2F5A33;font-weight:600">11</span></div>
+          <div style="height:10px;border-radius:99px;background:#F4F1EC;overflow:hidden"><div style="width:14%;height:100%;background:#A9D1AC"></div></div>
+          <div style="font-size:13px;color:#5F5B55;margin-top:7px;line-height:1.45">The full stack, with real Flagsmith outages</div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;gap:12px;font-size:14px;margin-bottom:7px"><span style="font-weight:600">Kubernetes</span><span style="color:#2F5A33;font-weight:600">9</span></div>
+          <div style="height:10px;border-radius:99px;background:#F4F1EC;overflow:hidden"><div style="width:11%;height:100%;background:#A9D1AC"></div></div>
+          <div style="font-size:13px;color:#5F5B55;margin-top:7px;line-height:1.45">The four rollout scenarios on the local kind cluster</div>
+        </div>
+      </div>
+    </div>
+    <div style="max-width:760px">
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 16px;text-wrap:pretty">One script runs every tier from zero. GitHub Actions runs 7 jobs, six for a contract matrix of Python 3.11, 3.12 and 3.13 against SDK versions 5.0.3 and 6.3.0, and one that runs every tier from zero. All 7 passed on the final commit.</p>
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty">Two earlier CI runs failed, one on a port problem that appeared only on the Linux runner and one on a duplicated upload step. Both are in the record.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-findings" style="max-width:1000px;margin:0 auto;padding:72px 24px 0">
+    <div style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:#2F5A33;margin-bottom:12px">05 · Findings</div>
+    <h2 id="s-findings" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(26px,3vw,34px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 20px;max-width:760px">Twelve failures, each written down with raw output before the fix</h2>
+    <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:760px;margin:0 0 26px;text-wrap:pretty">I kept the raw output of every failure before fixing it, and tested hypotheses with dedicated measurements of latency during rollouts, cold workers and DNS timing inside pods. Eleven of the twelve findings are fixed. Five of the fixed ones follow.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;margin-bottom:24px">
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 10px">A rollout reported success and dropped connections</h3>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">Kubernetes marked the rolling update as successful while connections were being dropped. It stopped once a sleep was added to the preStop hook.</p>
+      </div>
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 10px">A 200 with the wrong schema escaped the SDK</h3>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">A response with status 200 and the wrong JSON shape got past the SDK's own handling. Wrong-schema JSON became a contract test case, and it serves a default.</p>
+      </div>
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 10px">DNS outlasted the socket timeout</h3>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">Name resolution during an outage ran past the socket timeout, which led to the 2.5-second overall deadline on each lookup.</p>
+      </div>
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 10px">A false "unhealthy"</h3>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">A health check reported the service as unhealthy when it was working.</p>
+      </div>
+      <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 10px">A port problem only Linux showed</h3>
+        <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0">An IPv6 port problem appeared only on the Linux CI runner, and CI caught it first. Another finding appeared only during slow DNS on Windows.</p>
+      </div>
+    </div>
+    <div style="border:1px solid #A9D1AC;border-radius:18px;background:#EDF5EE;padding:24px;max-width:760px">
+      <div style="display:inline-block;padding:4px 10px;border-radius:999px;background:#FFFFFF;border:1px solid #A9D1AC;color:#2F5A33;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px">Finding 7 · open</div>
+      <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;margin:0 0 12px">One fallback in 213 requests, seen once</h3>
+      <p style="font-size:15.5px;line-height:1.65;color:#34322F;margin:0 0 12px;text-wrap:pretty">In one run, a single request out of 213 got the default instead of the flag value. I have seen it once. I measured four explanations, and each one was refuted, so the finding stays open in the log together with what I ruled out.</p>
+      <p style="font-size:15.5px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty">My guess is CPU contention. I have no measurement that confirms it, and I have not fixed this finding.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-console" style="max-width:1000px;margin:0 auto;padding:72px 24px 0">
+    <div style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:#2F5A33;margin-bottom:12px">06 · The console</div>
+    <h2 id="s-console" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(26px,3vw,34px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 20px;max-width:760px">A console that names each failure and the next step in plain language</h2>
+    <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:760px;margin:0 0 26px;text-wrap:pretty">The console is server-rendered with Jinja templates, plain CSS and JavaScript, and reuses the design system from my <a href="case-career-agent.html" style="color:#2F5A33">Career Agent</a> project. It has five areas.</p>
+    <ul style="margin:0 0 26px;padding:0;list-style:none;border-top:1px solid #E4E0D8;max-width:860px">
+      <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F"><span style="font-weight:600;color:#1B1A19">Overview</span></li>
+      <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F"><span style="font-weight:600;color:#1B1A19">Feature releases</span> by instance and by persona.</li>
+      <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F"><span style="font-weight:600;color:#1B1A19">Diagnostics</span> for connection, authentication, endpoint, readiness and liveness, each with a next step written in plain language.</li>
+      <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F"><span style="font-weight:600;color:#1B1A19">Customer adoption</span> on synthetic accounts, with the reasons behind each risk.</li>
+      <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F"><span style="font-weight:600;color:#1B1A19">Playbooks</span></li>
+    </ul>
+    <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:760px;margin:0;text-wrap:pretty">Environment keys stay on the server. The two instances compare each other, which is how the diagnostics catch a Development key used in the Production instance, a mistake the app cannot detect alone. The 58 interface tests cover the console at four widths, with axe scans in the light and dark themes.</p>
+  </section>
+
+  <section aria-labelledby="s-cs" style="max-width:1000px;margin:0 auto;padding:72px 24px 0">
+    <div style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:#2F5A33;margin-bottom:12px">07 · Customer Success exercises</div>
+    <h2 id="s-cs" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(26px,3vw,34px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 20px;max-width:760px">The customer-facing work, practiced on fictional accounts</h2>
+    <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:760px;margin:0 0 26px;text-wrap:pretty">On the same lab I wrote the documents a Customer Success Engineer would bring to an account, using fictional accounts from a synthetic data file. None of them was used with a real customer.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:9px;margin-bottom:26px">
+      <span style="padding:9px 14px;border-radius:10px;background:#FFFFFF;border:1px solid #E4E0D8;font-size:13.5px;color:#34322F">Discovery simulation</span>
+      <span style="padding:9px 14px;border-radius:10px;background:#FFFFFF;border:1px solid #E4E0D8;font-size:13.5px;color:#34322F">Technical onboarding guide</span>
+      <span style="padding:9px 14px;border-radius:10px;background:#FFFFFF;border:1px solid #E4E0D8;font-size:13.5px;color:#34322F">Troubleshooting guide</span>
+      <span style="padding:9px 14px;border-radius:10px;background:#FFFFFF;border:1px solid #E4E0D8;font-size:13.5px;color:#34322F">Customer Success Plan</span>
+      <span style="padding:9px 14px;border-radius:10px;background:#FFFFFF;border:1px solid #E4E0D8;font-size:13.5px;color:#34322F">Adoption report</span>
+      <span style="padding:9px 14px;border-radius:10px;background:#FFFFFF;border:1px solid #E4E0D8;font-size:13.5px;color:#34322F">Health scoring for churn-risk signals</span>
+      <span style="padding:9px 14px;border-radius:10px;background:#FFFFFF;border:1px solid #E4E0D8;font-size:13.5px;color:#34322F">Demo walkthrough</span>
+    </div>
+    <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:760px;margin:0;text-wrap:pretty">The health score runs as a small script with its own test. Its rules are illustrative, and I have not validated them against real churn.</p>
+  </section>
+
+  <section aria-labelledby="s-limits" style="max-width:1000px;margin:0 auto;padding:72px 24px 0">
+    <div style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:#2F5A33;margin-bottom:12px">08 · What this does not prove</div>
+    <h2 id="s-limits" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(26px,3vw,34px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 20px;max-width:760px">The limits of a lab</h2>
+    <div style="border:1px solid #E4E0D8;border-radius:20px;background:#FFFFFF;padding:28px;display:grid;gap:16px">
+      <p style="font-size:15.5px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty"><span style="color:#1B1A19;font-weight:600">It has no customers.</span> There is no revenue, adoption or retention result here. The accounts, personas and adoption data are synthetic, and every number on this page comes from a lab test.</p>
+      <p style="font-size:15.5px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty"><span style="color:#1B1A19;font-weight:600">Kubernetes ran on one local node.</span> The cluster was kind on my machine and on a CI runner, with one node, no high availability and no load testing. Timings were measured on one machine and one runner, and the runner is fresh and unloaded.</p>
+      <p style="font-size:15.5px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty"><span style="color:#1B1A19;font-weight:600">Parts of Flagsmith stayed untested.</span> I did not test local evaluation, percentage rollouts, the Edge Proxy, the Helm chart or Flagsmith upgrades, and I have not used Flagsmith in a job.</p>
+      <p style="font-size:15.5px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty"><span style="color:#1B1A19;font-weight:600">Failure handling bounds time.</span> I removed the SDK's retries to cap how long a failed lookup takes. I did not design a retry strategy.</p>
+      <p style="font-size:15.5px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty"><span style="color:#1B1A19;font-weight:600">Accessibility was checked by automated tests.</span> Axe scans and keyboard tests ran; nobody checked the console with assistive technology or with real users. The console has no login and is for local use.</p>
+      <p style="font-size:15.5px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty"><span style="color:#1B1A19;font-weight:600">One finding is open.</span> Finding 7 has no confirmed cause and no fix.</p>
+      <p style="font-size:15.5px;line-height:1.65;color:#5F5B55;margin:0;text-wrap:pretty"><span style="color:#1B1A19;font-weight:600">My customer-facing experience comes from elsewhere.</span> I worked with real customers at Profectum, a process-automation consultancy in Fortaleza, Brazil, that implemented Pipefy for its clients, and at Pipefy, a Brazilian SaaS for workflow automation used by finance, legal, HR and operations teams at large companies.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-ai" style="max-width:1000px;margin:0 auto;padding:72px 24px 0">
+    <div style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:#2F5A33;margin-bottom:12px">09 · How I worked with Claude Code</div>
+    <h2 id="s-ai" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(26px,3vw,34px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 20px;max-width:760px">Claude Code wrote code, under my direction</h2>
+    <div style="border-left:3px solid #A9D1AC;padding-left:20px;max-width:760px">
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 14px;text-wrap:pretty">Claude Code was the implementation collaborator on this lab and wrote code under my direction. I set the scope, the requirements and the acceptance criteria, and I reviewed what it produced.</p>
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty">I ran the investigations behind the 12 findings and decided which ones were fixed and which one stays open, including the call to keep finding 7 in the log with its four refuted explanations.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="s-stack" style="max-width:1000px;margin:0 auto;padding:72px 24px 0">
+    <div style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:#2F5A33;margin-bottom:12px">10 · Stack</div>
+    <h2 id="s-stack" class="visually-hidden">Stack</h2>
+    <dl style="margin:0;border-top:1px solid #E4E0D8">
+      <div class="ch-row" style="display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:20px;padding:14px 0;border-bottom:1px solid #E4E0D8"><dt style="font-size:13.5px;color:#6E6962">service</dt><dd style="margin:0;font-size:15px;line-height:1.55">Python · FastAPI · official Flagsmith Python SDK (5.0.3 and 6.3.0 tested)</dd></div>
+      <div class="ch-row" style="display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:20px;padding:14px 0;border-bottom:1px solid #E4E0D8"><dt style="font-size:13.5px;color:#6E6962">feature flags</dt><dd style="margin:0;font-size:15px;line-height:1.55">self-hosted Flagsmith 2.290.0 · segments · identity overrides · admin API setup script</dd></div>
+      <div class="ch-row" style="display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:20px;padding:14px 0;border-bottom:1px solid #E4E0D8"><dt style="font-size:13.5px;color:#6E6962">containers</dt><dd style="margin:0;font-size:15px;line-height:1.55">Dockerfile on python:3.12-slim, non-root · Docker Compose · PostgreSQL</dd></div>
+      <div class="ch-row" style="display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:20px;padding:14px 0;border-bottom:1px solid #E4E0D8"><dt style="font-size:13.5px;color:#6E6962">local Kubernetes</dt><dd style="margin:0;font-size:15px;line-height:1.55">kind, one node · kubectl · Kustomize · probes · preStop hook · rolling updates · Secrets</dd></div>
+      <div class="ch-row" style="display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:20px;padding:14px 0;border-bottom:1px solid #E4E0D8"><dt style="font-size:13.5px;color:#6E6962">testing and CI</dt><dd style="margin:0;font-size:15px;line-height:1.55">pytest · Playwright in Chromium · axe · GitHub Actions</dd></div>
+      <div class="ch-row" style="display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:20px;padding:14px 0;border-bottom:1px solid #E4E0D8"><dt style="font-size:13.5px;color:#6E6962">console</dt><dd style="margin:0;font-size:15px;line-height:1.55">Jinja templates · plain CSS and JavaScript · Career Agent design system</dd></div>
+      <div class="ch-row" style="display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:20px;padding:14px 0;border-bottom:1px solid #E4E0D8"><dt style="font-size:13.5px;color:#6E6962">collaboration</dt><dd style="margin:0;font-size:15px;line-height:1.55">Claude Code as implementation collaborator</dd></div>
+    </dl>
+  </section>
+
+  <div style="max-width:1000px;margin:0 auto;padding:72px 24px 72px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:16px">
+      <a href="case-enterprise-integrations.html" style="text-decoration:none;border:1px solid #E4E0D8;border-radius:18px;background:#FFFFFF;padding:24px;display:block" style-hover="border:1px solid #A9D1AC">
+        <div style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6962;margin-bottom:9px">Next case</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:19px;color:#1B1A19">Enterprise integrations at Pipefy</div>
+      </a>
+      <a href="mailto:contato@thaisholanda.com" style="text-decoration:none;border:1px solid #A9D1AC;border-radius:18px;background:#EDF5EE;padding:24px;display:block" style-hover="border:1px solid #2F5A33">
+        <div style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#2F5A33;margin-bottom:9px">Talk about it</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:19px;color:#1B1A19">contato@thaisholanda.com</div>
+      </a>
+    </div>
+  </div>
+
+</main>
+</div>
+</x-dc>
+<!-- Cloudflare Web Analytics -->
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"ea612ad2de7d4fd8b68e2578ae50ca27"}'></script>
+<!-- End Cloudflare Web Analytics -->
+</body>
+</html>
