@@ -108,7 +108,7 @@
             </div>
             <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:25px;line-height:1.08;letter-spacing:-0.025em;margin-bottom:14px">{{ sheet.title }}</div>
             <sc-if value="{{ sheetRevenue }}"><img src="assets/powerbi.png" alt="Power BI revenue model" style="display:block;width:100%;height:170px;object-fit:cover;object-position:left top;border-radius:6px;border:1px solid #ECE8E1;margin-bottom:14px"></sc-if>
-            <sc-if value="{{ sheetCareer }}"><img src="assets/career-agent.png" alt="Career Agent discover view" style="display:block;width:100%;height:170px;object-fit:cover;object-position:left top;border-radius:6px;border:1px solid #ECE8E1;margin-bottom:14px"></sc-if>
+            <sc-if value="{{ sheetCareer }}"><img src="assets/career-agent-find-jobs.jpg" alt="Career Agent Find jobs view, synthetic demo data" style="display:block;width:100%;height:170px;object-fit:cover;object-position:left top;border-radius:6px;border:1px solid #ECE8E1;margin-bottom:14px"></sc-if>
             <div style="display:flex;align-items:baseline;gap:12px;margin-bottom:12px;flex-wrap:wrap">
               <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:40px;letter-spacing:-0.04em;line-height:1">{{ sheet.metric }}</span>
               <span style="font-size:14px;color:#5F5B55">{{ sheet.metricLabel }}</span>
@@ -305,9 +305,9 @@
     <div aria-live="polite" style="font-size:17px;line-height:1.5;color:#1B1A19;padding:16px 0 22px;min-height:26px">{{ shot.caption }}</div>
     <div class="shot-frame" tabindex="0" aria-label="Career Agent screenshot" style="border-radius:12px;overflow:hidden;border:1px solid #E4E0D8;box-shadow:0 18px 44px rgba(40,30,20,0.10);background:#fff">
       <sc-if value="{{ isShot0 }}"><img src="assets/career-agent-header-1b.png" alt="Career Agent journey: found, scored, explained, prepared, tracked" style="display:block;width:100%;height:auto"></sc-if>
-      <sc-if value="{{ isShot1 }}"><img src="assets/career-agent.png" alt="Career Agent discover view: openings filtered by eligibility, then ranked" style="display:block;width:100%;height:auto"></sc-if>
-      <sc-if value="{{ isShot2 }}"><img src="assets/career-agent-why.jpg" alt="Career Agent why-this-fits panel, with evidence quoted from the posting" style="display:block;width:100%;height:auto"></sc-if>
-      <sc-if value="{{ isShot3 }}"><img src="assets/career-agent-tailor.jpg" alt="Résumé Tailor view, where only confirmed experience enters the résumé" style="display:block;width:100%;height:auto"></sc-if>
+      <sc-if value="{{ isShot1 }}"><img src="assets/career-agent-find-jobs.jpg" alt="Career Agent Find jobs: picked jobs with a match percentage and the reasons each one fits" style="display:block;width:100%;height:auto"></sc-if>
+      <sc-if value="{{ isShot2 }}"><img src="assets/career-agent-resume-check.jpg" alt="Career Agent resume check: what one job asks for, split into backed by proof, on the resume with no proof, and not found" style="display:block;width:100%;height:auto"></sc-if>
+      <sc-if value="{{ isShot3 }}"><img src="assets/career-agent-resume-editor.jpg" alt="Career Agent resume editor, with the lines that still need proof marked on the preview" style="display:block;width:100%;height:auto"></sc-if>
     </div>
   </div>
 
@@ -719,9 +719,9 @@ const SHEETS = {
 };
 const SHOTS = [
   { label: 'overview', src: 'assets/career-agent-header-1b.png', caption: 'Found, scored, explained, prepared, tracked: the whole journey runs on your own machine.' },
-  { label: 'discover', src: 'assets/career-agent.png', caption: 'Jobs are filtered by eligibility before they\'re ranked.' },
-  { label: 'why it fits', src: 'assets/career-agent-why.jpg', caption: 'Every match shows the evidence behind the score, quoted from the posting.' },
-  { label: 'résumé tailor', src: 'assets/career-agent-tailor.jpg', caption: 'Only confirmed experience can enter the résumé.' }
+  { label: 'find jobs', src: 'assets/career-agent-find-jobs.jpg', caption: 'Jobs you cannot apply to are hidden first. Each one left shows why it fits and what has no proof yet.' },
+  { label: 'resume check', src: 'assets/career-agent-resume-check.jpg', caption: 'One job against your resume: backed by proof, on the resume with no proof, or not found. Counts, not a score.' },
+  { label: 'resume editor', src: 'assets/career-agent-resume-editor.jpg', caption: 'Lines with no proof behind them are marked on the preview until you link proof or change them.' }
 ];
 const CLIENTS = [
   { name: 'Northwind Staffing', signed: '$4,800 / mo', billed: '$4,800 / mo', h: 'ok', detail: 'Contract, subscription and fees all match. Nothing to do, which is most of the portfolio most of the time.' },
