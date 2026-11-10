@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Subscription billing automation · Thaís Holanda</title>
-<meta name="description" content="A HubSpot-to-Stripe subscription billing system in n8n that executes only when the ticket, the signed agreement and Stripe agree. Finance's queue went from 60–80 tickets a week to 2–3, and the first audit found $161,615.76 a year of contracted fees that weren't being billed.">
+<meta name="description" content="A HubSpot-to-Stripe subscription billing system in n8n that executes only when the ticket, the signed agreement and Stripe agree. Finance's queue went from 60–80 tickets a week to 2–3, and the first audit found $161,615.76 a year of contracted revenue that wasn't being billed.">
 <link rel="canonical" href="https://thais-stephanie.github.io/portfolio/case-billing-automation.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Thaís Holanda">
 <meta property="og:title" content="Subscription billing automation · Thaís Holanda">
-<meta property="og:description" content="Two n8n workflows, about 250 nodes, that run HubSpot-to-Stripe billing on their own and stop when the numbers don't reconcile. 60–80 tickets a week became 2–3.">
+<meta property="og:description" content="Two n8n workflows, about 250 nodes, that ran HubSpot-to-Stripe billing on their own and stopped when the numbers didn't reconcile. 60–80 tickets a week became 2–3.">
 <meta property="og:url" content="https://thais-stephanie.github.io/portfolio/case-billing-automation.html">
 <meta property="og:image" content="https://thais-stephanie.github.io/portfolio/assets/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -43,23 +43,23 @@
 
   <section aria-labelledby="page-title" style="max-width:1000px;margin:0 auto;padding:64px 24px 0">
     <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px">
-      <span style="padding:5px 11px;border-radius:999px;background:#EAF2FA;color:#2E5A85;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase">In production since Jun 2026</span>
+      <span style="padding:5px 11px;border-radius:999px;background:#EAF2FA;color:#2E5A85;font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase">Went live Jun 2026</span>
       <span style="padding:5px 11px;border-radius:999px;border:1px solid #E4E0D8;color:#5F5B55;font-size:12.5px">HubSpot · Stripe Billing · n8n · Airtable · Deel</span>
     </div>
-    <h1 id="page-title" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(32px,5.4vw,58px);line-height:1.02;letter-spacing:-0.035em;margin:0 0 20px;text-wrap:pretty">Subscription billing that runs on its own, and stops when the numbers don't reconcile</h1>
-    <p style="font-size:18px;line-height:1.6;color:#34322F;max-width:780px;margin:0 0 16px;text-wrap:pretty">I rebuilt the HubSpot-to-Stripe subscription lifecycle for a US healthcare staffing company as two n8n workflows, about 250 nodes between them. They create subscriptions, change prices, apply prorations and credits, swap in replacements and cancel, without anyone in Finance clicking through Stripe.</p>
-    <p style="font-size:18px;line-height:1.6;color:#4A4743;max-width:780px;margin:0 0 30px;text-wrap:pretty">A change executes only when the ticket, the signed agreement and the live Stripe state agree. When they don't, the ticket stops with the reason and the arithmetic written on it. Finance's weekly queue went from 60 to 80 tickets to 2 to 3 exceptions, and the time that freed up went into auditing billing.</p>
+    <h1 id="page-title" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(32px,5.4vw,58px);line-height:1.02;letter-spacing:-0.035em;margin:0 0 20px;text-wrap:pretty">Subscription billing that ran on its own, and stopped when the numbers didn't reconcile</h1>
+    <p style="font-size:18px;line-height:1.6;color:#34322F;max-width:780px;margin:0 0 16px;text-wrap:pretty">I rebuilt the HubSpot-to-Stripe subscription lifecycle at Teem, a U.S. staffing and employer-of-record company serving medical, dental and veterinary practices, as two workflows in n8n, a workflow automation tool, about 250 nodes between them. They created subscriptions, changed prices, applied prorations and credits, swapped in replacements and cancelled, without anyone in Finance clicking through Stripe.</p>
+    <p style="font-size:18px;line-height:1.6;color:#4A4743;max-width:780px;margin:0 0 30px;text-wrap:pretty">A change executed only when the ticket, the signed agreement and the live Stripe state agreed. When they didn't, the ticket stopped with the reason and the arithmetic written on it. Finance's weekly queue went from 60 to 80 tickets to 2 to 3 exceptions, and the time that freed up went into auditing billing. The system went live on 22 June 2026 and was in production when I left Teem in October 2026.</p>
     <dl style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;padding:22px 0;margin:0;border-top:1px solid #E4E0D8;border-bottom:1px solid #E4E0D8">
       <div><dt style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6962;margin-bottom:7px">Role</dt><dd style="margin:0;font-size:14px">Architect and sole builder</dd></div>
       <div><dt style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6962;margin-bottom:7px">Build window</dt><dd style="margin:0;font-size:14px">Mid May to mid June 2026</dd></div>
-      <div><dt style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6962;margin-bottom:7px">Live</dt><dd style="margin:0;font-size:14px">22 June 2026</dd></div>
-      <div><dt style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6962;margin-bottom:7px">Volume since</dt><dd style="margin:0;font-size:14px">140 to 165 tickets</dd></div>
+      <div><dt style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6962;margin-bottom:7px">Live</dt><dd style="margin:0;font-size:14px">22 June 2026; in production when I left in October 2026</dd></div>
+      <div><dt style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#6E6962;margin-bottom:7px">Volume</dt><dd style="margin:0;font-size:14px">Roughly 140 to 165 tickets in the period covered</dd></div>
     </dl>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:#E4E0D8;border:1px solid #E4E0D8;border-radius:18px;overflow:hidden;margin-top:32px">
       <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.03em;line-height:1.05;white-space:nowrap">60–80 → 2–3</div><div style="font-size:13px;color:#5F5B55;margin-top:8px;line-height:1.45">billing tickets a week reaching Finance</div></div>
       <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.03em;line-height:1.05;white-space:nowrap">~250 nodes</div><div style="font-size:13px;color:#5F5B55;margin-top:8px;line-height:1.45">118 in the router, 132 in the executor</div></div>
       <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.03em;line-height:1.05;white-space:nowrap">157</div><div style="font-size:13px;color:#5F5B55;margin-top:8px;line-height:1.45">findings in the first audit of 830 live subscriptions</div></div>
-      <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.03em;line-height:1.05;white-space:nowrap">$161,615.76</div><div style="font-size:13px;color:#5F5B55;margin-top:8px;line-height:1.45">a year of contracted fees that weren't being billed</div></div>
+      <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.03em;line-height:1.05;white-space:nowrap">$161,615.76</div><div style="font-size:13px;color:#5F5B55;margin-top:8px;line-height:1.45">a year of contracted revenue that wasn't being billed</div></div>
       <div style="background:#FFFFFF;padding:22px"><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:24px;letter-spacing:-0.03em;line-height:1.05;white-space:nowrap">41 / 48</div><div style="font-size:13px;color:#5F5B55;margin-top:8px;line-height:1.45">tickets needed no correction in the first three weeks</div></div>
     </div>
   </section>
@@ -99,7 +99,7 @@
     <div style="font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:#2E5A85;margin-bottom:12px">02 · A Finance week, before and after</div>
     <h2 id="s-week" class="visually-hidden">A Finance week, before and after</h2>
     <div style="border:1px solid #E4E0D8;border-radius:20px;background:#FFFFFF;padding:28px">
-      <div style="display:grid;gap:22px">
+      <div style="display:grid;grid-template-columns:minmax(0,1fr);gap:22px">
         <div>
           <div style="display:flex;justify-content:space-between;font-size:12.5px;color:#5F5B55;margin-bottom:9px"><span>BEFORE</span><span>60 to 80 tickets in the queue</span></div>
           <div style="display:flex;height:34px;border-radius:9px;overflow:hidden;border:1px solid #E4E0D8">
@@ -153,7 +153,7 @@
     </div>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:760px;margin:0 0 16px;text-wrap:pretty">The split gives one answer to "where do I look". A wrong amount points to the router. A right amount that never landed points to the executor. Across three months of production incidents, almost every defect could be placed on one side within minutes.</p>
     <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:760px;margin:0 0 32px;text-wrap:pretty">My first design generated Stripe drafts for Finance to review, which would activate after a monitoring window. On a call on June 19, Finance said they wanted the change applied at approval, with the prorated invoice finalized right away. I reworked the change path that day and dropped the activation listener I had built, about two days of work.</p>
-    <h3 style="font-size:12.5px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:#5F5B55;margin:0 0 14px">What runs without a human</h3>
+    <h3 style="font-size:12.5px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:#5F5B55;margin:0 0 14px">What ran without a human</h3>
     <div style="display:flex;flex-wrap:wrap;gap:9px">
       <span style="padding:9px 14px;border-radius:10px;background:#FFFFFF;border:1px solid #E4E0D8;font-size:13.5px;color:#34322F">New client subscription</span>
       <span style="padding:9px 14px;border-radius:10px;background:#FFFFFF;border:1px solid #E4E0D8;font-size:13.5px;color:#34322F">Adding a role</span>
@@ -221,7 +221,7 @@
       <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 10px">A run reported success and charged nothing</h3>
         <p style="font-size:14px;line-height:1.55;color:#5F5B55;margin:0 0 10px">I built a Stripe invoice call with a parameter combination the API rejects. The failure went to the dead letter queue as it should, but the item status map was assembled from the wrong input reference and reported every item as succeeded. Five invoice items totaling $832.71 sat stranded, and the ticket closed itself.</p>
-        <p style="font-size:14px;line-height:1.55;color:#34322F;margin:0">It had the same shape as the founding incident, an approval that produced nothing. A status now has to come from what actually executed.</p>
+        <p style="font-size:14px;line-height:1.55;color:#34322F;margin:0">It had the same shape as the founding incident, an approval that produced nothing. From then on, a status had to come from what actually executed.</p>
       </div>
       <div style="border:1px solid #E4E0D8;border-radius:16px;background:#FFFFFF;padding:22px">
         <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:17px;margin:0 0 10px">Part of a client's billing was invisible</h3>
@@ -239,6 +239,7 @@
         <p style="font-size:14px;line-height:1.55;color:#34322F;margin:0">Finance found it in the review note during the observation period. An auditor with time catches that; an operator in a 70-ticket queue doesn't.</p>
       </div>
     </div>
+    <p style="font-size:16px;line-height:1.65;color:#34322F;max-width:760px;margin:26px 0 0;text-wrap:pretty">Some changes caused regressions in production, and each incident got the recovery it called for. Depending on the incident, I restored a previous version of the n8n workflow, reverted specific code or configuration, or published a hotfix. After each recovery I validated the corrected workflow and checked the records it had affected through executions and reconciliations.</p>
   </section>
 
   <section aria-labelledby="s-rollout" style="max-width:1000px;margin:0 auto;padding:72px 24px 0">
@@ -249,7 +250,7 @@
       <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F">Every publish was gated on a byte-level checksum of the node source, after the n8n editor once saved six page-up keystrokes as text inside a code node.</li>
       <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F">Any change that touched the whole portfolio got a blast-radius census before it shipped.</li>
       <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F">In the second monitoring week, all eight issues that came up were diagnosed, fixed, published and confirmed with Finance in the same cycle.</li>
-      <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F">Some request types launched behind a Finance approval flag as a monitoring period. The window came back clean, the flag came off, and every request type, cancellations included, now applies automatically.</li>
+      <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F">Some request types launched behind a Finance approval flag as a monitoring period. The window came back clean, the flag came off, and from then on every request type, cancellations included, applied automatically.</li>
     </ul>
   </section>
 
@@ -258,12 +259,12 @@
     <h2 id="s-results" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:clamp(26px,3vw,34px);line-height:1.1;letter-spacing:-0.025em;margin:0 0 20px;max-width:760px">Finance went from operating billing to auditing it</h2>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:26px;align-items:start;margin-bottom:28px">
       <div>
-        <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 16px;text-wrap:pretty">The weekly queue fell from 60 to 80 tickets to 2 to 3. Those are the hard stops, by design; everything else executes and reports. Finance made auditing a standing activity, month-end close improved, overtime came down, and the team didn't have to grow.</p>
-        <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty">The time that freed up made portfolio audits possible. A Python parser indexed 1,168 signed agreements, and the first sweep compared them with 830 live subscriptions in Stripe. It produced 157 findings, netting to $13,467.98 a month of contracted revenue that wasn't being billed. After review, ten clients stayed on their earlier agreements, and the remaining amount was approved and put into billing.</p>
+        <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 16px;text-wrap:pretty">The weekly queue fell from 60 to 80 tickets to 2 to 3. Those were the hard stops, by design; everything else executed and reported. Finance made auditing a standing activity, month-end close improved, overtime came down, and the team didn't have to grow.</p>
+        <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty">The time that freed up made portfolio audits possible. A Python parser indexed 1,168 signed agreements, and the first sweep compared them with 830 live subscriptions in Stripe. It produced 157 findings, netting to $13,467.98 a month of contracted revenue that wasn't being billed. After review, ten clients stayed on their earlier agreements, and Finance approved the remaining $9,528.19 a month for billing.</p>
       </div>
       <div style="border:1px solid #8FB6DD;border-radius:18px;background:#EAF2FA;padding:26px">
         <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:38px;letter-spacing:-0.03em;color:#2E5A85;line-height:1">$161,615.76</div>
-        <div style="font-size:14px;color:#34322F;margin-top:10px;line-height:1.5">a year in fees written into contracts and never billed. Found by reconciling signed agreements against live Stripe billing, and reviewed with Finance before anything was charged.</div>
+        <div style="font-size:14px;color:#34322F;margin-top:10px;line-height:1.5">a year of revenue written into contracts and never billed, identified by reconciling signed agreements against live Stripe billing, and reviewed with Finance before anything was charged.</div>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:#E4E0D8;border:1px solid #E4E0D8;border-radius:18px;overflow:hidden">
@@ -290,7 +291,7 @@
       <p style="font-size:15.5px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty"><span style="color:#1B1A19;font-weight:600">Scope idempotency to the ticket from the start.</span> Item-scoped keys let one request create three invoices, two of them empty, which then failed.</p>
       <p style="font-size:15.5px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty"><span style="color:#1B1A19;font-weight:600">Ship the audit layer with the first deploy.</span> The whole point was to make Finance the auditor, yet the audit tools lagged the automation by weeks, while cancellations were already running with no human in the loop.</p>
       <p style="font-size:15.5px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty"><span style="color:#1B1A19;font-weight:600">Time the old process.</span> I know the queue size because Finance told me. I can't give minutes per ticket, because nobody timed it and I didn't ask early enough.</p>
-      <p style="font-size:15.5px;line-height:1.65;color:#5F5B55;margin:0;text-wrap:pretty"><span style="color:#1B1A19;font-weight:600">Next, the problem moves upstream.</span> Most remaining defects start where the deal is closed, and a fact entered wrong there can't be fixed downstream. The queued design treats deal closure as the trigger, reads the signed quote, and creates one fulfillment ticket per line item instead of one per deal.</p>
+      <p style="font-size:15.5px;line-height:1.65;color:#5F5B55;margin:0;text-wrap:pretty"><span style="color:#1B1A19;font-weight:600">Next, the problem moved upstream.</span> In August the project sponsor traced most remaining defects to where the deal was closed, since a fact entered wrong there couldn't be fixed downstream. The design queued after that treated deal closure as the trigger, read the signed quote, and created one fulfillment ticket per line item instead of one per deal.</p>
     </div>
   </section>
 
@@ -310,7 +311,7 @@
     <a href="case-revenue-assurance-agent.html" style="text-decoration:none;display:block;border:1px solid #C5BCF0;border-radius:18px;background:#F3F0FB;padding:26px;margin-bottom:16px" style-hover="border:1px solid #4B3F8C">
       <div style="font-size:12.5px;letter-spacing:0.1em;text-transform:uppercase;color:#4B3F8C;margin-bottom:9px">What came next</div>
       <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:22px;letter-spacing:-0.02em;color:#1B1A19;margin-bottom:8px">The exceptions that remained, a Claude agent investigates</div>
-      <div style="font-size:15px;line-height:1.55;color:#34322F;max-width:760px">In July 2026 I put a Revenue Assurance Agent into production on the 2 to 3 cases a week this pipeline still stops. It reads the agreement and the four systems and explains the discrepancy; money and authorization stay in code. Read the Revenue Assurance Agent case →</div>
+      <div style="font-size:15px;line-height:1.55;color:#34322F;max-width:760px">In early July 2026 I put a Revenue Assurance Agent into production on the 2 to 3 cases a week this pipeline still stopped. It read the agreement and the four systems and explained the discrepancy; money and authorization stayed in code. Read the Revenue Assurance Agent case →</div>
     </a>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
       <a href="case-revenue-model.html" style="text-decoration:none;border:1px solid #E4E0D8;border-radius:18px;background:#FFFFFF;padding:24px;display:block" style-hover="border:1px solid #8FB6DD">
