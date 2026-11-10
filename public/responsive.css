@@ -18,12 +18,13 @@ img{max-width:100%}
   .nav-links>a[href$="#contact"],.nav-links>a[href$=".pdf"]{position:absolute;right:16px;top:10px}
   .cases-menu{position:fixed!important;top:92px!important;left:16px!important;right:16px!important;width:auto!important;max-width:none!important}
 
-  /* Hero desk: same composition, scaled to the phone rather than squeezed */
-  .desk{padding-top:8px!important}
-  .desk-top{height:282px!important}
-  .polaroid{width:228px!important;padding:10px 10px 40px!important}
+  /* Hero desk: photo on the left, the note pinned to its right edge, clear of the face and the caption */
+  .hero{gap:28px!important}
+  .desk{padding-top:0!important}
+  .desk-top{height:258px!important;max-width:370px;margin:0 auto}
+  .polaroid{width:204px!important;padding:10px 10px 40px!important;left:4px!important;right:auto!important}
   .polaroid figcaption{font-size:20px!important;bottom:8px!important}
-  .note{width:184px!important;top:84px!important;padding:13px 14px!important}
+  .note{width:160px!important;top:118px!important;left:auto!important;right:0!important;padding:13px 14px!important}
   .note>div:last-child{font-size:14px!important}
   .folders{flex-wrap:nowrap!important;gap:8px!important}
   .folders>button>span:first-child{width:60px!important;height:47px!important}
