@@ -88,7 +88,7 @@
     </div>
     <div style="border-left:3px solid #DCD6F7;padding-left:20px;max-width:760px">
       <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;margin:0 0 12px">The failure that set the requirements</h3>
-      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 14px;text-wrap:pretty">An early version of the rules read a customer note asking the team not to launch anything new before January. No rule matched, so the expansion stayed open for review instead of being blocked. Three other paraphrased misses in the same holdout failed safe, because the system abstained. This one looked like a clearance.</p>
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 14px;text-wrap:pretty">An early version of the rules read a customer note asking the team not to launch anything new before January. No rule matched, so the expansion stayed open for review instead of being blocked, which made the note look like a clearance. Three other paraphrased misses in the same holdout failed safe, because the system abstained.</p>
       <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty">From then on I treated an empty rule result as a statement about the rule. A person reads each record before an expansion can move.</p>
     </div>
   </section>
@@ -169,8 +169,8 @@
     </div>
     <div style="border-left:3px solid #DCD6F7;padding-left:20px;max-width:760px">
       <h3 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;margin:0 0 12px">A failed run I first recorded as pending</h3>
-      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 14px;text-wrap:pretty">The first paid narrative run delivered 0 of 60 model narratives. The provider transport appended the document reader's JSON example to every system prompt, so every reply came back in the wrong format, and the frozen hashes covered the prompt without the request actually sent. I first recorded the run as review pending, then corrected it to a failed run caused by a pipeline defect and left the correction visible. The fix froze the effective request, made the cache key equal to it, and added a test that inspects the real payload.</p>
-      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty">Later, a diagnostic found two validator defects. It knew "blocked" and rejected "blocking", and it rejected values written with a currency sign or a unit. Fixing both offline moves the result from 21 to 24 of 60. I proposed the fix and left it unapplied, because it would change a frozen hash, and a fix measured on replies I had already read is no evidence about the next run.</p>
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0 0 14px;text-wrap:pretty">The first paid narrative run delivered 0 of 60 model narratives. The provider transport appended the document reader's JSON example to every system prompt, so every reply came back in the wrong format, and the frozen hashes covered the prompt but not the request that was sent. I first recorded the run as review pending, then corrected it to a failed run caused by a pipeline defect and left the correction visible. The fix froze the effective request, made the cache key equal to it, and added a test that inspects the real payload.</p>
+      <p style="font-size:16px;line-height:1.65;color:#34322F;margin:0;text-wrap:pretty">Later, a diagnostic found two validator defects. It knew "blocked" and rejected "blocking", and it rejected values written with a currency sign or a unit. Fixing both offline moves the result from 21 to 24 of 60. I proposed the fix and left it unapplied, because it would change a frozen hash and was measured on replies I had already read.</p>
     </div>
   </section>
 
@@ -228,7 +228,7 @@
       <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F">The model reader and the model narrative both failed their pass criteria, and both stay off by default.</li>
       <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F">The generation protocol requires a reviewer who is neither the generator nor the code author. That review was not performed, and the results say so.</li>
       <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F">Every evaluation result in the public repository is marked as inherited from the development repository, and none of them is a new run.</li>
-      <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F">One known issue is recorded and still open. Only the editable install from a clone works, because the regular package leaves out a module that the ingestion step imports.</li>
+      <li style="padding:14px 0;border-bottom:1px solid #E4E0D8;font-size:15.5px;line-height:1.6;color:#34322F">One known issue is recorded as open. Only the editable install from a clone works, because the regular package leaves out a module that the ingestion step imports.</li>
     </ul>
   </section>
 
